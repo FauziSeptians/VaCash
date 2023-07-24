@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundhamburger"
+    tools:context=".MenuHamburgerFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:gravity="end">
+
+            <ImageButton
+                android:id="@+id/CloseButton"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/silanggambar"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+           <LinearLayout
+               android:layout_height="wrap_content"
+               android:layout_width="wrap_content"
+               android:orientation="vertical"
+               >
+               <LinearLayout
+                   android:id="@+id/HomeMenuButton"
+                   android:layout_height="wrap_content"
+                   android:layout_width="match_parent"
+                   android:orientation="horizontal"
+                   android:layout_marginBottom="10dp"
+                   >
+                   <ImageView
+                       android:layout_height="40dp"
+                       android:layout_width="40dp"
+                       android:background="@drawable/homebutton"
+                       android:layout_marginRight="20dp"
+                       />
+
+                   <TextView
+                       android:layout_height="wrap_content"
+                       android:layout_width="wrap_content"
+                       android:text="Home"
+                       android:textSize="25dp"
+                       android:textColor="#FFF"
+                       android:textStyle="bold"
+                       android:letterSpacing="0.1"
+
+                       />
+
+               </LinearLayout>
+               <LinearLayout
+                   android:id="@+id/ItemMenuButton"
+                   android:layout_height="wrap_content"
+                   android:layout_width="match_parent"
+                   android:orientation="horizontal"
+                   android:layout_marginBottom="10dp">
+                   <ImageView
+                       android:layout_height="40dp"
+                       android:layout_width="40dp"
+                       android:background="@drawable/itembutton"
+                       android:layout_marginRight="20dp"
+                       />
+                   <TextView
+                       android:layout_height="wrap_content"
+                       android:layout_width="wrap_content"
+                       android:text="Item"
+                       android:textSize="25dp"
+                       android:textColor="#FFF"
+                       android:textStyle="bold"
+                       android:letterSpacing="0.1"
+                       />
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:id="@+id/ItemMenuButton"
+                   android:layout_height="wrap_content"
+                   android:layout_width="match_parent"
+                   android:orientation="vertical"
+                   android:layout_marginBottom="10dp"
+                   android:gravity="end">
+
+                   <Button
+                       android:id="@+id/mobile"
+                       android:layout_width="100dp"
+                       android:layout_height="40dp"
+                       android:text="Mobile"
+                       android:textColor="#FFFF"
+                       android:textSize="15dp"
+                       android:textAllCaps="false"
+                       android:clickable="true"
+                       android:background="@drawable/selectorbutton"
+
+                       />
+
+                   <Button
+                       android:id="@+id/console"
+                       android:layout_width="100dp"
+                       android:layout_height="40dp"
+                       android:text="Console"
+                       android:textColor="#FFFF"
+                       android:textSize="15dp"
+                       android:layout_marginTop="10dp"
+                       android:layout_marginBottom="10dp"
+                       android:textAllCaps="false"
+                       android:clickable="true"
+                       android:background="@drawable/selectorbutton"
+                       />
+
+                   <Button
+                       android:id="@+id/Pc"
+                       android:layout_width="100dp"
+                       android:layout_height="40dp"
+                       android:text="PC"
+                       android:textColor="#FFFF"
+                       android:textSize="15dp"
+                       android:clickable="true"
+                       android:background="@drawable/selectorbutton"
+                       />
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:id="@+id/AccountMenuButton"
+                   android:layout_height="wrap_content"
+                   android:layout_width="match_parent"
+                   android:orientation="horizontal"
+                   android:layout_marginBottom="10dp">
+                   <ImageView
+                       android:layout_height="40dp"
+                       android:layout_width="40dp"
+                       android:background="@drawable/accountbutton"
+                       android:layout_marginRight="20dp"
+                       />
+                   <TextView
+                       android:layout_height="wrap_content"
+                       android:layout_width="wrap_content"
+                       android:text="Account"
+                       android:textSize="25dp"
+                       android:textColor="#FFF"
+                       android:textStyle="bold"
+                       android:letterSpacing="0.1"
+                       />
+
+               </LinearLayout>
+           </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</FrameLayout>

@@ -5,116 +5,154 @@
     android:background="@drawable/backgroundprofile"
     >
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <RelativeLayout
         android:layout_height="match_parent"
-        android:layout_margin="20dp"
-        android:orientation="vertical">
-
+        android:layout_width="match_parent"
+        >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="110dp"
+            android:layout_margin="20dp"
             android:orientation="vertical">
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp">
-                <TextView
+                android:layout_marginTop="60dp"
+                android:gravity="end">
+
+                <ImageButton
+                    android:id="@+id/HamburgerButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Good Morning"
-                    android:textSize="20dp"
-                    android:textColor="#FFFF"
-                    />
+                    android:background="@drawable/hamburger" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="40dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Good Morning"
+                        android:textSize="20dp"
+                        android:textColor="#FFFF"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=", Nama Orang"
+                        android:textSize="22dp"
+                        android:textStyle="bold"
+                        android:textColor="#FFFF"
+                        />
+                </LinearLayout>
+
+
+                <ImageSwitcher
+                    android:id="@+id/imageSwitcher"
+                    android:layout_width="match_parent"
+                    android:layout_height="128dp"
+                    >
+                </ImageSwitcher>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text=", Nama Orang"
-                    android:textSize="22dp"
+                    android:text="Item"
+                    android:textSize="35dp"
                     android:textStyle="bold"
                     android:textColor="#FFFF"
+                    android:layout_marginTop="20dp"
                     />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    >
+
+                    <Button
+                        android:id="@+id/mobile"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:text="Mobile"
+                        android:textColor="#FFFF"
+                        android:textSize="15dp"
+                        android:textAllCaps="false"
+                        android:clickable="true"
+                        android:background="@drawable/selectorbutton"
+
+                        />
+
+                    <Button
+                        android:id="@+id/console"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:text="Console"
+                        android:textColor="#FFFF"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:textSize="15dp"
+                        android:textAllCaps="false"
+                        android:clickable="true"
+                        android:background="@drawable/selectorbutton"
+                        />
+
+                    <Button
+                        android:id="@+id/Pc"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:text="PC"
+                        android:textColor="#FFFF"
+                        android:textSize="15dp"
+                        android:clickable="true"
+                        android:background="@drawable/selectorbutton"
+                        />
+                </LinearLayout>
+
+
+                <FrameLayout
+                    android:id="@+id/framelayoutID"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                </FrameLayout>
             </LinearLayout>
 
 
-            <ImageSwitcher
-                android:id="@+id/imageSwitcher"
-                android:layout_width="match_parent"
-                android:layout_height="128dp"
-                >
-            </ImageSwitcher>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Item"
-                android:textSize="35dp"
-                android:textStyle="bold"
-                android:textColor="#FFFF"
-                android:layout_marginTop="20dp"
-                />
+        </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                >
-
-                <Button
-                    android:id="@+id/mobile"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:text="Mobile"
-                    android:textColor="#FFFF"
-                    android:textSize="15dp"
-                    android:textAllCaps="false"
-                    android:clickable="true"
-                    android:background="@drawable/selectorbutton"
-
-                    />
-
-                <Button
-                    android:id="@+id/console"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:text="Console"
-                    android:textColor="#FFFF"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:textSize="15dp"
-                    android:textAllCaps="false"
-                    android:clickable="true"
-                    android:background="@drawable/selectorbutton"
-                    />
-
-                <Button
-                    android:id="@+id/Pc"
-                    android:layout_width="100dp"
-                    android:layout_height="40dp"
-                    android:text="PC"
-                    android:textColor="#FFFF"
-                    android:textSize="15dp"
-                    android:clickable="true"
-                    android:background="@drawable/selectorbutton"
-                    />
-            </LinearLayout>
-
-
+        <LinearLayout
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="100dp"
+            android:gravity="end"
+            >
             <FrameLayout
-                android:id="@+id/framelayoutID"
+                android:id="@+id/HamburgerFrame"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp">
+                android:layout_height="850dp">
 
             </FrameLayout>
+
+
+
         </LinearLayout>
 
 
-
-    </LinearLayout>
+    </RelativeLayout>
 
 
 

@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 
 import android.widget.Button;
@@ -17,6 +18,8 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
+
+import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -88,7 +91,16 @@ public class MainActivity<test> extends AppCompatActivity {
         // Start the slideshow
         startSlideshow();
 
-        // recycle view
+        // HamburgerMenu
+        ImageButton buttonImage = findViewById(R.id.HamburgerButton);
+
+        buttonImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHamburgerMenu(new MenuHamburgerFragment());
+            }
+        });
+
 
     }
 
@@ -108,6 +120,13 @@ public class MainActivity<test> extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.framelayoutID, fragment);
+        fragmentTransaction.commit();
+    }
+
+    private void openHamburgerMenu(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.HamburgerFrame, fragment);
         fragmentTransaction.commit();
     }
 
