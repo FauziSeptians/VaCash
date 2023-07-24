@@ -3,7 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1185" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/borderbutton.xml" value="0.253" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/borderbuttonclick.xml" value="0.253" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/borderoutline.xml" value="0.253" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/buttonbackground.xml" value="0.2735" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/card_item.xml" value="0.274" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/cardbalance.xml" value="0.2405" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/favourite.xml" value="0.2405" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/gradient_background.xml" value="0.1185" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1185" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/popup.xml" value="0.2735" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/selectorbutton.xml" value="0.253" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/cardgame.xml" value="0.271286231884058" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/customdialog.xml" value="0.1" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/detail.xml" value="0.14893617021276595" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/fragment_game_console.xml" value="0.271286231884058" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/fragment_game_mobile.xml" value="0.23697916666666666" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/fragment_game_p_c.xml" value="0.271286231884058" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/homepage.xml" value="0.22" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/profilepage.xml" value="0.33" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/recycler_view_row.xml" value="0.38125" />
       </map>
     </option>
   </component>
