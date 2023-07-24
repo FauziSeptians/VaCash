@@ -10,7 +10,7 @@
     <item android:state_selected="true">
         <shape>
             <solid android:color="#FFFFFF" /> <!-- Warna putih saat "selected" -->
-            <corners android:radius="10dp" />
+            <corners android:radius="40dp" />
         </shape>
     </item>
 
