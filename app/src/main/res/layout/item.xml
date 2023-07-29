@@ -21,11 +21,13 @@
             >
 
             <ImageView
+                android:id="@+id/imageGame"
                 android:layout_width="match_parent"
                 android:layout_height="330dp"
-                android:src="@drawable/ml" />
+                android:background="@drawable/ml" />
 
             <TextView
+                android:id="@+id/JudulGame"
                 android:text="Mobile Legends: Bang-Bang"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -120,7 +122,7 @@
                 >
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="400dp"
                     android:id="@+id/recyclerview"
                     />
             </FrameLayout>

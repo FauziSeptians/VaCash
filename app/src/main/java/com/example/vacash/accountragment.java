@@ -1,12 +1,21 @@
 package com.example.vacash;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.GridLayoutManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,10 +64,45 @@ public class accountragment extends Fragment {
         }
     }
 
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,ProfileMenu
-//                             Bundle savedInstanceState) {
-//        // Inflate the layout for this fragment
-//        return inflater.inflate(R.layout.fragment_accountragment, container, false);
-//    }
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view1 = inflater.inflate(R.layout.fragment_accountragment, container, false);
+
+        View view2 = inflater.inflate(R.layout.fragment_menu_hamburger, container, false);
+
+        TextView button = view2.findViewById(R.id.dropdownAccount);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                button.setBackgroundResource(R.drawable.buttonatas);
+                TextView item =  view2.findViewById(R.id.item);
+                item.setText("hallo");
+            }
+        });
+
+        Button profilebutton = view1.findViewById(R.id.Profile);
+
+        profilebutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(),ProfilePage.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+        return view1;
+    }
+
+    private void closeFragment() {
+        // Make sure the fragment is attached to a hosting activity or fragment
+        if (isAdded() && getParentFragmentManager() != null) {
+            FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+            fragmentTransaction.remove(this); // 'this' refers to the current fragment
+            fragmentTransaction.commit();
+        }
+    }
 }
