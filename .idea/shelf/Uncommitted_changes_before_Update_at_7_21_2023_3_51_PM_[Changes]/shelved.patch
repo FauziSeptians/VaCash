@@ -1,0 +1,657 @@
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<androidx.constraintlayout.widget.ConstraintLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    tools:context=\".MainActivity\">\r\n\r\n    <TextView\r\n        android:layout_width=\"wrap_content\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:text=\"jmbt\"\r\n        app:layout_constraintBottom_toBottomOf=\"parent\"\r\n        app:layout_constraintEnd_toEndOf=\"parent\"\r\n        app:layout_constraintStart_toStartOf=\"parent\"\r\n        app:layout_constraintTop_toTopOf=\"parent\" />\r\n\r\n</androidx.constraintlayout.widget.ConstraintLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+--- a/app/src/main/res/layout/activity_main.xml	(revision dd242658d9e5162cb106b0258509686c3e6e9e81)
++++ b/app/src/main/res/layout/activity_main.xml	(date 1688459617989)
+@@ -7,6 +7,7 @@
+     tools:context=".MainActivity">
+ 
+     <TextView
++        android:id="@+id/textView"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="jmbt"
+@@ -15,4 +16,17 @@
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent" />
+ 
++    <Button
++        android:id="@+id/button"
++        android:layout_width="wrap_content"
++        android:layout_height="wrap_content"
++        android:text="pindah"
++        android:onClick="pindah"
++        app:layout_constraintBottom_toBottomOf="parent"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintHorizontal_bias="0.498"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent"
++        app:layout_constraintVertical_bias="0.399" />
++
+ </androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/res/values/themes.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources xmlns:tools=\"http://schemas.android.com/tools\">\r\n    <!-- Base application theme. -->\r\n    <style name=\"Theme.Vacash\" parent=\"Theme.MaterialComponents.DayNight.DarkActionBar\">\r\n        <!-- Primary brand color. -->\r\n        <item name=\"colorPrimary\">@color/purple_500</item>\r\n        <item name=\"colorPrimaryVariant\">@color/purple_700</item>\r\n        <item name=\"colorOnPrimary\">@color/white</item>\r\n        <!-- Secondary brand color. -->\r\n        <item name=\"colorSecondary\">@color/teal_200</item>\r\n        <item name=\"colorSecondaryVariant\">@color/teal_700</item>\r\n        <item name=\"colorOnSecondary\">@color/black</item>\r\n        <!-- Status bar color. -->\r\n        <item name=\"android:statusBarColor\">?attr/colorPrimaryVariant</item>\r\n        <!-- Customize your theme here. -->\r\n    </style>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/themes.xml b/app/src/main/res/values/themes.xml
+--- a/app/src/main/res/values/themes.xml	(revision dd242658d9e5162cb106b0258509686c3e6e9e81)
++++ b/app/src/main/res/values/themes.xml	(date 1688460421962)
+@@ -1,16 +1,12 @@
+ <resources xmlns:tools="http://schemas.android.com/tools">
+     <!-- Base application theme. -->
+-    <style name="Theme.Vacash" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+-        <!-- Primary brand color. -->
+-        <item name="colorPrimary">@color/purple_500</item>
+-        <item name="colorPrimaryVariant">@color/purple_700</item>
+-        <item name="colorOnPrimary">@color/white</item>
+-        <!-- Secondary brand color. -->
+-        <item name="colorSecondary">@color/teal_200</item>
+-        <item name="colorSecondaryVariant">@color/teal_700</item>
+-        <item name="colorOnSecondary">@color/black</item>
+-        <!-- Status bar color. -->
+-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+-        <!-- Customize your theme here. -->
++    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
++        <!-- Hide Action Bar -->
++        <item name="windowActionBar">false</item>
++        <item name="windowNoTitle">true</item>
++
++        <!-- Hide Navigation Bar -->
++        <item name="android:windowFullscreen">true</item>
++        <item name="android:windowContentOverlay">@null</item>
+     </style>
+ </resources>
+\ No newline at end of file
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    id 'com.android.application'\r\n}\r\n\r\nandroid {\r\n    namespace 'com.example.vacash'\r\n    compileSdk 33\r\n\r\n    defaultConfig {\r\n        applicationId \"com.example.vacash\"\r\n        minSdk 23\r\n        targetSdk 33\r\n        versionCode 1\r\n        versionName \"1.0\"\r\n\r\n        testInstrumentationRunner \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            minifyEnabled false\r\n            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'\r\n        }\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility JavaVersion.VERSION_1_8\r\n        targetCompatibility JavaVersion.VERSION_1_8\r\n    }\r\n}\r\n\r\ndependencies {\r\n\r\n    implementation 'androidx.appcompat:appcompat:1.6.1'\r\n    implementation 'com.google.android.material:material:1.9.0'\r\n    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'\r\n    testImplementation 'junit:junit:4.13.2'\r\n    androidTestImplementation 'androidx.test.ext:junit:1.1.5'\r\n    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle b/app/build.gradle
+--- a/app/build.gradle	(revision dd242658d9e5162cb106b0258509686c3e6e9e81)
++++ b/app/build.gradle	(date 1689738133409)
+@@ -33,7 +33,9 @@
+     implementation 'androidx.appcompat:appcompat:1.6.1'
+     implementation 'com.google.android.material:material:1.9.0'
+     implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
++    implementation 'androidx.cardview:cardview:1.0.0'
+     testImplementation 'junit:junit:4.13.2'
+     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
++
+ }
+\ No newline at end of file
+Index: app/src/main/res/layout/recycler_view_row.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/recycler_view_row.xml b/app/src/main/res/layout/recycler_view_row.xml
+new file mode 100644
+--- /dev/null	(date 1689929447657)
++++ b/app/src/main/res/layout/recycler_view_row.xml	(date 1689929447657)
+@@ -0,0 +1,72 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent">
++
++    <androidx.cardview.widget.CardView
++        android:layout_width="250dp"
++        android:layout_height="wrap_content"
++        android:background="@drawable/card_item"
++        tools:ignore="MissingConstraints">
++
++        <LinearLayout
++            android:layout_width="match_parent"
++            android:layout_height="wrap_content"
++            android:orientation="horizontal"
++            android:padding="10dp"
++            android:background="@drawable/card_item"
++            >
++
++            <ImageView
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:src="@drawable/cod" />
++
++            <LinearLayout
++                android:layout_width="wrap_content"
++                android:layout_height="wrap_content"
++                android:orientation="vertical"
++                android:layout_marginLeft="20dp">
++
++                <TextView
++                    android:id="@+id/GameNama"
++                    android:layout_width="wrap_content"
++                    android:layout_height="wrap_content"
++                    android:text="CALL OF DUTY"
++                    android:textColor="#80FFFFFF"
++                    />
++
++                <TextView
++                    android:id="@+id/PaymentGame"
++                    android:layout_width="wrap_content"
++                    android:layout_height="wrap_content"
++                    android:text="COD POINT"
++                    android:textColor="#FFFFFF"/>
++
++                <TextView
++                    android:id="@+id/QuantityGame"
++                    android:layout_width="wrap_content"
++                    android:layout_height="wrap_content"
++                    android:text="QTY : "
++                    android:textColor="#FFFFFF"/>
++
++                <TextView
++                    android:id="@+id/PriceGame"
++                    android:layout_width="wrap_content"
++                    android:layout_height="wrap_content"
++                    android:text="Rp 5.000.000"
++                    android:textColor="#FFFFFF"/>
++
++
++
++            </LinearLayout>
++
++
++
++
++        </LinearLayout>
++    </androidx.cardview.widget.CardView>
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/vacash/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.vacash;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\n\r\nimport android.os.Bundle;\r\n\r\npublic class MainActivity extends AppCompatActivity {\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.activity_main);\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/vacash/MainActivity.java b/app/src/main/java/com/example/vacash/MainActivity.java
+--- a/app/src/main/java/com/example/vacash/MainActivity.java	(revision dd242658d9e5162cb106b0258509686c3e6e9e81)
++++ b/app/src/main/java/com/example/vacash/MainActivity.java	(date 1689833006516)
+@@ -1,14 +1,52 @@
+ package com.example.vacash;
+ 
+ import androidx.appcompat.app.AppCompatActivity;
++import androidx.recyclerview.widget.LinearLayoutManager;
++import androidx.recyclerview.widget.RecyclerView;
+ 
++import android.content.Intent;
+ import android.os.Bundle;
++import android.view.View;
+ 
+-public class MainActivity extends AppCompatActivity {
++import java.util.ArrayList;
++
++public class MainActivity<test> extends AppCompatActivity {
++    ArrayList<DataItemModel> data = new ArrayList<>();
+ 
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+-        setContentView(R.layout.activity_main);
++        setContentView(R.layout.profilepage);
++
++        RecyclerView recyclerView = findViewById(R.id.recyclerview1);
++
++        setup();
++
++        DataItemAdapter adapter = new DataItemAdapter(this,data);
++        recyclerView.setAdapter(adapter);
++        recyclerView.setLayoutManager(new LinearLayoutManager(this));
++
+     }
++
++    private void setup(){
++        String[] DataNameGame = getResources().getStringArray(R.array.GameName);
++        int[] QtyGame = getResources().getIntArray(R.array.QtyGame);
++        int[] PriceGame = getResources().getIntArray(R.array.PriceGame);
++
++//        int[] ImageGame = {R.drawable.cod};
++
++
++        for(int i = 0; i < DataNameGame.length; i++){
++           data.add(new DataItemModel(DataNameGame[i], QtyGame[i], PriceGame[i]));
++        }
++
++    }
++
++
++
++
++//    public void pindah(View view) {
++//        Intent intent = new Intent(MainActivity.this, ProfilePage.class);
++//        startActivity(intent);
++//    }
+ }
+\ No newline at end of file
+Index: app/src/main/res/drawable/cardbalance.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/cardbalance.xml b/app/src/main/res/drawable/cardbalance.xml
+new file mode 100644
+--- /dev/null	(date 1688522727673)
++++ b/app/src/main/res/drawable/cardbalance.xml	(date 1688522727673)
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<shape xmlns:android="http://schemas.android.com/apk/res/android"
++    android:shape="rectangle">
++    <solid android:color="#50000000" /> <!-- Background color -->
++    <corners
++        android:radius="15dp"
++        /> <!-- Corner radius -->
++    <alpha android:alpha="0.5" />
++</shape>
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\">vacash</string>\r\n</resources>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
+--- a/app/src/main/res/values/strings.xml	(revision dd242658d9e5162cb106b0258509686c3e6e9e81)
++++ b/app/src/main/res/values/strings.xml	(date 1689824699679)
+@@ -1,3 +1,21 @@
+ <resources>
+     <string name="app_name">vacash</string>
++
++    <string-array name="GameName">
++        <item>A</item>
++        <item>B</item>
++        <item>C</item>
++        <item>D</item>
++        <item>F</item>
++        <item>G</item>
++        <item>H</item>
++        <item>I</item>
++        <item>J</item>
++        <item>K</item>
++        <item>L</item>
++        <item>M</item>
++        <item>N</item>
++    </string-array>
++
++
+ </resources>
+\ No newline at end of file
+Index: app/src/main/res/layout/customdialog.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/customdialog.xml b/app/src/main/res/layout/customdialog.xml
+new file mode 100644
+--- /dev/null	(date 1689929458957)
++++ b/app/src/main/res/layout/customdialog.xml	(date 1689929458957)
+@@ -0,0 +1,71 @@
++<?xml version="1.0" encoding="utf-8"?>
++<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="transparent">
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="match_parent"
++        android:gravity="center"
++        app:layout_constraintEnd_toEndOf="parent"
++        app:layout_constraintStart_toStartOf="parent"
++        app:layout_constraintTop_toTopOf="parent">
++
++        <LinearLayout
++            android:layout_width="wrap_content"
++            android:layout_height="wrap_content"
++            android:background="@drawable/popup"
++            android:gravity="center"
++            android:padding="30dp">
++
++            <LinearLayout
++                android:layout_width="250dp"
++                android:layout_height="match_parent"
++
++                android:orientation="vertical">
++
++                <TextView
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:gravity="center"
++                    android:letterSpacing="0.2"
++                    android:text="NOMINAL"
++                    android:textColor="#FFFF"
++                    android:textSize="25dp" />
++
++                <EditText
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content"
++                    android:layout_marginTop="70dp"
++                    android:layout_marginBottom="70dp"
++                    android:textColor="#FFFF" />
++
++                <RelativeLayout
++                    android:layout_width="match_parent"
++                    android:layout_height="wrap_content">
++
++                    <ImageButton
++                        android:id="@+id/buttonImage"
++                        android:layout_width="match_parent"
++                        android:layout_height="35dp"
++                        android:background="@drawable/button" />
++
++                    <TextView
++                        android:id="@+id/textView12"
++                        android:layout_width="wrap_content"
++                        android:layout_height="wrap_content"
++                        android:text="TOP UP"
++                        android:textColor="#FFFFFF"
++                        android:textSize="15dp" />
++                </RelativeLayout>
++
++            </LinearLayout>
++
++        </LinearLayout>
++
++    </LinearLayout>
++
++</androidx.constraintlayout.widget.ConstraintLayout>
+\ No newline at end of file
+Index: app/src/main/java/com/example/vacash/DataItemAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/vacash/DataItemAdapter.java b/app/src/main/java/com/example/vacash/DataItemAdapter.java
+new file mode 100644
+--- /dev/null	(date 1689832327372)
++++ b/app/src/main/java/com/example/vacash/DataItemAdapter.java	(date 1689832327372)
+@@ -0,0 +1,61 @@
++package com.example.vacash;
++
++import android.content.Context;
++import android.provider.ContactsContract;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++import android.widget.ImageView;
++import android.widget.TextView;
++
++import androidx.annotation.NonNull;
++import androidx.recyclerview.widget.RecyclerView;
++
++import java.util.ArrayList;
++
++public class DataItemAdapter extends RecyclerView.Adapter<DataItemAdapter.MyViewHolder> {
++
++    Context context;
++    ArrayList<DataItemModel> data;
++
++    public DataItemAdapter(Context context, ArrayList<DataItemModel> data){
++        this.context = context;
++        this.data = data;
++    }
++
++
++    @NonNull
++    @Override
++    public DataItemAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
++        LayoutInflater inflater = LayoutInflater.from(context);
++        View view  = inflater.inflate(R.layout.recycler_view_row,parent, false);
++        return new DataItemAdapter.MyViewHolder(view);
++    }
++
++    @Override
++    public void onBindViewHolder(@NonNull DataItemAdapter.MyViewHolder holder, int position) {
++        holder.GameName.setText(data.get(position).getName());
++        holder.GamePrice.setText(data.get(position).getPrice());
++        holder.GameQTY.setText(data.get(position).getQty());
++    }
++
++    @Override
++    public int getItemCount() {
++        return data.size();
++    }
++
++    public static class MyViewHolder extends RecyclerView.ViewHolder{
++
++        TextView GameName, GamePrice, GameQTY;
++
++
++        public MyViewHolder(@NonNull View itemView) {
++            super(itemView);
++
++            GameName = itemView.findViewById(R.id.GameNama);
++            GamePrice = itemView.findViewById(R.id.PriceGame);
++            GameQTY = itemView.findViewById(R.id.QuantityGame);
++
++        }
++    }
++}
+Index: app/src/main/res/drawable/card_item.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/drawable/card_item.xml b/app/src/main/res/drawable/card_item.xml
+new file mode 100644
+--- /dev/null	(date 1689822972799)
++++ b/app/src/main/res/drawable/card_item.xml	(date 1689822972799)
+@@ -0,0 +1,5 @@
++
++    <shape xmlns:android="http://schemas.android.com/apk/res/android">
++        <solid android:color="#90000000" /> <!-- Background color (here it's white) -->
++        <corners android:radius="10dp" /> <!-- Set the desired corner radius in dp (here it's 16dp) -->
++    </shape>
+\ No newline at end of file
+Index: app/src/main/res/values/arrays.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/values/arrays.xml b/app/src/main/res/values/arrays.xml
+new file mode 100644
+--- /dev/null	(date 1689824693616)
++++ b/app/src/main/res/values/arrays.xml	(date 1689824693616)
+@@ -0,0 +1,35 @@
++<?xml version="1.0" encoding="utf-8"?>
++<!-- res/values/arrays.xml -->
++<resources>
++    <array name="QtyGame">
++        <item>1</item>
++        <item>2</item>
++        <item>3</item>
++        <item>4</item>
++        <item>5</item>
++        <item>6</item>
++        <item>7</item>
++        <item>8</item>
++        <item>9</item>
++        <item>10</item>
++        <item>11</item>
++        <item>12</item>
++        <item>13</item>
++    </array>
++
++    <array name="PriceGame">
++        <item>1</item>
++        <item>2</item>
++        <item>3</item>
++        <item>4</item>
++        <item>5</item>
++        <item>6</item>
++        <item>7</item>
++        <item>8</item>
++        <item>9</item>
++        <item>10</item>
++        <item>11</item>
++        <item>12</item>
++        <item>13</item>
++    </array>
++</resources>
+\ No newline at end of file
+Index: app/src/main/java/com/example/vacash/DataItemModel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/vacash/DataItemModel.java b/app/src/main/java/com/example/vacash/DataItemModel.java
+new file mode 100644
+--- /dev/null	(date 1689824736247)
++++ b/app/src/main/java/com/example/vacash/DataItemModel.java	(date 1689824736247)
+@@ -0,0 +1,48 @@
++package com.example.vacash;
++
++public class DataItemModel {
++    // STORE DATA
++    String Name;
++    Integer Qty;
++    Integer Price;
++    Integer Image;
++
++    public DataItemModel(String name, Integer qty, Integer price) {
++        Name = name;
++        Qty = qty;
++        Price = price;
++    }
++
++
++    public String getName() {
++        return Name;
++    }
++
++    public void setName(String name) {
++        Name = name;
++    }
++
++    public Integer getQty() {
++        return Qty;
++    }
++
++    public void setQty(Integer qty) {
++        Qty = qty;
++    }
++
++    public Integer getPrice() {
++        return Price;
++    }
++
++    public void setPrice(Integer price) {
++        Price = price;
++    }
++
++    public Integer getImage() {
++        return Image;
++    }
++
++    public void setImage(Integer image) {
++        Image = image;
++    }
++}
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DesignSurface\">\r\n    <option name=\"filePathToZoomLevelMap\">\r\n      <map>\r\n        <entry key=\"..\\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/activity_main.xml\" value=\"0.1\" />\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_11\" default=\"true\" project-jdk-name=\"11\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"Android\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision dd242658d9e5162cb106b0258509686c3e6e9e81)
++++ b/.idea/misc.xml	(date 1689927186904)
+@@ -3,7 +3,17 @@
+   <component name="DesignSurface">
+     <option name="filePathToZoomLevelMap">
+       <map>
+-        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/activity_main.xml" value="0.1" />
++        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1185" />
++        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/card_item.xml" value="0.274" />
++        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/cardbalance.xml" value="0.2405" />
++        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/favourite.xml" value="0.2405" />
++        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/gradient_background.xml" value="0.1185" />
++        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1185" />
++        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/popup.xml" value="0.2735" />
++        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/activity_main.xml" value="0.22" />
++        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/customdialog.xml" value="0.22" />
++        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/profilepage.xml" value="0.33" />
++        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/recycler_view_row.xml" value="0.38125" />
+       </map>
+     </option>
+   </component>
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\">\r\n\r\n    <application\r\n        android:allowBackup=\"true\"\r\n        android:dataExtractionRules=\"@xml/data_extraction_rules\"\r\n        android:fullBackupContent=\"@xml/backup_rules\"\r\n        android:icon=\"@mipmap/ic_launcher\"\r\n        android:label=\"@string/app_name\"\r\n        android:supportsRtl=\"true\"\r\n        android:theme=\"@style/Theme.Vacash\"\r\n        tools:targetApi=\"31\">\r\n        <activity\r\n            android:name=\".MainActivity\"\r\n            android:exported=\"true\">\r\n            <intent-filter>\r\n                <action android:name=\"android.intent.action.MAIN\" />\r\n\r\n                <category android:name=\"android.intent.category.LAUNCHER\" />\r\n            </intent-filter>\r\n        </activity>\r\n    </application>\r\n\r\n</manifest>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	(revision dd242658d9e5162cb106b0258509686c3e6e9e81)
++++ b/app/src/main/AndroidManifest.xml	(date 1688460123867)
+@@ -6,16 +6,25 @@
+         android:allowBackup="true"
+         android:dataExtractionRules="@xml/data_extraction_rules"
+         android:fullBackupContent="@xml/backup_rules"
+-        android:icon="@mipmap/ic_launcher"
++        android:icon="@drawable/ic_launcher_foreground"
+         android:label="@string/app_name"
+         android:supportsRtl="true"
+-        android:theme="@style/Theme.Vacash"
++        android:theme="@style/AppTheme"
+         tools:targetApi="31">
+         <activity
+             android:name=".MainActivity"
+             android:exported="true">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
++
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++        </activity>
++        <activity
++            android:name=".ProfilePage"
++            android:exported="true">
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
+ 
+                 <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"VcsDirectoryMappings\">\r\n<<<<<<< HEAD\r\n    <mapping directory=\"\" vcs=\"Git\" />\r\n=======\r\n    <mapping directory=\"$PROJECT_DIR$\" vcs=\"Git\" />\r\n>>>>>>> d84ffdf9dd538ae14e17afe5322f8e9f641c5560\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+--- a/.idea/vcs.xml	(revision dd242658d9e5162cb106b0258509686c3e6e9e81)
++++ b/.idea/vcs.xml	(date 1688486451700)
+@@ -1,10 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="VcsDirectoryMappings">
+-<<<<<<< HEAD
+-    <mapping directory="" vcs="Git" />
+-=======
+     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+->>>>>>> d84ffdf9dd538ae14e17afe5322f8e9f641c5560
+   </component>
+ </project>
+\ No newline at end of file

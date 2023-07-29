@@ -158,8 +158,26 @@
                        android:letterSpacing="0.1"
                        />
 
+                   <TextView
+                       android:id="@+id/dropdownAccount"
+                       android:layout_height="wrap_content"
+                       android:layout_width="wrap_content"
+                       android:layout_marginLeft="20dp"
+                       android:textSize="25dp"
+                       android:text="v"
+                       android:textColor="#FFF"
+                       android:letterSpacing="0.1"
+                       />
+
                </LinearLayout>
+
            </LinearLayout>
+            <FrameLayout
+                android:id="@+id/LayoutingAccount"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent">
+
+            </FrameLayout>
         </LinearLayout>
 
     </LinearLayout>

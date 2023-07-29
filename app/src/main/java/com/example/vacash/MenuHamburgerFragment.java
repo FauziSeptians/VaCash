@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -73,8 +75,7 @@ public class MenuHamburgerFragment extends Fragment {
         LinearLayout AccountButton = view.findViewById(R.id.AccountMenuButton);
         AccountButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view){
-                Intent intent = new Intent(view.getContext(), ProfilePage.class);
-                startActivity(intent);
+//                openProfileMenu();
             }
         });
 
@@ -93,14 +94,45 @@ public class MenuHamburgerFragment extends Fragment {
 
             @Override
             public void onClick(View view) {
-
-
+                closeFragment();
             }
         });
+
+        TextView dropdown = view.findViewById(R.id.dropdownAccount);
+        dropdown.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                ;
+            }
+        });
+
+
 
         return view;
 
     }
+
+    private void closeFragment() {
+        // Make sure the fragment is attached to a hosting activity or fragment
+        if (isAdded() && getParentFragmentManager() != null) {
+            FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+            fragmentTransaction.remove(this); // 'this' refers to the current fragment
+            fragmentTransaction.commit();
+        }
+    }
+
+//    private void openProfileMenu(Fragment fragment){
+//        FragmentManager fragmentManager = getParentFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id, fragment);
+//        fragmentTransaction.commit();
+//    }
+
+//    private void openAccountTab(Fragment fragment){
+//        FragmentManager fragmentManager = getParentFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.acc, fragment);
+//        fragmentTransaction.commit();
+//    }
 
 }
 

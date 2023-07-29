@@ -5,9 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
@@ -80,6 +84,15 @@ public class ProfilePage extends AppCompatActivity {
             }
         });
 
+        ImageButton buttonImage = findViewById(R.id.HamburgerButton);
+
+        buttonImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHamburgerMenu(new MenuHamburgerFragment());
+            }
+        });
+
     }
 
     public static String formatCurrency(double amount, Locale locale) {
@@ -106,5 +119,12 @@ public class ProfilePage extends AppCompatActivity {
             data.add(new DataItemModel(DataNameGame[i], QtyGame[i], PriceGame[i]));
         }
 
+    }
+
+    private void openHamburgerMenu(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.HamburgerFrame, fragment);
+        fragmentTransaction.commit();
     }
 }

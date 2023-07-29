@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -25,6 +26,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ViewSwitcher;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,6 +43,9 @@ public class MainActivity<test> extends AppCompatActivity {
     private ImageSwitcher imageSwitcher;
     private int currentIndex = 0;
     private final long delayTime = 3000;
+    private int ToggleConsole = 0;
+    protected int TogglePC = 0;
+    protected int ToggleMobile = 0;
 
 
 
@@ -54,26 +59,72 @@ public class MainActivity<test> extends AppCompatActivity {
         // DEFAULT KONTEN - FRAGMENT
         replaceFragment(new GameMobileFragment());
 
+        // CLIKCED BUTTON
+
         Button MobileBottom = findViewById(R.id.mobile);
+        Button Consolebutton = findViewById(R.id.console);
+        Button PCbutton = findViewById(R.id.Pc);
         MobileBottom.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                MobileBottom.setSelected(true);
+                ToggleConsole = 0;
+                ToggleMobile = 1;
+                TogglePC = 0;
+
+
+                if(ToggleMobile == 1){
+                    MobileBottom.setBackgroundResource(R.drawable.clickedbutton);
+                    MobileBottom.setTextColor(Color.BLACK);
+                }
+                Consolebutton.setBackgroundResource(R.drawable.borderbutton);
+                Consolebutton.setTextColor(Color.WHITE);
+                PCbutton.setBackgroundResource(R.drawable.borderbutton);
+                PCbutton.setTextColor(Color.WHITE);
+                replaceFragment(new GameConsoleFragment()
+                );
                 replaceFragment(new GameMobileFragment()
                 );
             }
         });
 
-        Button Consolebutton = findViewById(R.id.console);
+
         Consolebutton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                replaceFragment(new GameConsoleFragment());
+                ToggleConsole = 1;
+                ToggleMobile = 0;
+                TogglePC = 0;
+
+
+                if(ToggleConsole == 1){
+                    Consolebutton.setBackgroundResource(R.drawable.clickedbutton);
+                    Consolebutton.setTextColor(Color.BLACK);
+                }
+                PCbutton.setBackgroundResource(R.drawable.borderbutton);
+                PCbutton.setTextColor(Color.WHITE);
+                MobileBottom.setBackgroundResource(R.drawable.borderbutton);
+                MobileBottom.setTextColor(Color.WHITE);
+                replaceFragment(new GameConsoleFragment()
+                );
             }
         });
 
 
-        Button PCbutton = findViewById(R.id.Pc);
+
+
         PCbutton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
+                ToggleConsole = 0;
+                ToggleMobile = 0;
+                TogglePC = 1;
+
+
+                if(TogglePC == 1){
+                    PCbutton.setBackgroundResource(R.drawable.clickedbutton);
+                    PCbutton.setTextColor(Color.BLACK);
+                }
+                Consolebutton.setBackgroundResource(R.drawable.borderbutton);
+                Consolebutton.setTextColor(Color.WHITE);
+                MobileBottom.setBackgroundResource(R.drawable.borderbutton);
+                MobileBottom.setTextColor(Color.WHITE);
                 replaceFragment(new GamePCFragment());
             }
         });
