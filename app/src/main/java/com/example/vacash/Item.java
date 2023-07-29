@@ -29,10 +29,15 @@ public class Item extends AppCompatActivity {
         Intent intent = getIntent();
         CardItemGame gamesName = (CardItemGame) intent.getSerializableExtra("NameGame");
         Log.d(TAG, "onCreate: gameName" + gamesName.getGameName());
-
         List<ItemModel> items = new ArrayList<ItemModel>();
-        items.add(new ItemModel(R.drawable.icon_diamonds,"10 Diamonds", 1500));
-        items.add(new ItemModel(R.drawable.icon_diamonds,"15 Diamonds", 2500));
+
+        if(gamesName.getGameName().equals("Mobile Legends: Bang Bang")){
+            items.add(new ItemModel(R.drawable.icon_diamonds,"10 Diamonds", 1500));
+            items.add(new ItemModel(R.drawable.icon_diamonds,"15 Diamonds", 2500));
+        }else if(gamesName.getGameName().equals("Call OF Duty")){
+            items.add(new ItemModel(R.drawable.icon_diamonds,"15 Diamonds", 3500));
+            items.add(new ItemModel(R.drawable.icon_diamonds,"25 Diamonds", 20500));
+        }
 
         TextView judulgame = findViewById(R.id.JudulGame);
         ImageView image = findViewById(R.id.imageGame);
