@@ -9,6 +9,7 @@
         <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/buttonbackground.xml" value="0.2735" />
         <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/card_item.xml" value="0.274" />
         <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/cardbalance.xml" value="0.2405" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/clickedbutton.xml" value="0.166" />
         <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/favourite.xml" value="0.2405" />
         <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/gradient_background.xml" value="0.1185" />
         <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1185" />
@@ -18,11 +19,15 @@
         <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/cardgame.xml" value="0.271286231884058" />
         <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/customdialog.xml" value="0.1" />
         <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/detail.xml" value="0.14893617021276595" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/fragment_accountragment.xml" value="0.33" />
         <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/fragment_game_console.xml" value="0.271286231884058" />
         <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/fragment_game_mobile.xml" value="0.23697916666666666" />
         <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/fragment_game_p_c.xml" value="0.271286231884058" />
         <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/fragment_menu_hamburger.xml" value="0.22" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/fragment_profile_menu.xml" value="0.31476449275362317" />
         <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/homepage.xml" value="0.22" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/item.xml" value="0.18" />
+        <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/item_option.xml" value="0.33" />
         <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/profilepage.xml" value="0.33" />
         <entry key="..\:/DATA KULIAH FAUZI/PROGRAMING/VaCash/VaCash/app/src/main/res/layout/recycler_view_row.xml" value="0.38125" />
       </map>
@@ -31,5 +36,8 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
   </component>
 </project>

@@ -3,6 +3,7 @@ package com.example.vacash;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -76,16 +77,20 @@ public class GameMobileFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerID2);
         listData = new ArrayList<>();
 
+
 //        for(int i = 0; i < 10; i++){
 //            listData.add("Data Ke" + i);
 //        }
 
         List<CardItemGame> items =  new ArrayList<CardItemGame>();
-        items.add(new CardItemGame("mobile",R.drawable.ml));
-        items.add(new CardItemGame("Cod",R.drawable.cod));
+        items.add(new CardItemGame("Mobile Legends: Bang Bang",R.drawable.ml));
+        items.add(new CardItemGame("Call OF Duty",R.drawable.cod));
+        items.add(new CardItemGame("Free Fire",R.drawable.freefire));
+        items.add(new CardItemGame("PUBG MOBILE",R.drawable.pubg));
+        items.add(new CardItemGame("Genshin Impact",R.drawable.genshin));
 
-        linearLayoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL,false);
-        recyclerView.setLayoutManager(linearLayoutManager);
+//        linearLayoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL,false);
+        recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(), 2));
 
         data = new GameAdapter(items);
         recyclerView.setAdapter(data);

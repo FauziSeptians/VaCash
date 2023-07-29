@@ -3,10 +3,17 @@ package com.example.vacash;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +30,11 @@ public class GameConsoleFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    RecyclerView recyclerView;
+    LinearLayoutManager linearLayoutManager;
+    List<String> listData;
+    GameAdapter data;
 
     public GameConsoleFragment() {
         // Required empty public constructor
@@ -59,6 +71,29 @@ public class GameConsoleFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_game_console, container, false);
+        View view = inflater.inflate(R.layout.fragment_game_console, container, false);
+        // Inflate the layout for this fragment
+        recyclerView = view.findViewById(R.id.recyclerID2);
+        listData = new ArrayList<>();
+
+
+//        for(int i = 0; i < 10; i++){
+//            listData.add("Data Ke" + i);
+//        }
+
+        List<CardItemGame> items =  new ArrayList<CardItemGame>();
+        items.add(new CardItemGame("Fortnite",R.drawable.fortnite));
+        items.add(new CardItemGame("Ragnarok Online",R.drawable.ro));
+        items.add(new CardItemGame("Need For Speed: No Limits",R.drawable.nfs));
+        items.add(new CardItemGame("Call of Duty: War Zone",R.drawable.war));
+
+//        linearLayoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL,false);
+        recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(), 2));
+
+        data = new GameAdapter(items);
+        recyclerView.setAdapter(data);
+        data.notifyDataSetChanged();
+
+        return view;
     }
 }

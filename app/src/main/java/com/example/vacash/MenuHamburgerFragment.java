@@ -9,8 +9,13 @@ import androidx.fragment.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+
+import java.time.LocalTime;
+import android.widget.TextView;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -70,14 +75,6 @@ public class MenuHamburgerFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_menu_hamburger, container, false);
 
-        LinearLayout AccountButton = view.findViewById(R.id.AccountMenuButton);
-        AccountButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view){
-                Intent intent = new Intent(view.getContext(), ProfilePage.class);
-                startActivity(intent);
-            }
-        });
-
 
         LinearLayout HomeButton = view.findViewById(R.id.HomeMenuButton);
         HomeButton.setOnClickListener(new View.OnClickListener() {
@@ -93,14 +90,85 @@ public class MenuHamburgerFragment extends Fragment {
 
             @Override
             public void onClick(View view) {
-
-
+                closeFragment();
             }
         });
+
+        LinearLayout dropdown = view.findViewById(R.id.AccountMenuButton);
+        dropdown.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view) {
+                openNestedFragment();
+            }
+        });
+
+        Button button = view.findViewById(R.id.mobile);
+        Button console = view.findViewById(R.id.console);
+        Button pc = view.findViewById(R.id.Pc);
+
+        button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), Homepage.class);
+                intent.putExtra("keyItem","mobile");
+                startActivity(intent);
+            }
+        });
+        console.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(),Homepage.class);
+                intent.putExtra("keyItem","console");
+                startActivity(intent);
+            }
+        });
+
+        pc.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), Homepage.class);
+                intent.putExtra("keyItem","pc");
+                startActivity(intent);
+            }
+        });
+
+
+
+
 
         return view;
 
     }
+
+    private void closeFragment() {
+        // Make sure the fragment is attached to a hosting activity or fragment
+        if (isAdded() && getParentFragmentManager() != null) {
+            FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
+            fragmentTransaction.remove(this); // 'this' refers to the current fragment
+            fragmentTransaction.commit();
+        }
+    }
+
+    private void openNestedFragment() {
+        // Mendapatkan child FragmentManager untuk mengelola fragment di dalam fragment ini
+        FragmentManager childFragmentManager = getChildFragmentManager();
+
+        // Membuat instance fragment yang ingin ditampilkan (MyNestedFragment)
+        accountragment myNestedFragment = new accountragment();
+
+        // Melakukan transaksi fragment untuk menambahkan MyNestedFragment ke dalam hierarki fragment ini
+        FragmentTransaction transaction = childFragmentManager.beginTransaction();
+        transaction.replace(R.id.LayoutingAccount, myNestedFragment); // Menggantikan fragment saat ini di dalam container dengan MyNestedFragment
+        transaction.addToBackStack(null); // Menambahkan transaksi ini ke dalam back stack, sehingga fragment bisa dikembalikan dengan tombol back
+        transaction.commit();
+    }
+
+//    private void openProfileMenu(Fragment fragment){
+//        FragmentManager fragmentManager = getChildFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.LayoutingAccount, fragment);
+//        fragmentTransaction.commit();
+//    }
+
 
 }
 
