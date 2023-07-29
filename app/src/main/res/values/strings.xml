@@ -19,7 +19,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <string name="textSignIn">Don't have an account? <b><u>Sign Up</u></b></string>
+    <string name="textSignIn">Dont have an account? <b><u>Sign Up</u></b></string>
     <string name="textSignUp">Already have an account? <b><u>Sign In</u></b></string>
 
 
