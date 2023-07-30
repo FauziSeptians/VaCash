@@ -84,7 +84,7 @@ public class GameMobileFragment extends Fragment {
 
         List<CardItemGame> items =  new ArrayList<CardItemGame>();
         items.add(new CardItemGame("Mobile Legends: Bang Bang",R.drawable.ml));
-        items.add(new CardItemGame("Call OF Duty",R.drawable.cod));
+        items.add(new CardItemGame("Call of Duty: Mobile - Garena",R.drawable.cod));
         items.add(new CardItemGame("Free Fire",R.drawable.freefire));
         items.add(new CardItemGame("PUBG MOBILE",R.drawable.pubg));
         items.add(new CardItemGame("Genshin Impact",R.drawable.genshin));

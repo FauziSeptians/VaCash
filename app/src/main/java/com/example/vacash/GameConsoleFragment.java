@@ -83,8 +83,9 @@ public class GameConsoleFragment extends Fragment {
 
         List<CardItemGame> items =  new ArrayList<CardItemGame>();
         items.add(new CardItemGame("Fortnite",R.drawable.fortnite));
-        items.add(new CardItemGame("Ragnarok Online",R.drawable.ro));
+        items.add(new CardItemGame("Ragnarok Origin",R.drawable.ro));
         items.add(new CardItemGame("Need For Speed: No Limits",R.drawable.nfs));
+        items.add(new CardItemGame("Apex Legends",R.drawable.apex));
         items.add(new CardItemGame("Call of Duty: War Zone",R.drawable.war));
 
 //        linearLayoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL,false);
