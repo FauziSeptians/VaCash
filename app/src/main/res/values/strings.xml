@@ -21,6 +21,7 @@
 
     <string name="textSignIn">Don\'t have an account? <b><u>Sign Up</u></b></string>
     <string name="textSignUp">Already have an account? <b><u>Sign In</u></b></string>
+    <string name="please_sign_in_to_your_account_to_start_exploring_in_va_cash">Please sign in to your account to start exploring in VA Cash</string>
 
 
 </resources>

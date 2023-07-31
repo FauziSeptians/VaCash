@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:scrollbars="vertical"
+    tools:context=".Detail">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingHorizontal="50dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:src="@drawable/baseline_arrow_back_58"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:src="@drawable/baseline_menu_58" />
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="165dp"
+                android:layout_height="147dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/diamond"
+                android:alpha="0.7"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/montserratbold"
+                android:text="5 Diamond"
+                android:textColor="#797979" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/montserratbold"
+                android:text="Rp 1,500"
+                android:textColor="@color/white"
+                android:textSize="30sp"/>
+
+            <com.codesgood.views.JustifiedTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/montlight"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:text="Mobile Legends: Bang Bang merupakan mobile game dengan genre multiplayer online battle arena (MOBA). Permainan ini dikembangkan dan diterbitkan oleh perusahaan bernama Moonton. Diamond merupakan salah satu mata uang dalam game ini yang dapat digunakan untuk membeli berbagai kelengkapan game, seperti skin, dll. "/>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:src="@drawable/boxitem"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="1dp"
+                android:paddingHorizontal="50dp"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Buy Form Section"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:fontFamily="@font/montserratbold"
+                    android:textSize="22sp"
+                    />
+
+                <EditText
+                    android:id="@+id/usernameEdt"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@drawable/textfield"
+                    android:layout_marginTop="20dp"
+                    android:hint="Username"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/montlight"
+                    android:textColorHint="#797979"
+                    android:textColor="@color/white"
+                    android:textColorHighlight="@color/white"
+                    android:paddingLeft="10dp"
+                    android:inputType="text" />
+
+                <EditText
+                    android:id="@+id/emailEdt"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@drawable/textfield"
+                    android:layout_marginTop="15dp"
+                    android:hint="Email"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/montlight"
+                    android:textColorHint="#797979"
+                    android:textColor="@color/white"
+                    android:textColorHighlight="@color/white"
+                    android:paddingLeft="10dp"
+                    android:inputType="textEmailAddress" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Quantity"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/montmedium"/>
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/minBtn"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:background="@drawable/buttonstepper_pressed"
+                        android:fontFamily="@font/montserratbold"
+                        android:text="-"
+                        android:textSize="15sp"
+                        android:textColor="@drawable/buttonstep_textcolor"
+                        />
+
+                    <TextView
+                        android:id="@+id/qty"
+                        android:layout_width="21dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/white_underline"
+                        android:fontFamily="@font/montmedium"
+                        android:gravity="center"
+                        android:text="1"
+                        android:textColor="@color/white" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/plusBtn"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:gravity="center"
+                        android:background="@drawable/buttonstepper_pressed"
+                        android:fontFamily="@font/montserratbold"
+                        android:text="+"
+                        android:textSize="15sp"
+                        android:textColor="@drawable/buttonstep_textcolor"
+                        />
+
+
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@drawable/backgroud_boxbawah"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="50dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp">
+
+                <TextView
+                    android:id="@+id/namaGame"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mobile Legend"
+                    android:fontFamily="@font/montserratbold"
+                    android:textColor="#CCFFFFFF"
+                    android:textSize="15sp"
+                    />
+                <TextView
+                    android:id="@+id/namaItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5 Diamonds"
+                    android:fontFamily="@font/montserratbold"
+                    android:textColor="#CCFFFFFF"
+                    android:textSize="8sp"
+                    android:layout_below="@id/namaGame"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="("
+                    android:fontFamily="@font/montserratbold"
+                    android:textColor="#CCFFFFFF"
+                    android:textSize="8sp"
+                    android:layout_toRightOf="@id/namaItem"
+                    android:layout_below="@id/namaGame"
+                    />
+                <TextView
+                    android:id="@+id/qty2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="10"
+                    android:fontFamily="@font/montserratbold"
+                    android:textColor="#CCFFFFFF"
+                    android:textSize="8sp"
+                    android:layout_toRightOf="@id/namaItem"
+                    android:layout_below="@id/namaGame"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="22dp"
+                    android:text=")"
+                    android:fontFamily="@font/montserratbold"
+                    android:textColor="#CCFFFFFF"
+                    android:textSize="8sp"
+                    android:layout_toRightOf="@id/namaItem"
+                    android:layout_below="@id/namaGame"
+                    />
+                <TextView
+                    android:id="@+id/hargaItem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="Rp 1,500"
+                    android:fontFamily="@font/montserratbold"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:layout_below="@id/namaItem"
+                    />
+                <Button
+                    android:id="@+id/payBtn"
+                    android:layout_width="500dp"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/namaGame"
+                    android:layout_marginLeft="100dp"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="@font/montserratbold"
+                    android:text="PAY"
+                    android:textColor="#A75CE1"
+                    android:textSize="10sp"
+                    android:background="@drawable/rounded_button"
+                    />
+
+            </RelativeLayout>
+
+        </FrameLayout>
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>

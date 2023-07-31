@@ -1,6 +1,8 @@
 package com.example.vacash;
 
-public class CardItemGame {
+import java.io.Serializable;
+
+public class CardItemGame implements Serializable {
     String GameName;
     int image;
 
