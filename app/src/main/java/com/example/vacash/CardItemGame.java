@@ -28,3 +28,10 @@ public class CardItemGame implements Serializable {
         this.image = image;
     }
 }
+
+public class DetailItem{
+
+    public DetailItem(image, namanya, ){
+
+    }
+}

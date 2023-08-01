@@ -32,7 +32,7 @@ import java.util.List;
         @NonNull
         @Override
         public GameAdapter.HolderData onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-    //        View view = inflater.inflate(R.layout.cardgame,parent, false);
+    //        View view =    inflater.inflate(R.layout.cardgame,parent, false);
             return new HolderData(LayoutInflater.from(parent.getContext()).inflate(R.layout.cardgame, parent, false));
         }
 
