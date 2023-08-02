@@ -133,7 +133,6 @@ public class Item extends AppCompatActivity {
 
 
 
-
         RecyclerView recyclerView = findViewById(R.id.recyclerview);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new ItemAdapter(items));

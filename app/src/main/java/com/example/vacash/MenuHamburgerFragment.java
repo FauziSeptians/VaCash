@@ -1,11 +1,14 @@
 package com.example.vacash;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,7 +82,7 @@ public class MenuHamburgerFragment extends Fragment {
         LinearLayout HomeButton = view.findViewById(R.id.HomeMenuButton);
         HomeButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view){
-                Intent intent = new Intent(view.getContext(), MainActivity.class);
+                Intent intent = new Intent(view.getContext(), Homepage.class);
                 startActivity(intent);
             }
         });
@@ -109,7 +112,10 @@ public class MenuHamburgerFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), Homepage.class);
+                UserModel username = (UserModel) intent.getSerializableExtra("userdata");
+                Log.d(TAG, "onClick: " + username.getName());
                 intent.putExtra("keyItem","mobile");
+//                intent.putExtra("userdate",);
                 startActivity(intent);
             }
         });

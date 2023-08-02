@@ -26,14 +26,28 @@
             android:textColor="#FFFF"
             android:textSize="25dp" />
 
-        <EditText
-            android:id="@+id/inputvalue"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
             android:layout_marginBottom="70dp"
-            android:inputType="number"
-            android:textColor="#FFFF" />
+            android:orientation="vertical"
+            >
+            <EditText
+                android:id="@+id/inputvalue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="70dp"
+                android:inputType="number"
+                android:textColor="#FFFF" />
+
+            <TextView
+                android:id="@+id/erormassage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#ff0000"
+                />
+        </LinearLayout>
 
         <Button
             android:id="@+id/SumbitButtonTopup"

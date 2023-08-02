@@ -1,5 +1,11 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
 
-    <shape xmlns:android="http://schemas.android.com/apk/res/android">
-        <solid android:color="#90000000" /> <!-- Background color (here it's white) -->
-        <corners android:radius="10dp" /> <!-- Set the desired corner radius in dp (here it's 16dp) -->
-    </shape>
+    <!-- Mengatur warna latar belakang menjadi hitam -->
+    <solid android:color="#000000" />
+
+    <!-- Mengatur radius sudut (border radius) -->
+    <corners android:radius="8dp" />
+
+    <!-- Opsional: mengatur lebar garis border dan warna border -->
+</shape>

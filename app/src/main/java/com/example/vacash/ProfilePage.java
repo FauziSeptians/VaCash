@@ -1,7 +1,10 @@
 package com.example.vacash;
 
+import static android.content.ContentValues.TAG;
+
 import android.app.Dialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,11 +15,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Locale;
 
@@ -69,15 +76,30 @@ public class ProfilePage extends AppCompatActivity {
                 topup.setOnClickListener(new View.OnClickListener(){
                     public void onClick(View v) {
                         EditText InputValueTopup = customDialog.findViewById(R.id.inputvalue);
-                        Integer IntInput = Integer.parseInt(InputValueTopup.getText().toString());
-                        TotalAmountBalance = Integer.parseInt(InputValueTopup.getText().toString()) + TotalAmountBalance;
-                        textView.setText((formatCurrency(TotalAmountBalance,new Locale("id", "ID"))));
-                        if(ExpensesPay < IntInput) {
-                            ExpensesPay = IntInput;
-                            MostExpenses.setText(formatCurrency(ExpensesPay,new Locale("id", "ID")));
+
+                        Log.d(TAG, "InputValueTopup :" + InputValueTopup.getText().toString());
+                        if(InputValueTopup.getText().toString().isEmpty()){
+                            Log.d(TAG, "InputValueTopup1 :" + InputValueTopup.getText().toString());
+                            TextView Eror = customDialog.findViewById(R.id.erormassage);
+                            Log.d(TAG, "InputValueTopup1 :" + Eror);
+
+                            Eror.setText("Please Input Value");
+
+
+
+                        }else{
+                            Integer IntInput = Integer.parseInt(InputValueTopup.getText().toString());
+
+                            TotalAmountBalance = Integer.parseInt(InputValueTopup.getText().toString()) + TotalAmountBalance;
+                            textView.setText((formatCurrency(TotalAmountBalance,new Locale("id", "ID"))));
+                            if(ExpensesPay < IntInput) {
+                                ExpensesPay = IntInput;
+                                MostExpenses.setText(formatCurrency(ExpensesPay,new Locale("id", "ID")));
+                            }
+                            customDialog.dismiss();
                         }
 //        }
-                        customDialog.dismiss();
+//                        customDialog.dismiss();
 
                     }
                 });
@@ -89,9 +111,17 @@ public class ProfilePage extends AppCompatActivity {
         buttonImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openHamburgerMenu(new MenuHamburgerFragment());
+                openHamburgerMenu(new GameMobileFragment());
             }
         });
+
+        List<TransactionTopUp> HistoryItem =  new ArrayList<TransactionTopUp>();
+        HistoryItem.add(new TransactionTopUp("Fortnite","V-bucks",10000));
+        HistoryItem.add(new TransactionTopUp("Valorant","R-radiant",20000));
+        RecyclerView recyclerView;
+        recyclerView = findViewById(R.id.historytopup);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
+        recyclerView.setAdapter(new TransactionAdapter(HistoryItem));
 
     }
 
@@ -107,19 +137,6 @@ public class ProfilePage extends AppCompatActivity {
         return currencyFormatter.format(amount);
     }
 
-    private void setup(){
-        String[] DataNameGame = getResources().getStringArray(R.array.GameName);
-        int[] QtyGame = getResources().getIntArray(R.array.QtyGame);
-        int[] PriceGame = getResources().getIntArray(R.array.PriceGame);
-
-//        int[] ImageGame = {R.drawable.cod};
-
-
-        for(int i = 0; i < DataNameGame.length; i++){
-            data.add(new DataItemModel(DataNameGame[i], QtyGame[i], PriceGame[i]));
-        }
-
-    }
 
     private void openHamburgerMenu(Fragment fragment){
         FragmentManager fragmentManager = getSupportFragmentManager();
