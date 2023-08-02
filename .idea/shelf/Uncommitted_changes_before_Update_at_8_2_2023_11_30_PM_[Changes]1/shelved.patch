@@ -1,0 +1,314 @@
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+--- a/app/src/main/AndroidManifest.xml	
++++ b/app/src/main/AndroidManifest.xml	
+@@ -36,6 +36,10 @@
+             android:exported="true">
+         </activity>
+         <activity
++            android:name=".Detail"
++            android:exported="true">
++        </activity>
++        <activity
+             android:name=".Homepage"
+             android:exported="true">
+             <intent-filter>
+Index: app/src/main/java/com/example/vacash/Homepage.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/vacash/Homepage.java b/app/src/main/java/com/example/vacash/Homepage.java
+--- a/app/src/main/java/com/example/vacash/Homepage.java	
++++ b/app/src/main/java/com/example/vacash/Homepage.java	
+@@ -85,7 +85,7 @@
+         LayoutInflater inflater = LayoutInflater.from(this);
+         View view = inflater.inflate(R.layout.fragment_game_mobile, null);
+ 
+-        RecyclerView rv = findViewById(R.id.recyclerID2);
++//        RecyclerView rv = findViewById(R.id.recyclerID2);
+ 
+ 
+ 
+@@ -151,29 +151,29 @@
+ 
+ 
+ 
+-        LocalTime CurrentTime = LocalTime.now();
+-
+-        TextView ClockIndicator = findViewById(R.id.clock);
+-        // VALIDASI JAM
+-
+-        LocalTime startTimeMoring = LocalTime.of(0, 0);
+-        LocalTime endTimeMoring = LocalTime.of(10, 59);
+-        LocalTime startTimeSiang = LocalTime.of(11, 0);
+-        LocalTime endTimeSiang = LocalTime.of(15, 0);
+-        LocalTime startTimeSore = LocalTime.of(15, 0);
+-        LocalTime endTimeSore = LocalTime.of(18, 0);
+-        LocalTime startTimeNight = LocalTime.of(18, 0);
+-        LocalTime endTimeNight = LocalTime.of(23, 59);
+-
+-        if(CurrentTime.isAfter(startTimeMoring) && CurrentTime.isBefore(endTimeMoring)){
+-            ClockIndicator.setText("Good Morning,");
+-        }else if(CurrentTime.isAfter(startTimeSiang) && CurrentTime.isBefore(endTimeSiang)){
+-            ClockIndicator.setText("Good Afternoon,");
+-        }else if(CurrentTime.isAfter(startTimeSore) && CurrentTime.isBefore(endTimeSore)){
+-            ClockIndicator.setText("Good Evening,");
+-        }else{
+-            ClockIndicator.setText("Good Night,");
+-        }
++//        LocalTime CurrentTime = LocalTime.now();
++//
++//        TextView ClockIndicator = findViewById(R.id.clock);
++//        // VALIDASI JAM
++//
++//        LocalTime startTimeMoring = LocalTime.of(0, 0);
++//        LocalTime endTimeMoring = LocalTime.of(10, 59);
++//        LocalTime startTimeSiang = LocalTime.of(11, 0);
++//        LocalTime endTimeSiang = LocalTime.of(15, 0);
++//        LocalTime startTimeSore = LocalTime.of(15, 0);
++//        LocalTime endTimeSore = LocalTime.of(18, 0);
++//        LocalTime startTimeNight = LocalTime.of(18, 0);
++//        LocalTime endTimeNight = LocalTime.of(23, 59);
++//
++//        if(CurrentTime.isAfter(startTimeMoring) && CurrentTime.isBefore(endTimeMoring)){
++//            ClockIndicator.setText("Good Morning,");
++//        }else if(CurrentTime.isAfter(startTimeSiang) && CurrentTime.isBefore(endTimeSiang)){
++//            ClockIndicator.setText("Good Afternoon,");
++//        }else if(CurrentTime.isAfter(startTimeSore) && CurrentTime.isBefore(endTimeSore)){
++//            ClockIndicator.setText("Good Evening,");
++//        }else{
++//            ClockIndicator.setText("Good Night,");
++//        }
+ 
+ 
+ 
+Index: app/src/main/java/com/example/vacash/Detail.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/vacash/Detail.java b/app/src/main/java/com/example/vacash/Detail.java
+--- a/app/src/main/java/com/example/vacash/Detail.java	
++++ b/app/src/main/java/com/example/vacash/Detail.java	
+@@ -1,5 +1,7 @@
+ package com.example.vacash;
+ 
++import static android.content.ContentValues.TAG;
++
+ import androidx.appcompat.app.AppCompatActivity;
+ import androidx.appcompat.widget.AppCompatButton;
+ 
+@@ -12,6 +14,7 @@
+ import android.view.View;
+ import android.widget.Button;
+ import android.widget.EditText;
++import android.widget.ImageView;
+ import android.widget.TextView;
+ import android.widget.Toast;
+ import java.text.DecimalFormat;
+@@ -23,7 +26,7 @@
+ public class Detail extends AppCompatActivity {
+ 
+     Integer qty = 1;
+-    private double hargaItem = 1500;
++    private double hargaItem;
+     private TextView hargaItemTextView;
+ 
+     private void showAlertDialog(String message){
+@@ -62,15 +65,20 @@
+ 
+         Intent i = getIntent();
+ 
+-
+         String namaItem = i.getStringExtra("NameItem");
++//        Log.d(TAG, "namaItem: " + namaItem);
+         Integer priceItem = i.getExtras().getInt("PriceItem");
+         Integer imageItem = i.getExtras().getInt("ImageItem");
+ 
++        hargaItem = priceItem;
++
+         TextView namaItemtampil = findViewById(R.id.namaItem);
++        TextView priceItemtampil = findViewById(R.id.priceItem);
++        TextView priceItemtampil2 = findViewById(R.id.hargaItem);
++
+         namaItemtampil.setText(namaItem);
+-
+-
++        priceItemtampil.setText(formatRupiah(priceItem));
++        priceItemtampil2.setText(formatRupiah(priceItem));
+ 
+ 
+         plusBtn.setOnClickListener(new View.OnClickListener() {
+@@ -122,6 +130,25 @@
+ 
+         });
+ 
++//        ImageView backBtn = findViewById(R.id.backdetail);
++//
++//        backBtn.setOnClickListener(new View.OnClickListener() {
++//            @Override
++//            public void onClick(View view) {
++//                Intent intent = new Intent(Detail.this, Item.class);
++//                Bundle bundle = new Bundle();
++//
++//                GameItems game = GlobalData.filterGameByName(gameName);
++//
++//                bundle.putParcelableArrayList("Items", game.getItems());
++//                bundle.putString("gameName", game.getGameName());
++//                bundle.putInt("gameIcon", game.getGameImage2());
++//
++//                intent.putExtras(bundle);
++//                startActivity(intent);
++//                finish();
++//            }
++//        });
+ 
+ 
+ 
+Index: app/src/main/res/layout/activity_detail.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_detail.xml b/app/src/main/res/layout/activity_detail.xml
+--- a/app/src/main/res/layout/activity_detail.xml	
++++ b/app/src/main/res/layout/activity_detail.xml	
+@@ -26,6 +26,7 @@
+                 android:orientation="horizontal">
+ 
+                 <ImageView
++                    android:id="@+id/backdetail"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_marginTop="50dp"
+@@ -234,7 +235,7 @@
+                     android:textSize="15sp"
+                     />
+                 <TextView
+-                    android:id="@+id/namaItem"
++                    android:id="@+id/namaItem2"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text="5 Diamonds"
+@@ -251,7 +252,7 @@
+                     android:fontFamily="@font/montserratbold"
+                     android:textColor="#CCFFFFFF"
+                     android:textSize="8sp"
+-                    android:layout_toRightOf="@id/namaItem"
++                    android:layout_toRightOf="@id/namaItem2"
+                     android:layout_below="@id/namaGame"
+                     />
+                 <TextView
+@@ -263,7 +264,7 @@
+                     android:fontFamily="@font/montserratbold"
+                     android:textColor="#CCFFFFFF"
+                     android:textSize="8sp"
+-                    android:layout_toRightOf="@id/namaItem"
++                    android:layout_toRightOf="@id/namaItem2"
+                     android:layout_below="@id/namaGame"
+                     />
+                 <TextView
+@@ -274,7 +275,7 @@
+                     android:fontFamily="@font/montserratbold"
+                     android:textColor="#CCFFFFFF"
+                     android:textSize="8sp"
+-                    android:layout_toRightOf="@id/namaItem"
++                    android:layout_toRightOf="@id/namaItem2"
+                     android:layout_below="@id/namaGame"
+                     />
+                 <TextView
+@@ -286,7 +287,7 @@
+                     android:fontFamily="@font/montserratbold"
+                     android:textColor="#FFFFFF"
+                     android:textSize="12sp"
+-                    android:layout_below="@id/namaItem"
++                    android:layout_below="@id/namaItem2"
+                     />
+                 <Button
+                     android:id="@+id/payBtn"
+Index: app/src/main/java/com/example/vacash/ItemAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/vacash/ItemAdapter.java b/app/src/main/java/com/example/vacash/ItemAdapter.java
+--- a/app/src/main/java/com/example/vacash/ItemAdapter.java	
++++ b/app/src/main/java/com/example/vacash/ItemAdapter.java	
+@@ -1,7 +1,10 @@
+ package com.example.vacash;
+ 
++import static android.content.ContentValues.TAG;
++
+ import android.content.Context;
+ import android.content.Intent;
++import android.util.Log;
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
+@@ -40,6 +43,7 @@
+         holder.keDetail.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
++                Log.d(TAG, "wakwaw: " + 1);
+                 // Get the context from the itemView
+                 Context context = view.getContext();
+ 
+Index: app/src/main/java/com/example/vacash/ItemModel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/vacash/ItemModel.java b/app/src/main/java/com/example/vacash/ItemModel.java
+--- a/app/src/main/java/com/example/vacash/ItemModel.java	
++++ b/app/src/main/java/com/example/vacash/ItemModel.java	
+@@ -1,6 +1,8 @@
+ package com.example.vacash;
+ 
+-public class ItemModel {
++import java.io.Serializable;
++
++public class ItemModel implements Serializable {
+ 
+ 
+     int image;
+Index: app/src/main/java/com/example/vacash/GlobalVar.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/vacash/GlobalVar.java b/app/src/main/java/com/example/vacash/GlobalVar.java
+new file mode 100644
+--- /dev/null	
++++ b/app/src/main/java/com/example/vacash/GlobalVar.java	
+@@ -0,0 +1,26 @@
++//package com.example.vacash;
++//
++//import java.util.ArrayList;
++//
++//public class GlobalVar {
++//
++//    public static ArrayList<ItemModel> filterGameByType (String type) {
++//        ArrayList<ItemModel> filtered = new ArrayList<>();
++//        for (ItemModel game: itemNam) {
++//            if (game.getGameType().equalsIgnoreCase(type)) {
++//                filtered.add(game);
++//            }
++//        }
++//        return filtered;
++//    }
++//
++//    // filter by name
++//    public static GameItems filterGameByName (String name) {
++//        for (GameItems game: games) {
++//            if (game.getGameName().equalsIgnoreCase(name)) {
++//                return game;
++//            }
++//        }
++//        return games.get(0);
++//    }
++//}
