@@ -30,11 +30,14 @@ import java.util.Locale;
 
 public class ProfilePage extends AppCompatActivity {
 
+    UserModel user = new UserModel();
+
     ArrayList<DataItemModel> data = new ArrayList<>();
-    Integer TotalAmountBalance = 0;
-    String NamaPemilik = "Nanskuyy";
+    Integer TotalAmountBalance = user.Balance;
+    String NamaPemilik = user.Name;
     String ID = "";
-    Integer ExpensesPay = 20000;
+    Integer ExpensesPay = user.MostTopUp ;
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,9 +94,11 @@ public class ProfilePage extends AppCompatActivity {
                             Integer IntInput = Integer.parseInt(InputValueTopup.getText().toString());
 
                             TotalAmountBalance = Integer.parseInt(InputValueTopup.getText().toString()) + TotalAmountBalance;
+                            user.Balance = TotalAmountBalance;
                             textView.setText((formatCurrency(TotalAmountBalance,new Locale("id", "ID"))));
                             if(ExpensesPay < IntInput) {
                                 ExpensesPay = IntInput;
+                                user.MostTopUp = IntInput;
                                 MostExpenses.setText(formatCurrency(ExpensesPay,new Locale("id", "ID")));
                             }
                             customDialog.dismiss();
@@ -108,12 +113,12 @@ public class ProfilePage extends AppCompatActivity {
 
         ImageButton buttonImage = findViewById(R.id.HamburgerButton);
 
-        buttonImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openHamburgerMenu(new GameMobileFragment());
-            }
-        });
+//        buttonImage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                openHamburgerMenu(new GameMobileFragment());
+//            }
+//        });
 
         List<TransactionTopUp> HistoryItem =  new ArrayList<TransactionTopUp>();
         HistoryItem.add(new TransactionTopUp("Fortnite","V-bucks",10000));
@@ -138,10 +143,10 @@ public class ProfilePage extends AppCompatActivity {
     }
 
 
-    private void openHamburgerMenu(Fragment fragment){
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.HamburgerFrame, fragment);
-        fragmentTransaction.commit();
-    }
+//    private void openHamburgerMenu(Fragment fragment){
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.HamburgerFrame, fragment);
+//        fragmentTransaction.commit();
+//    }
 }

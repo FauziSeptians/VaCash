@@ -18,6 +18,7 @@ public class Register extends AppCompatActivity {
     EditText confPassword;
     TextView errorMsg;
     Button btnSignUp;
+    TextView signIn;
 
 
     @Override
@@ -31,6 +32,7 @@ public class Register extends AppCompatActivity {
         confPassword = findViewById(R.id.confPassword);
         errorMsg = findViewById(R.id.errorMsg);
         btnSignUp = findViewById(R.id.btnSignUp);
+        signIn = findViewById(R.id.signIn);
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,16 +52,16 @@ public class Register extends AppCompatActivity {
                 } else if (name.length() < 8) {
                     errorMsg.setText("Name's length must be more than 8");
                     errorMsg.setVisibility(View.VISIBLE);
-                } else if (email.toString().endsWith(".com")) {
+                } else if (!email.getText().toString().endsWith(".com")) {
                     errorMsg.setText("E-mail must end with \".com\"");
                     errorMsg.setVisibility(View.VISIBLE);
-                } else if (email.toString().contains("@")) {
+                } else if (!email.getText().toString().contains("@")) {
                     errorMsg.setText("E-mail must contain \"@\"");
                     errorMsg.setVisibility(View.VISIBLE);
                 } else if (password.length() < 8) {
                     errorMsg.setText("Password's length must be more than 8");
                     errorMsg.setVisibility(View.VISIBLE);
-                } else if (confPassword.toString().equals(password.toString())) {
+                } else if (!confPassword.getText().toString().equals(password.getText().toString())) {
                     errorMsg.setText("The password confirmation does not match");
                     errorMsg.setVisibility(View.VISIBLE);
                 } else{
@@ -72,5 +74,12 @@ public class Register extends AppCompatActivity {
             }
         });
 
+        signIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Register.this, Login.class);
+                startActivity(i);
+            }
+        });
     }
 }

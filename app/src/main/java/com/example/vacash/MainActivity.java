@@ -272,12 +272,12 @@ public class MainActivity<test> extends AppCompatActivity {
         fragmentTransaction.commit();
     }
 
-    private void openHamburgerMenu(Fragment fragment){
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.HamburgerFrame, fragment);
-        fragmentTransaction.commit();
-    }
+//    private void openHamburgerMenu(Fragment fragment){
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.HamburgerFrame, fragment);
+//        fragmentTransaction.commit();
+//    }
 
 
 }
