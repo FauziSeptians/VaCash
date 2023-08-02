@@ -59,6 +59,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.HolderData>{
 //                Log.d(TAG, "onClick: " + listdata.get(position));
                 intent.putExtra("ImageItem",items.get(position).getImage());
                 intent.putExtra("PriceItem",items.get(position).getPrice());
+
                 context.startActivity(intent);
             }
         });

@@ -8,6 +8,7 @@
     android:layout_marginRight="20dp">
 
         <LinearLayout
+            android:id="@+id/card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -16,9 +17,10 @@
             >
 
             <ImageView
+                android:id="@+id/images"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/cod" />
+                android:background="@drawable/cod" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -33,27 +35,40 @@
                     android:layout_height="wrap_content"
                     android:text="CALL OF DUTY"
                     android:textColor="#80FFFFFF"
-                    android:textSize="8dp"
+                    android:textSize="10dp"
                     android:fontFamily="@font/montmedium"
                     />
 
-                <TextView
-                    android:id="@+id/ItemGame"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="COD POINT"
-                    android:textColor="#FFFFFF"
-                    android:textSize="12dp"
-                    android:fontFamily="@font/montsemibold"/>
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/ItemGame"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="COD POINT"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12dp"
+                        android:fontFamily="@font/montsemibold"/>
 
-                <TextView
-                    android:id="@+id/QuantityGame"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Qty : "
-                    android:textColor="#FFFFFF"
-                    android:textSize="8dp"
-                    android:fontFamily="@font/montsemibold"/>
+                    <TextView
+                        android:id="@+id/ItemGame"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" - "
+                        android:textColor="#FFFFFF"
+                        android:textSize="12dp"
+                        android:fontFamily="@font/montsemibold"/>
+
+                    <TextView
+                        android:id="@+id/QuantityGame"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/montsemibold"
+                        android:text="Qty : "
+                        android:textColor="#FFFFFF"
+                        android:textSize="8dp" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/PriceGame"

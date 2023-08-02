@@ -32,9 +32,9 @@ public class Detail extends AppCompatActivity {
 
 
     Integer qty = 1;
-    private double hargaItem;
+    private int hargaItem;
     private TextView hargaItemTextView;
-    private double totalHarga;
+    private int totalHarga;
 
     private void showAlertDialog(String message){
         AlertDialog.Builder builder = new AlertDialog.Builder(Detail.this);
@@ -176,7 +176,12 @@ public class Detail extends AppCompatActivity {
                     i.putExtra("qty", qty);
                     startActivity(i);
 
-                    UserModel.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,priceItem));
+                    Log.d(TAG, "onClick: " + gameItem);
+
+
+                    if(gameItem.equals("Mobile Legend")){
+                        UserModel.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,totalHarga,qty,R.drawable.ml));
+                    }
 
                     Log.d(TAG, "History: " + UserModel.HistoryItem);
 //                    Toast.makeText(Detail.this, "Succesfully submitted", Toast.LENGTH_SHORT).show();

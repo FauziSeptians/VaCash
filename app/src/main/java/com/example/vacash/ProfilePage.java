@@ -128,12 +128,12 @@ public class ProfilePage extends AppCompatActivity {
 
 //        List<TransactionTopUp> HistoryItem =  new ArrayList<TransactionTopUp>();
 
-        UserModel user = new UserModel();
+//        UserModel user = new UserModel();
 
         RecyclerView recyclerView;
         recyclerView = findViewById(R.id.historytopup);
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
-        recyclerView.setAdapter(new TransactionAdapter(user.HistoryItem));
+        recyclerView.setAdapter(new TransactionAdapter(UserModel.HistoryItem));
 
     }
 
