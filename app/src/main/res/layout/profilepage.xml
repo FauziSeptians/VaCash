@@ -183,7 +183,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="0"
+                        android:text="IDR 0"
                         android:textColor="#FFFFFF"
                         android:textSize="14dp"
                         android:fontFamily="@font/montsemibold" />
@@ -229,7 +229,7 @@
                         android:id="@+id/AmountBalance"
                         android:layout_width="match_parent"
                         android:layout_height="47dp"
-                        android:text="0"
+                        android:text="IDR 0"
                         android:textColor="#FFFFFF"
                         android:textSize="25dp"
                         android:fontFamily="@font/montserratbold"
