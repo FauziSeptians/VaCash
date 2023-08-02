@@ -20,6 +20,8 @@ public class Register extends AppCompatActivity {
     Button btnSignUp;
     TextView signIn;
 
+    UserModel user = new UserModel();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,9 +68,13 @@ public class Register extends AppCompatActivity {
                     errorMsg.setVisibility(View.VISIBLE);
                 } else{
                     // redirect
-                    Intent i = new Intent(Register.this, Homepage.class);
-                    i.putExtra("username", name.toString());
-                    i.putExtra("email",email.toString());
+                    Intent i = new Intent(Register.this, Login.class);
+//                    i.putExtra("username", name.toString());
+//                    i.putExtra("email",email.toString());
+                    user.Name = name.getText().toString();
+                    user.Password = password.getText().toString();
+                    user.Email = email.getText().toString();
+
                     startActivity(i);
                 }
             }

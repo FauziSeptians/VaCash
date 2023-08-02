@@ -260,6 +260,7 @@ public class Homepage extends AppCompatActivity {
         buttonImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                Log.d(TAG, "onClick: " + 11111);
                 openHamburgerMenu(new MenuHamburgerFragment());
             }
         });
