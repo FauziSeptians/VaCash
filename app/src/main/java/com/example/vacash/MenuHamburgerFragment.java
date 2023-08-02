@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -17,11 +18,14 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import java.time.LocalTime;
+
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,6 +33,8 @@ import androidx.fragment.app.FragmentTransaction;
  * create an instance of this fragment.
  */
 public class MenuHamburgerFragment extends Fragment {
+
+    private ScrollView scrollView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -75,8 +81,29 @@ public class MenuHamburgerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_menu_hamburger, container, false);
+        View viewConsole = inflater.inflate(R.layout.fragment_game_console, container, false);
+        View viewMobile = inflater.inflate(R.layout.fragment_game_mobile, container, false);
+        View viewPC = inflater.inflate(R.layout.fragment_game_p_c, container, false);
+        View viewMain = inflater.inflate(R.layout.homepage,container,false);
+
+        scrollView = viewMain.findViewById(R.id.scrollview);
+
+        RecyclerView sc1 = viewConsole.findViewById(R.id.recyclerID2);
+        RecyclerView sc2 = viewMobile.findViewById(R.id.recyclerID2);
+        RecyclerView sc3 = viewPC.findViewById(R.id.recyclerID2);
+
+        Log.d(TAG, "sc1 : " + sc1);
+
+        sc2.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true; // Jika isScrollEnabled false, touch event akan diintercept dan scroll akan dihentikan
+            }
+        });
+
 
 
         LinearLayout HomeButton = view.findViewById(R.id.HomeMenuButton);
@@ -112,8 +139,8 @@ public class MenuHamburgerFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), Homepage.class);
-                UserModel username = (UserModel) intent.getSerializableExtra("userdata");
-                Log.d(TAG, "onClick: " + username.getName());
+//                UserModel username = (UserModel) intent.getSerializableExtra("userdata");
+//                Log.d(TAG, "onClick: " + username.getName());
                 intent.putExtra("keyItem","mobile");
 //                intent.putExtra("userdate",);
                 startActivity(intent);
@@ -137,6 +164,27 @@ public class MenuHamburgerFragment extends Fragment {
             }
         });
 
+        sc1.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true; // Disable scrolling
+            }
+        });
+
+        sc2.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true; // Disable scrolling
+            }
+        });
+
+        sc3.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;     // Disable scrolling
+            }
+        });
+
 
 
 
@@ -148,6 +196,12 @@ public class MenuHamburgerFragment extends Fragment {
     private void closeFragment() {
         // Make sure the fragment is attached to a hosting activity or fragment
         if (isAdded() && getParentFragmentManager() != null) {
+            scrollView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    return false; // Mematikan scroll saat Anda membuka fragment
+                }
+            });
             FragmentTransaction fragmentTransaction = getParentFragmentManager().beginTransaction();
             fragmentTransaction.remove(this); // 'this' refers to the current fragment
             fragmentTransaction.commit();
