@@ -21,6 +21,7 @@ public class Login extends AppCompatActivity {
     EditText password;
     TextView errorMsg;
     Button btnSignIn;
+    TextView signUp;
 
     UserModel user = new UserModel();
 
@@ -37,6 +38,7 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.password);
         btnSignIn = findViewById(R.id.btnSignIn);
         errorMsg = findViewById(R.id.errorMsg);
+        signUp = findViewById(R.id.signup);
 
 
         ArrayList<String> itemhistory = new ArrayList<String>();
@@ -69,6 +71,14 @@ public class Login extends AppCompatActivity {
                     i.putExtra("userdata",user );
                     startActivity(i);
                 }
+            }
+        });
+
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Login.this, Register.class);
+                startActivity(i);
             }
         });
     }
