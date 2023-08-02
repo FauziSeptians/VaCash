@@ -50,27 +50,44 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (username.length() == 0){
-                    errorMsg.setText("Please input your username");
-                    errorMsg.setVisibility(View.VISIBLE);
-                } else if (password.length() == 0) {
-                    errorMsg.setText("Please input your password");
-                    errorMsg.setVisibility(View.VISIBLE);
-                } else if (username.length() < 8) {
-                    errorMsg.setText("Username's length must be more than 8");
-                    errorMsg.setVisibility(View.VISIBLE);
-                } else if (password.length() < 8) {
-                    errorMsg.setText("Password's length must be more than 8");
-                    errorMsg.setVisibility(View.VISIBLE);
-                } else{
-                    // redirect
-                    Intent i = new Intent(Login.this, Homepage.class);
-                    Log.d(TAG, "usernamenyaapa" + username.getText().toString());
-//                    UserModel User = new UserModel(username.getText().toString(),"password",20,itemhistory);
-                    user.Name = username.getText().toString();
+                        errorMsg.setText("Please input your username");
+                        errorMsg.setVisibility(View.VISIBLE);
+                    } else if (password.length() == 0) {
+                        errorMsg.setText("Please input your password");
+                        errorMsg.setVisibility(View.VISIBLE);
+                    } else if (username.length() < 8) {
+                        errorMsg.setText("Username's length must be more than 8");
+                        errorMsg.setVisibility(View.VISIBLE);
+                    } else if (password.length() < 8) {
+                        errorMsg.setText("Password's length must be more than 8");
+                        errorMsg.setVisibility(View.VISIBLE);
+                    } else{
+                        // redirect
+                    if(user.Name == null){
+                        errorMsg.setText("Please Register First");
+                        errorMsg.setVisibility(View.VISIBLE);
+                    }else{
+//
+                        Log.d(TAG, "onClick1: " + username.getText().toString() + user.Name );
+                        Log.d(TAG, "onClick2: " + password.getText().toString() + user.Password );
 
-                    i.putExtra("userdata",user );
-                    startActivity(i);
-                }
+                        if(username.getText().toString().equals(user.Name) && password.getText().toString().equals(user.Password)){
+                            Log.d(TAG, "onClick1: " + username.getText().toString() + user.Name );
+                            Log.d(TAG, "onClick2: " + password.getText().toString() + user.Password );
+                            Intent i = new Intent(Login.this, Homepage.class);
+
+                            user.Name = username.getText().toString();
+
+                            i.putExtra("userdata",user );
+                            startActivity(i);
+                        }else{
+                            errorMsg.setText("Credentials are not match with our database");
+                            errorMsg.setVisibility(View.VISIBLE);
+                        }
+                    }
+
+                    }
+
             }
         });
 

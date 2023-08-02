@@ -19,6 +19,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.w3c.dom.Text;
+
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
@@ -111,14 +113,18 @@ public class ProfilePage extends AppCompatActivity {
             }
         });
 
+//        TextView email = findViewById(R.id.email);
+//
+//        email.setText(user.Email);
+
         ImageButton buttonImage = findViewById(R.id.HamburgerButton);
 
-//        buttonImage.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                openHamburgerMenu(new GameMobileFragment());
-//            }
-//        });
+        buttonImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHamburgerMenu(new MenuHamburgerFragment());
+            }
+        });
 
         List<TransactionTopUp> HistoryItem =  new ArrayList<TransactionTopUp>();
         HistoryItem.add(new TransactionTopUp("Fortnite","V-bucks",10000));
@@ -143,10 +149,10 @@ public class ProfilePage extends AppCompatActivity {
     }
 
 
-//    private void openHamburgerMenu(Fragment fragment){
-//        FragmentManager fragmentManager = getSupportFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragmentTransaction.replace(R.id.HamburgerFrame, fragment);
-//        fragmentTransaction.commit();
-//    }
+    private void openHamburgerMenu(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.HamburgerFrame, fragment);
+        fragmentTransaction.commit();
+    }
 }

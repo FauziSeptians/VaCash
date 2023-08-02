@@ -58,7 +58,7 @@ public class MenuHamburgerFragment extends Fragment {
      * @return A new instance of fragment MenuHamburgerFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MenuHamburgerFragment newInstance(String param1, String param2) {
+    static MenuHamburgerFragment newInstance(String param1, String param2) {
         MenuHamburgerFragment fragment = new MenuHamburgerFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
