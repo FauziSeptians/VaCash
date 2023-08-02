@@ -50,16 +50,16 @@ public class Register extends AppCompatActivity {
                 } else if (name.length() < 8) {
                     errorMsg.setText("Name's length must be more than 8");
                     errorMsg.setVisibility(View.VISIBLE);
-                } else if (email.toString().endsWith(".com")) {
+                } else if (!email.toString().endsWith(".com")) {
                     errorMsg.setText("E-mail must end with \".com\"");
                     errorMsg.setVisibility(View.VISIBLE);
-                } else if (email.toString().contains("@")) {
+                } else if (!email.toString().contains("@")) {
                     errorMsg.setText("E-mail must contain \"@\"");
                     errorMsg.setVisibility(View.VISIBLE);
                 } else if (password.length() < 8) {
                     errorMsg.setText("Password's length must be more than 8");
                     errorMsg.setVisibility(View.VISIBLE);
-                } else if (confPassword.toString().equals(password.toString())) {
+                } else if (!confPassword.toString().equals(password.toString())) {
                     errorMsg.setText("The password confirmation does not match");
                     errorMsg.setVisibility(View.VISIBLE);
                 } else{

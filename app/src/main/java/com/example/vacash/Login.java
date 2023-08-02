@@ -15,6 +15,7 @@ public class Login extends AppCompatActivity {
     EditText password;
     TextView errorMsg;
     Button btnSignIn;
+    TextView signUp;
 
 
     @Override
@@ -26,6 +27,7 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.password);
         btnSignIn = findViewById(R.id.btnSignIn);
         errorMsg = findViewById(R.id.errorMsg);
+        signUp = findViewById(R.id.signup);
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +50,14 @@ public class Login extends AppCompatActivity {
                     i.putExtra("username", username.toString());
                     startActivity(i);
                 }
+            }
+        });
+
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Login.this, Homepage.class);
+                startActivity(i);
             }
         });
     }
