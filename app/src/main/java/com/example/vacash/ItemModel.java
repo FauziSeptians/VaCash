@@ -7,6 +7,7 @@ public class ItemModel {
     String itemName;
     int price;
 
+
     public ItemModel(int image, String itemName, int price) {
         this.image = image;
         this.itemName = itemName;

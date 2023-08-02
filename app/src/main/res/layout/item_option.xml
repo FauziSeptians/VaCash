@@ -27,8 +27,8 @@
             android:layout_height="wrap_content"
             android:textColor="#C5C4C5"
             android:textSize="15sp"
+            android:fontFamily="@font/montsemibold"
             android:text="5 Diamonds"
-            android:fontFamily="@font/montserratbold"
             />
     </LinearLayout>
     <RelativeLayout
@@ -41,19 +41,28 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
             android:textColor="#FFFFFF"
+<<<<<<< HEAD
             android:textSize="25sp"
             android:text="IDR"
+=======
+            android:textSize="20sp"
+>>>>>>> 3335cda74d00ea206d1d9cf89d9c682e4ab68752
             android:fontFamily="@font/montserratbold"
+            android:text="IDR"
             />
         <TextView
             android:id="@+id/priceItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_marginStart="95dp"
+=======
+            android:layout_marginStart="85dp"
+>>>>>>> 3335cda74d00ea206d1d9cf89d9c682e4ab68752
             android:textColor="#FFFFFF"
-            android:textSize="25sp"
-            android:text="1,500"
+            android:textSize="20sp"
             android:fontFamily="@font/montserratbold"
+            android:text="1,500"
             />
         <ImageView
             android:layout_width="30dp"
