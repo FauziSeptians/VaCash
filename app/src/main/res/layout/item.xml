@@ -16,9 +16,43 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="100dp"
-            android:layout_marginHorizontal="40dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginHorizontal="50dp"
             >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="40dp"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Items"
+                    android:textColor="#99919F"
+                    android:fontFamily="@font/montmedium"
+                    android:textSize="12dp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text=">"
+                    android:textColor="#99919F"
+                    android:layout_marginStart="50dp"
+                    android:fontFamily="@font/montmedium"
+                    android:textSize="12dp"
+                    />
+                <TextView
+                    android:id="@+id/categoryGame"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Mobile"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginStart="70dp"
+                    android:fontFamily="@font/montmedium"
+                    android:textSize="12dp"
+                    />
+            </RelativeLayout>
 
             <ImageView
                 android:id="@+id/imageGame"
@@ -32,9 +66,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:fontFamily="@font/montserratbold"
                 android:textSize="25dp"
                 android:textColor="#FFFFFF"
-                android:fontFamily="@font/montserratbold"
                 />
 
             <LinearLayout
@@ -45,49 +79,53 @@
                 >
 
                 <TextView
+                    android:id="@+id/namaToko"
                     android:text="KatanyaUjiSangatOke"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="13dp"
-                    android:textColor="#99919F"
+                    android:textSize="12dp"
+                    android:layout_marginTop="1dp"
                     android:fontFamily="@font/montmedium"
+                    android:textColor="#99919F"
                     />
                 <ImageView
-                    android:layout_width="3dp"
-                    android:layout_height="3dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:layout_marginTop="7dp"
                     android:layout_marginHorizontal="10dp"
                     android:src="@drawable/icon_circle"
                     />
                 <ImageView
-                    android:layout_width="13dp"
-                    android:layout_height="13dp"
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
                     android:layout_marginTop="3dp"
                     android:layout_marginRight="3dp"
                     android:src="@drawable/icon_stars"
                     />
                 <TextView
+                    android:id="@+id/ratingToko"
                     android:text="4.8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="11dp"
-                    android:textColor="#99919F"
+                    android:textSize="10dp"
                     android:fontFamily="@font/montmedium"
+                    android:textColor="#99919F"
                     />
                 <ImageView
-                    android:layout_width="3dp"
-                    android:layout_height="3dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:layout_marginTop="7dp"
                     android:layout_marginHorizontal="10dp"
                     android:src="@drawable/icon_circle"
                     />
                 <TextView
+                    android:id="@+id/lokasiToko"
                     android:text="Jakarta"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="11dp"
-                    android:textColor="#99919F"
                     android:fontFamily="@font/montmedium"
+                    android:textSize="10dp"
+                    android:textColor="#99919F"
                     />
             </LinearLayout>
         </LinearLayout>
@@ -96,7 +134,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="@drawable/background_itemlist"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="50dp"
             android:paddingHorizontal="40dp"
             android:paddingVertical="50dp"
 
@@ -107,28 +145,28 @@
                 android:orientation="horizontal"
                 >
                 <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_marginRight="20dp"
+                    android:src="@drawable/filter"
                     />
                 <TextView
                     android:text="Item List"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="17dp"
-                    android:textColor="#FFFFFF"
+                    android:textSize="20dp"
                     android:fontFamily="@font/montmedium"
+                    android:textColor="#FFFFFF"
                     />
             </LinearLayout>
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginTop="30dp"
-                android:layout_marginBottom="30dp"
                 >
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="600dp"
                     android:id="@+id/recyclerview"
                     />
             </FrameLayout>
