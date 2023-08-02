@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/keDetail"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -37,28 +38,10 @@
         android:layout_height="wrap_content"
         >
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:textColor="#FFFFFF"
-<<<<<<< HEAD
-            android:textSize="25sp"
-            android:text="IDR"
-=======
-            android:textSize="20sp"
->>>>>>> 3335cda74d00ea206d1d9cf89d9c682e4ab68752
-            android:fontFamily="@font/montserratbold"
-            android:text="IDR"
-            />
-        <TextView
             android:id="@+id/priceItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-<<<<<<< HEAD
-            android:layout_marginStart="95dp"
-=======
-            android:layout_marginStart="85dp"
->>>>>>> 3335cda74d00ea206d1d9cf89d9c682e4ab68752
+            android:layout_marginStart="35dp"
             android:textColor="#FFFFFF"
             android:textSize="20sp"
             android:fontFamily="@font/montserratbold"

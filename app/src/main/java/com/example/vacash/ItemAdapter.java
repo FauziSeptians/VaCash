@@ -1,10 +1,17 @@
 package com.example.vacash;
 
+import static android.content.ContentValues.TAG;
+
+import static com.example.vacash.ItemAdapter.HolderData.formatCurrency;
+
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -35,16 +42,26 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.HolderData>{
 
     @Override
     public void onBindViewHolder(@NonNull ItemAdapter.HolderData holder, int position) {
-//        LayoutInflater.from(.getContext()).inflate(R.layout.item_option,parent,false)
-        // Assuming 'inflater' is an instance of LayoutInflater and 'layoutResourceId' is the ID of the XML layout resource.
-//        View view = inf.inflate(R.layout.item, parent, false);
-
         holder.nameItem.setText(items.get(position).getItemName());
         holder.imageItem.setImageResource(items.get(position).getImage());
-        holder.priceItem.setText(Integer.toString(items.get(position).getPrice()));
-//        view.namaToko.setText(items.get(position).getNamaToko());
-//        holder.ratingToko.setText(items.get(position).getRatingToko());
-//        holder.lokasiToko.setText(items.get(position).getLokasiToko());
+        holder.priceItem.setText(formatCurrency(items.get(position).getPrice(),new Locale("id", "ID")));
+
+        holder.keDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d(TAG, "wakwaw: " + 1);
+                // Get the context from the itemView
+                Context context = view.getContext();
+
+                Intent intent = new Intent(context, Detail.class);
+                intent.putExtra("NameItem",items.get(position).getItemName());
+                intent.putExtra("GameItem",items.get(position).getNamaGame());
+//                Log.d(TAG, "onClick: " + listdata.get(position));
+                intent.putExtra("ImageItem",items.get(position).getImage());
+                intent.putExtra("PriceItem",items.get(position).getPrice());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -58,6 +75,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.HolderData>{
         TextView priceItem;
         ImageView imageItem;
 
+        LinearLayout keDetail;
 
 
         public HolderData(@NonNull View itemView) {
@@ -67,14 +85,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.HolderData>{
             priceItem = itemView.findViewById(R.id.priceItem);
             imageItem = itemView.findViewById(R.id.imageItem);
 
-//            priceItem.setText(formatCurrency(priceItem));
+            keDetail = itemView.findViewById(R.id.keDetail);
         }
 
         public static String formatCurrency(double amount, Locale locale) {
             DecimalFormatSymbols symbols = new DecimalFormatSymbols(locale);
             symbols.setCurrencySymbol("IDR "); // Set the currency symbol to "Rp"
-            symbols.setGroupingSeparator('.');
-            symbols.setDecimalSeparator(',');
+            symbols.setGroupingSeparator(',');
+            symbols.setDecimalSeparator('.');
 
             DecimalFormat currencyFormatter = (DecimalFormat) NumberFormat.getCurrencyInstance(locale);
             currencyFormatter.setDecimalFormatSymbols(symbols);
