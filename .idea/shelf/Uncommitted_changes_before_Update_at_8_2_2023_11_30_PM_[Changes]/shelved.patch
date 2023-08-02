@@ -1,0 +1,29 @@
+Index: .idea/deploymentTargetDropDown.xml
+===================================================================
+diff --git a/.idea/deploymentTargetDropDown.xml b/.idea/deploymentTargetDropDown.xml
+--- a/.idea/deploymentTargetDropDown.xml	
++++ b/.idea/deploymentTargetDropDown.xml	
+@@ -1,17 +1,17 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="deploymentTargetDropDown">
+-    <targetSelectedWithDropDown>
++    <runningDeviceTargetSelectedWithDropDown>
+       <Target>
+-        <type value="QUICK_BOOT_TARGET" />
++        <type value="RUNNING_DEVICE_TARGET" />
+         <deviceKey>
+           <Key>
+             <type value="VIRTUAL_DEVICE_PATH" />
+-            <value value="C:\Users\fauzi\.android\avd\6.7_Horizontal_Fold-in_API_30.avd" />
++            <value value="C:\Users\nanda\.android\avd\Pixel_6_API_23.avd" />
+           </Key>
+         </deviceKey>
+       </Target>
+-    </targetSelectedWithDropDown>
+-    <timeTargetWasSelectedWithDropDown value="2023-08-02T12:58:43.667050800Z" />
++    </runningDeviceTargetSelectedWithDropDown>
++    <timeTargetWasSelectedWithDropDown value="2023-08-02T15:30:45.092478700Z" />
+   </component>
+ </project>
+\ No newline at end of file
