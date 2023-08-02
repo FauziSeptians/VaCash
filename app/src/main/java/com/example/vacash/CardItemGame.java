@@ -29,9 +29,9 @@ public class CardItemGame implements Serializable {
     }
 }
 
-public class DetailItem{
-
-    public DetailItem(image, namanya, ){
-
-    }
-}
+//public class DetailItem{
+//
+//    public DetailItem(image, namanya, ){
+//
+//    }
+//}

@@ -1,13 +1,19 @@
 package com.example.vacash;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Login extends AppCompatActivity {
 
@@ -15,6 +21,8 @@ public class Login extends AppCompatActivity {
     EditText password;
     TextView errorMsg;
     Button btnSignIn;
+
+
 
 
     @Override
@@ -26,6 +34,12 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.password);
         btnSignIn = findViewById(R.id.btnSignIn);
         errorMsg = findViewById(R.id.errorMsg);
+
+
+        ArrayList<String> itemhistory = new ArrayList<String>();
+
+
+        Log.d(TAG, "onCreate: "+ username);
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,7 +59,10 @@ public class Login extends AppCompatActivity {
                 } else{
                     // redirect
                     Intent i = new Intent(Login.this, Homepage.class);
-                    i.putExtra("username", username.toString());
+                    Log.d(TAG, "usernamenyaapa" + username.getText().toString());
+                    UserModel User = new UserModel(username.getText().toString(),"password",20,itemhistory);
+
+                    i.putExtra("userdata", User);
                     startActivity(i);
                 }
             }
