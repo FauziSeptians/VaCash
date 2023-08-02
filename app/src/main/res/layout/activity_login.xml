@@ -54,10 +54,10 @@
             >
 
             <EditText
-                android:id="@+id/username"
+                android:id="@+id/email"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:hint="Username"
+                android:hint="Email"
                 android:textColor="#D9D9D9"
                 android:textColorHint="#D9D9D9"
                 android:paddingHorizontal="15dp"
