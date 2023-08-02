@@ -27,8 +27,8 @@ public class UserModel implements Serializable {
 
     HashMap<String, Integer> occurrencesMap = new HashMap<>();
 
-     HistoryItem.add(new TransactionTopUp("Fortnite","V-bucks",10000));
-     HistoryItem.add(new TransactionTopUp("Valorant","R-radiant",20000));
+//     HistoryItem.add(new TransactionTopUp("Fortnite","V-bucks",10000));
+//     HistoryItem.add(new TransactionTopUp("Valorant","R-radiant",20000));
 
 
 
