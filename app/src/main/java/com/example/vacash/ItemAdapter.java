@@ -28,9 +28,11 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.HolderData>{
 
 
     List<ItemModel> items;
+    CardItemGame game;
 
-    public ItemAdapter(List<ItemModel> items) {
+    public ItemAdapter(List<ItemModel> items, CardItemGame game) {
         this.items = items;
+        this.game = game;
     }
 
 
@@ -59,7 +61,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.HolderData>{
 //                Log.d(TAG, "onClick: " + listdata.get(position));
                 intent.putExtra("ImageItem",items.get(position).getImage());
                 intent.putExtra("PriceItem",items.get(position).getPrice());
-
+                intent.putExtra("game", game);
                 context.startActivity(intent);
             }
         });
