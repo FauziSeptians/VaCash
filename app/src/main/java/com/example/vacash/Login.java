@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 public class Login extends AppCompatActivity {
 
-    EditText username;
+    EditText email;
     EditText password;
     TextView errorMsg;
     Button btnSignIn;
@@ -34,7 +34,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        username = findViewById(R.id.username);
+        email = findViewById(R.id.email);
         password = findViewById(R.id.password);
         btnSignIn = findViewById(R.id.btnSignIn);
         errorMsg = findViewById(R.id.errorMsg);
@@ -44,39 +44,42 @@ public class Login extends AppCompatActivity {
         ArrayList<String> itemhistory = new ArrayList<String>();
 
 
-        Log.d(TAG, "onCreate: "+ username);
+        Log.d(TAG, "onCreate: "+ email);
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (username.length() == 0){
-                        errorMsg.setText("Please input your username");
+                if (email.length() == 0){
+                        errorMsg.setText("Please input your e-mail");
                         errorMsg.setVisibility(View.VISIBLE);
                     } else if (password.length() == 0) {
                         errorMsg.setText("Please input your password");
                         errorMsg.setVisibility(View.VISIBLE);
-                    } else if (username.length() < 8) {
-                        errorMsg.setText("Username's length must be more than 8");
+                    } else if (!email.getText().toString().endsWith(".com")) {
+                        errorMsg.setText("E-mail must end with \".com\"");
+                        errorMsg.setVisibility(View.VISIBLE);
+                    } else if (!email.getText().toString().contains("@")) {
+                        errorMsg.setText("E-mail must contain \"@\"");
                         errorMsg.setVisibility(View.VISIBLE);
                     } else if (password.length() < 8) {
                         errorMsg.setText("Password's length must be more than 8");
                         errorMsg.setVisibility(View.VISIBLE);
                     } else{
                         // redirect
-                    if(user.Name == null){
+                    if(user.Email == null){
                         errorMsg.setText("Please Register First");
                         errorMsg.setVisibility(View.VISIBLE);
                     }else{
 //
-                        Log.d(TAG, "onClick1: " + username.getText().toString() + user.Name );
+                        Log.d(TAG, "onClick1: " + email.getText().toString() + user.Email );
                         Log.d(TAG, "onClick2: " + password.getText().toString() + user.Password );
 
-                        if(username.getText().toString().equals(user.Name) && password.getText().toString().equals(user.Password)){
-                            Log.d(TAG, "onClick1: " + username.getText().toString() + user.Name );
+                        if(email.getText().toString().equals(user.Email) && password.getText().toString().equals(user.Password)){
+                            Log.d(TAG, "onClick1: " + email.getText().toString() + user.Email );
                             Log.d(TAG, "onClick2: " + password.getText().toString() + user.Password );
                             Intent i = new Intent(Login.this, Homepage.class);
 
-                            user.Name = username.getText().toString();
+                            user.Email = email.getText().toString();
 
                             i.putExtra("userdata",user );
                             startActivity(i);
