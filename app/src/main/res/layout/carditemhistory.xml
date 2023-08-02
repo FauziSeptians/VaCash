@@ -11,20 +11,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:padding="10dp"
+            android:paddingVertical="20dp"
+            android:paddingHorizontal="15dp"
             android:background="@drawable/card_item"
             >
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:src="@drawable/cod" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginLeft="20dp">
+                android:layout_marginTop="6dp"
+                android:layout_marginLeft="10dp">
 
                 <TextView
                     android:id="@+id/GameNama"
@@ -32,6 +34,8 @@
                     android:layout_height="wrap_content"
                     android:text="CALL OF DUTY"
                     android:textColor="#80FFFFFF"
+                    android:textSize="8dp"
+                    android:fontFamily="@font/montmedium"
                     />
 
                 <TextView
@@ -39,21 +43,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="COD POINT"
-                    android:textColor="#FFFFFF"/>
+                    android:textColor="#FFFFFF"
+                    android:textSize="12dp"
+                    android:fontFamily="@font/montsemibold"/>
 
                 <TextView
                     android:id="@+id/QuantityGame"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="QTY : "
-                    android:textColor="#FFFFFF"/>
+                    android:textColor="#FFFFFF"
+                    android:textSize="8dp"
+                    android:fontFamily="@font/montsemibold"/>
 
                 <TextView
                     android:id="@+id/PriceGame"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rp 5.000.000"
-                    android:textColor="#FFFFFF"/>
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="15dp"
+                    android:textSize="12dp"
+                    android:fontFamily="@font/montserratbold"/>
 
 
 

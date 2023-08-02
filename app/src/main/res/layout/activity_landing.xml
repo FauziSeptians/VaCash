@@ -30,18 +30,20 @@
             android:textSize="18dp"
             android:layout_gravity="center"
             android:textStyle="bold"
+            android:fontFamily="@font/montserratbold"
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#D9D9D9"
-            android:textSize="15dp"
+            android:textSize="11dp"
             android:layout_gravity="center"
             android:textAlignment="center"
-            android:text="Welcome! Let's start exploring in VA Cash"
+            android:text="Welcome!\nLet's start exploring in VA Cash"
             android:layout_marginTop="10dp"
             android:layout_marginHorizontal="20dp"
+            android:fontFamily="@font/montregular"
             />
 
     </LinearLayout>

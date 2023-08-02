@@ -76,6 +76,7 @@
                     android:textStyle="bold"
                     android:textColor="#FFFF"
                     android:layout_marginTop="20dp"
+                    android:fontFamily="@font/montserratbold"
                     />
 
                 <LinearLayout
@@ -94,6 +95,7 @@
                         android:textAllCaps="false"
                         android:clickable="true"
                         android:background="@drawable/borderbutton"
+                        android:fontFamily="@font/montsemibold"
 
                         />
 
@@ -109,6 +111,7 @@
                         android:textAllCaps="false"
                         android:clickable="true"
                         android:background="@drawable/selectorbutton"
+                        android:fontFamily="@font/montsemibold"
                         />
 
                     <Button
@@ -120,6 +123,7 @@
                         android:textSize="15dp"
                         android:clickable="true"
                         android:background="@drawable/selectorbutton"
+                        android:fontFamily="@font/montsemibold"
                         />
                 </LinearLayout>
 

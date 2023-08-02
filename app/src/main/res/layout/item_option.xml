@@ -28,6 +28,7 @@
             android:textColor="#C5C4C5"
             android:textSize="15sp"
             android:text="5 Diamonds"
+            android:fontFamily="@font/montserratbold"
             />
     </LinearLayout>
     <RelativeLayout
@@ -42,15 +43,17 @@
             android:textColor="#FFFFFF"
             android:textSize="25sp"
             android:text="Rp"
+            android:fontFamily="@font/montserratbold"
             />
         <TextView
             android:id="@+id/priceItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="70dp"
+            android:layout_marginStart="80dp"
             android:textColor="#FFFFFF"
             android:textSize="25sp"
             android:text="1,500"
+            android:fontFamily="@font/montserratbold"
             />
         <ImageView
             android:layout_width="30dp"
