@@ -28,6 +28,7 @@
             android:layout_height="wrap_content"
             android:textColor="#C5C4C5"
             android:textSize="15sp"
+            android:fontFamily="@font/montsemibold"
             android:text="5 Diamonds"
             />
     </LinearLayout>
@@ -37,20 +38,13 @@
         android:layout_height="wrap_content"
         >
         <TextView
+            android:id="@+id/priceItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
             android:textColor="#FFFFFF"
-            android:textSize="25sp"
-            android:text="Rp"
-            />
-        <TextView
-            android:id="@+id/priceItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="70dp"
-            android:textColor="#FFFFFF"
-            android:textSize="25sp"
+            android:textSize="20sp"
+            android:fontFamily="@font/montserratbold"
             android:text="1,500"
             />
         <ImageView

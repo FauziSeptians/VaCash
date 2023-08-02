@@ -46,20 +46,20 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginRight="20dp"
-                        android:background="@drawable/homebutton" />
+                        android:background="@drawable/homebutton"
+                        />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:letterSpacing="0.1"
                         android:text="Home"
                         android:textColor="#FFF"
-                        android:textSize="25dp"
-                        android:textStyle="bold"
-
+                        android:textSize="20dp"
+                        android:fontFamily="@font/montsemibold"
+                        android:layout_gravity="center_vertical"
                         />
 
                 </LinearLayout>
@@ -72,20 +72,22 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginRight="20dp"
-                        android:background="@drawable/itembutton" />
+                        android:background="@drawable/itembutton"
+                        />
 
                     <TextView
                         android:id="@+id/item"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:letterSpacing="0.1"
                         android:text="Item"
                         android:textColor="#FFF"
-                        android:textSize="25dp"
-                        android:textStyle="bold" />
+                        android:textSize="20dp"
+                        android:fontFamily="@font/montsemibold"
+                        android:layout_gravity="center_vertical"
+                        />
 
                 </LinearLayout>
 
@@ -100,20 +102,20 @@
                     <Button
                         android:id="@+id/mobile"
                         android:layout_width="100dp"
-                        android:layout_height="40dp"
+                        android:layout_height="37dp"
                         android:background="@drawable/selectorbutton"
                         android:clickable="true"
                         android:text="Mobile"
                         android:textAllCaps="false"
                         android:textColor="#FFFF"
                         android:textSize="15dp"
-
+                        android:fontFamily="@font/montsemibold"
                         />
 
                     <Button
                         android:id="@+id/console"
                         android:layout_width="100dp"
-                        android:layout_height="40dp"
+                        android:layout_height="37dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/selectorbutton"
@@ -121,17 +123,19 @@
                         android:text="Console"
                         android:textAllCaps="false"
                         android:textColor="#FFFF"
-                        android:textSize="15dp" />
+                        android:textSize="15dp"
+                        android:fontFamily="@font/montsemibold" />
 
                     <Button
                         android:id="@+id/Pc"
                         android:layout_width="100dp"
-                        android:layout_height="40dp"
+                        android:layout_height="37dp"
                         android:background="@drawable/selectorbutton"
                         android:clickable="true"
                         android:text="PC"
                         android:textColor="#FFFF"
-                        android:textSize="15dp" />
+                        android:textSize="15dp"
+                        android:fontFamily="@font/montsemibold" />
 
                 </LinearLayout>
 
@@ -143,24 +147,25 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginRight="20dp"
                         android:background="@drawable/accountbutton" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:letterSpacing="0.1"
                         android:text="Account"
                         android:textColor="#FFF"
-                        android:textSize="25dp"
-                        android:textStyle="bold" />
+                        android:textSize="20dp"
+                        android:fontFamily="@font/montsemibold"
+                        android:layout_gravity="center_vertical"
+                        />
 
                     <TextView
                         android:id="@+id/dropdownAccount"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_marginLeft="20dp"
                         android:letterSpacing="0.1"
                         android:background="@drawable/buttonbawah"
