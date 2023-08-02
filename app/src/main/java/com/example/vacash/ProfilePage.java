@@ -127,8 +127,7 @@ public class ProfilePage extends AppCompatActivity {
         });
 
         List<TransactionTopUp> HistoryItem =  new ArrayList<TransactionTopUp>();
-        HistoryItem.add(new TransactionTopUp("Fortnite","V-bucks",10000));
-        HistoryItem.add(new TransactionTopUp("Valorant","R-radiant",20000));
+
         RecyclerView recyclerView;
         recyclerView = findViewById(R.id.historytopup);
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));

@@ -23,9 +23,12 @@ public class UserModel implements Serializable {
     static Integer MostTopUp = 0;
     static Integer Balance = 0;
 
-    ArrayList<String> arrayList = new ArrayList<>();
+    ArrayList<ItemModel> HistoryItem = new ArrayList<>();
 
     HashMap<String, Integer> occurrencesMap = new HashMap<>();
+
+     HistoryItem.add(new TransactionTopUp("Fortnite","V-bucks",10000));
+     HistoryItem.add(new TransactionTopUp("Valorant","R-radiant",20000));
 
 
 

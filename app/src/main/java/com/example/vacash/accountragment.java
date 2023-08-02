@@ -73,6 +73,8 @@ public class accountragment extends Fragment {
 
         TextView button = view2.findViewById(R.id.dropdownAccount);
 
+        UserModel user = new UserModel();
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,6 +91,17 @@ public class accountragment extends Fragment {
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(),ProfilePage.class);
                 startActivity(intent);
+            }
+        });
+
+        Button logout = view1.findViewById(R.id.Logout);
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(),ProfilePage.class);
+                startActivity(intent);
+//                user = null
             }
         });
 
