@@ -83,7 +83,7 @@ public class GamePCFragment extends Fragment {
         List<CardItemGame> items =  new ArrayList<CardItemGame>();
         items.add(new CardItemGame("Black Desert Online",R.drawable.bd));
         items.add(new CardItemGame("E-Football 2023",R.drawable.pes));
-        items.add(new CardItemGame("Grand Theft Auto Five",R.drawable.gta));
+        items.add(new CardItemGame("Grand Theft Auto Five (GTA V)",R.drawable.gta));
         items.add(new CardItemGame("Valorant",R.drawable.valo));
         items.add(new CardItemGame("Point Blank",R.drawable.pb));
 
