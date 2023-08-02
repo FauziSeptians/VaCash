@@ -23,11 +23,14 @@ public class Login extends AppCompatActivity {
     Button btnSignIn;
     TextView signUp;
 
+    UserModel user = new UserModel();
+
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -62,9 +65,10 @@ public class Login extends AppCompatActivity {
                     // redirect
                     Intent i = new Intent(Login.this, Homepage.class);
                     Log.d(TAG, "usernamenyaapa" + username.getText().toString());
-                    UserModel User = new UserModel(username.getText().toString(),"password",20,itemhistory);
+//                    UserModel User = new UserModel(username.getText().toString(),"password",20,itemhistory);
+                    user.Name = username.getText().toString();
 
-                    i.putExtra("userdata", User);
+                    i.putExtra("userdata",user );
                     startActivity(i);
                 }
             }

@@ -12,7 +12,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 
 import android.widget.Button;
@@ -28,6 +30,7 @@ import android.widget.ImageButton;
 import android.widget.ImageSwitcher;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
@@ -58,12 +61,16 @@ public class Homepage extends AppCompatActivity {
     protected int TogglePC = 0;
     protected int ToggleMobile = 1;
 
+    private ScrollView scrollView;
+
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage);
+
+
 
 
         // direct dari hamburger menu ke item yang ada di homepage
@@ -73,14 +80,21 @@ public class Homepage extends AppCompatActivity {
         Intent intent = getIntent();
         String massage = intent.getStringExtra("keyItem");
         UserModel userdata= (UserModel) intent.getSerializableExtra("userdata");
+        scrollView = findViewById(R.id.scrollview);
+
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View view = inflater.inflate(R.layout.fragment_game_mobile, null);
+
+        RecyclerView rv = findViewById(R.id.recyclerID2);
 
 
-//        UserModel data = (Serializable) userdata;
 
-        Log.d(TAG, "onCreate: " + userdata.getName());
+
+
+
 
         TextView usernames = findViewById(R.id.username);
-        usernames.setText(' ' + userdata.getName());
+        usernames.setText(' ' + userdata.Name);
 
 
         if(massage != null){
@@ -278,8 +292,19 @@ public class Homepage extends AppCompatActivity {
     private void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        scrollView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true; // Mematikan scroll saat Anda membuka fragment
+            }
+        });
+
         fragmentTransaction.replace(R.id.framelayoutID, fragment);
+
         fragmentTransaction.commit();
+
+
+
     }
 
     private void openHamburgerMenu(Fragment fragment){
@@ -288,6 +313,8 @@ public class Homepage extends AppCompatActivity {
         fragmentTransaction.replace(R.id.HamburgerFrame, fragment);
         fragmentTransaction.commit();
     }
+
+
 
 
 

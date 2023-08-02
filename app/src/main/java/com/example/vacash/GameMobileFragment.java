@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -91,6 +92,7 @@ public class GameMobileFragment extends Fragment {
 
 //        linearLayoutManager = new LinearLayoutManager(view.getContext(), LinearLayoutManager.HORIZONTAL,false);
         recyclerView.setLayoutManager(new GridLayoutManager(view.getContext(), 2));
+
 
         data = new GameAdapter(items);
         recyclerView.setAdapter(data);
