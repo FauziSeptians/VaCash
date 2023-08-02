@@ -18,6 +18,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.behavior.HideBottomViewOnScrollBehavior;
+
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -141,6 +144,10 @@ public class Detail extends AppCompatActivity {
                     i.putExtra("totalPrice", totalHarga );
                     i.putExtra("qty", qty);
                     startActivity(i);
+
+                    UserModel.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,priceItem));
+
+                    Log.d(TAG, "History: " + UserModel.HistoryItem);
 //                    Toast.makeText(Detail.this, "Succesfully submitted", Toast.LENGTH_SHORT).show();
                 }
 
