@@ -151,39 +151,29 @@ public class Homepage extends AppCompatActivity {
 
 
 
-        LocalTime CurrentTime = LocalTime.now();
-
-        TextView ClockIndicator = findViewById(R.id.clock);
-        // VALIDASI JAM
-
-        LocalTime startTimeMoring = LocalTime.of(0, 0);
-        LocalTime endTimeMoring = LocalTime.of(10, 59);
-        LocalTime startTimeSiang = LocalTime.of(11, 0);
-        LocalTime endTimeSiang = LocalTime.of(15, 0);
-        LocalTime startTimeSore = LocalTime.of(15, 0);
-        LocalTime endTimeSore = LocalTime.of(18, 0);
-        LocalTime startTimeNight = LocalTime.of(18, 0);
-        LocalTime endTimeNight = LocalTime.of(23, 59);
-
-        if(CurrentTime.isAfter(startTimeMoring) && CurrentTime.isBefore(endTimeMoring)){
-            ClockIndicator.setText("Good Morning,");
-        }else if(CurrentTime.isAfter(startTimeSiang) && CurrentTime.isBefore(endTimeSiang)){
-            ClockIndicator.setText("Good Afternoon,");
-        }else if(CurrentTime.isAfter(startTimeSore) && CurrentTime.isBefore(endTimeSore)){
-            ClockIndicator.setText("Good Evening,");
-        }else{
-            ClockIndicator.setText("Good Night,");
-        }
-
-
-
-
-
-
-
-
-
-
+//        LocalTime CurrentTime = LocalTime.now();
+//
+//        TextView ClockIndicator = findViewById(R.id.clock);
+//        // VALIDASI JAM
+//
+//        LocalTime startTimeMoring = LocalTime.of(0, 0);
+//        LocalTime endTimeMoring = LocalTime.of(10, 59);
+//        LocalTime startTimeSiang = LocalTime.of(11, 0);
+//        LocalTime endTimeSiang = LocalTime.of(15, 0);
+//        LocalTime startTimeSore = LocalTime.of(15, 0);
+//        LocalTime endTimeSore = LocalTime.of(18, 0);
+//        LocalTime startTimeNight = LocalTime.of(18, 0);
+//        LocalTime endTimeNight = LocalTime.of(23, 59);
+//
+//        if(CurrentTime.isAfter(startTimeMoring) && CurrentTime.isBefore(endTimeMoring)){
+//            ClockIndicator.setText("Good Morning,");
+//        }else if(CurrentTime.isAfter(startTimeSiang) && CurrentTime.isBefore(endTimeSiang)){
+//            ClockIndicator.setText("Good Afternoon,");
+//        }else if(CurrentTime.isAfter(startTimeSore) && CurrentTime.isBefore(endTimeSore)){
+//            ClockIndicator.setText("Good Evening,");
+//        }else{
+//            ClockIndicator.setText("Good Night,");
+//        }
 
         View mobile = getLayoutInflater().inflate(R.layout.fragment_game_mobile, null);
 

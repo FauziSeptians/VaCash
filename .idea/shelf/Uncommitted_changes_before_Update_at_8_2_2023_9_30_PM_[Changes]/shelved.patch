@@ -1,0 +1,506 @@
+Index: app/src/main/res/layout/item_option.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:orientation=\"vertical\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"wrap_content\"\r\n    android:paddingHorizontal=\"30dp\"\r\n    android:paddingVertical=\"20dp\"\r\n    android:layout_marginBottom=\"10dp\"\r\n    android:background=\"@drawable/itemlist_option\"\r\n    >\r\n\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:layout_marginBottom=\"5dp\"\r\n        >\r\n        <ImageView\r\n            android:id=\"@+id/imageItem\"\r\n            android:layout_width=\"20dp\"\r\n            android:layout_height=\"20dp\"\r\n            android:src=\"@drawable/icon_diamonds\"\r\n            android:layout_marginEnd=\"15dp\"\r\n           />\r\n        <TextView\r\n            android:id=\"@+id/nameItem\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:textColor=\"#C5C4C5\"\r\n            android:textSize=\"15sp\"\r\n            android:text=\"5 Diamonds\"\r\n            />\r\n    </LinearLayout>\r\n    <RelativeLayout\r\n        android:orientation=\"horizontal\"\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        >\r\n        <TextView\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginStart=\"35dp\"\r\n            android:textColor=\"#FFFFFF\"\r\n            android:textSize=\"25sp\"\r\n            android:text=\"Rp\"\r\n            />\r\n        <TextView\r\n            android:id=\"@+id/priceItem\"\r\n            android:layout_width=\"wrap_content\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:layout_marginStart=\"70dp\"\r\n            android:textColor=\"#FFFFFF\"\r\n            android:textSize=\"25sp\"\r\n            android:text=\"1,500\"\r\n            />\r\n        <ImageView\r\n            android:layout_width=\"30dp\"\r\n            android:layout_height=\"30dp\"\r\n            android:src=\"@drawable/icon_next\"\r\n            android:layout_alignParentEnd=\"true\"\r\n            />\r\n    </RelativeLayout>\r\n\r\n</LinearLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/item_option.xml b/app/src/main/res/layout/item_option.xml
+--- a/app/src/main/res/layout/item_option.xml	(revision 4422799a073404436e67066fe76b7d98285f55a7)
++++ b/app/src/main/res/layout/item_option.xml	(date 1690984006816)
+@@ -27,6 +27,7 @@
+             android:layout_height="wrap_content"
+             android:textColor="#C5C4C5"
+             android:textSize="15sp"
++            android:fontFamily="@font/montsemibold"
+             android:text="5 Diamonds"
+             />
+     </LinearLayout>
+@@ -40,16 +41,18 @@
+             android:layout_height="wrap_content"
+             android:layout_marginStart="35dp"
+             android:textColor="#FFFFFF"
+-            android:textSize="25sp"
+-            android:text="Rp"
++            android:textSize="20sp"
++            android:fontFamily="@font/montserratbold"
++            android:text="IDR"
+             />
+         <TextView
+             android:id="@+id/priceItem"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+-            android:layout_marginStart="70dp"
++            android:layout_marginStart="85dp"
+             android:textColor="#FFFFFF"
+-            android:textSize="25sp"
++            android:textSize="20sp"
++            android:fontFamily="@font/montserratbold"
+             android:text="1,500"
+             />
+         <ImageView
+Index: app/src/main/java/com/example/vacash/ItemAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.vacash;\r\n\r\nimport android.content.Context;\r\nimport android.view.LayoutInflater;\r\nimport android.view.View;\r\nimport android.view.ViewGroup;\r\nimport android.widget.ImageView;\r\nimport android.widget.ListView;\r\nimport android.widget.TextView;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\n\r\nimport java.util.List;\r\n\r\npublic class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.HolderData>{\r\n\r\n\r\n    List<ItemModel> items;\r\n\r\n    public ItemAdapter(List<ItemModel> items) {\r\n        this.items = items;\r\n    }\r\n\r\n\r\n    @NonNull\r\n    @Override\r\n    public ItemAdapter.HolderData onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {\r\n        return new HolderData(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_option,parent,false));\r\n    }\r\n\r\n    @Override\r\n    public void onBindViewHolder(@NonNull ItemAdapter.HolderData holder, int position) {\r\n        holder.nameItem.setText(items.get(position).getItemName());\r\n        holder.imageItem.setImageResource(items.get(position).getImage());\r\n        holder.priceItem.setText(Integer.toString(items.get(position).getPrice()));\r\n    }\r\n\r\n    @Override\r\n    public int getItemCount() {\r\n        return items.size();\r\n    }\r\n\r\n    public static class HolderData extends RecyclerView.ViewHolder{\r\n\r\n        TextView nameItem;\r\n        TextView priceItem;\r\n        ImageView imageItem;\r\n\r\n\r\n        public HolderData(@NonNull View itemView) {\r\n            super(itemView);\r\n\r\n            nameItem = itemView.findViewById(R.id.nameItem);\r\n            priceItem = itemView.findViewById(R.id.priceItem);\r\n            imageItem = itemView.findViewById(R.id.imageItem);\r\n        }\r\n\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/vacash/ItemAdapter.java b/app/src/main/java/com/example/vacash/ItemAdapter.java
+--- a/app/src/main/java/com/example/vacash/ItemAdapter.java	(revision 4422799a073404436e67066fe76b7d98285f55a7)
++++ b/app/src/main/java/com/example/vacash/ItemAdapter.java	(date 1690984532383)
+@@ -46,6 +46,9 @@
+         TextView nameItem;
+         TextView priceItem;
+         ImageView imageItem;
++        TextView namaToko;
++        TextView ratingToko;
++        TextView lokasiToko;
+ 
+ 
+         public HolderData(@NonNull View itemView) {
+@@ -54,6 +57,9 @@
+             nameItem = itemView.findViewById(R.id.nameItem);
+             priceItem = itemView.findViewById(R.id.priceItem);
+             imageItem = itemView.findViewById(R.id.imageItem);
++            namaToko = itemView.findViewById(R.id.namaToko);
++            ratingToko = itemView.findViewById(R.id.ratingToko);
++            lokasiToko = itemView.findViewById(R.id.lokasiToko);
+         }
+ 
+ 
+Index: app/src/main/java/com/example/vacash/Item.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.vacash;\r\n\r\nimport static android.content.ContentValues.TAG;\r\n\r\nimport androidx.appcompat.app.AppCompatActivity;\r\nimport androidx.recyclerview.widget.LinearLayoutManager;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\n\r\nimport android.content.Intent;\r\nimport android.os.Bundle;\r\nimport android.util.Log;\r\nimport android.widget.ImageView;\r\nimport android.widget.TextView;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\n\r\npublic class Item extends AppCompatActivity {\r\n\r\n\r\n\r\n\r\n//    int gamesImage = Integer.parseInt(intent.getStringExtra(\"ImageGame\"));\r\n\r\n    @Override\r\n    protected void onCreate(Bundle savedInstanceState) {\r\n        super.onCreate(savedInstanceState);\r\n        setContentView(R.layout.item);\r\n        Intent intent = getIntent();\r\n        CardItemGame gamesName = (CardItemGame) intent.getSerializableExtra(\"NameGame\");\r\n        Log.d(TAG, \"onCreate: gameName\" + gamesName.getGameName());\r\n        List<ItemModel> items = new ArrayList<ItemModel>();\r\n\r\n        if(gamesName.getGameName().equals(\"Mobile Legends: Bang Bang\")){\r\n            items.add(new ItemModel(R.drawable.icon_diamonds,\"5 Diamonds\", 1500));\r\n            items.add(new ItemModel(R.drawable.icon_diamonds,\"25 Diamonds\", 8000));\r\n            items.add(new ItemModel(R.drawable.icon_diamonds,\"77 Diamonds\", 23000));\r\n            items.add(new ItemModel(R.drawable.icon_diamonds,\"217 Diamonds\", 2300));\r\n            items.add(new ItemModel(R.drawable.icon_diamonds,\"503 Diamonds\", 150000));\r\n        }else if(gamesName.getGameName().equals(\"Call of Duty: Mobile - Garena\")){\r\n            items.add(new ItemModel(R.drawable.icon_points,\"31 COD Points\", 5000));\r\n            items.add(new ItemModel(R.drawable.icon_points,\"63 COD Points\", 10000));\r\n            items.add(new ItemModel(R.drawable.icon_points,\"128 COD Points\", 20000));\r\n            items.add(new ItemModel(R.drawable.icon_points,\"321 COD Points\", 50000));\r\n            items.add(new ItemModel(R.drawable.icon_points,\"645 COD Points\", 100000));\r\n        }else if(gamesName.getGameName().equals(\"Free Fire\")){\r\n            items.add(new ItemModel(R.drawable.icon_diamonds,\"15 Diamonds\", 1000));\r\n            items.add(new ItemModel(R.drawable.icon_diamonds,\"50 Diamonds\", 8000));\r\n            items.add(new ItemModel(R.drawable.icon_diamonds,\"140 Diamonds\", 20000));\r\n            items.add(new ItemModel(R.drawable.icon_diamonds,\"355 Diamonds\", 50000));\r\n            items.add(new ItemModel(R.drawable.icon_diamonds,\"720 Diamonds\", 100000));\r\n        }else if(gamesName.getGameName().equals(\"Genshin Impact\")){\r\n            items.add(new ItemModel(R.drawable.icon_crystal,\"60 Genesis Crystal\", 16000));\r\n            items.add(new ItemModel(R.drawable.icon_crystal,\"300+30 Genesis Crystal\", 79000));\r\n            items.add(new ItemModel(R.drawable.icon_crystal,\"980+110 Genesis Crystal\", 249000));\r\n            items.add(new ItemModel(R.drawable.icon_crystal,\"1,980+260 Genesis Crystal\", 479000));\r\n            items.add(new ItemModel(R.drawable.icon_crystal,\"3,280+600 Genesis Crystal\", 799000));\r\n        }else if(gamesName.getGameName().equals(\"PUBG MOBILE\")){\r\n            items.add(new ItemModel(R.drawable.icon_money,\"35+1 UC\", 7000));\r\n            items.add(new ItemModel(R.drawable.icon_money,\"50+2 UC\", 10000));\r\n            items.add(new ItemModel(R.drawable.icon_money,\"70+3 UC\", 14000));\r\n            items.add(new ItemModel(R.drawable.icon_money,\"125+6 UC\", 25000));\r\n            items.add(new ItemModel(R.drawable.icon_money,\"250+13 UC\", 50000));\r\n        }else if(gamesName.getGameName().equals(\"Fortnite\")) {\r\n            items.add(new ItemModel(R.drawable.icon_coin, \"Fortnite 1,000 V-Bucks\", 147000));\r\n            items.add(new ItemModel(R.drawable.icon_coin, \"Fortnite 2,800 V-Bucks\", 466000));\r\n            items.add(new ItemModel(R.drawable.icon_coin, \"Fortnite 5,000 V-Bucks\", 638000));\r\n            items.add(new ItemModel(R.drawable.icon_coin, \"Fortnite 2,800+5,000 V-Bucks\", 1154000));\r\n            items.add(new ItemModel(R.drawable.icon_coin, \"Fortnite 13,500 V-Bucks\", 1529000));\r\n        }else if(gamesName.getGameName().equals(\"Ragnarok Origin\")) {\r\n            items.add(new ItemModel(R.drawable.icon_nyan, \"10 Nyan Berry\", 4000));\r\n            items.add(new ItemModel(R.drawable.icon_nyan, \"40 Nyan Berry\", 15000));\r\n            items.add(new ItemModel(R.drawable.icon_nyan, \"125 Nyan Berry\", 46000));\r\n            items.add(new ItemModel(R.drawable.icon_nyan, \"210 Nyan Berry\", 75000));\r\n            items.add(new ItemModel(R.drawable.icon_nyan, \"430 Nyan Berry\", 151000));\r\n        }else if(gamesName.getGameName().equals(\"Need For Speed: No Limits\")) {\r\n            items.add(new ItemModel(R.drawable.icon_gold, \"25 Gold\", 11000));\r\n            items.add(new ItemModel(R.drawable.icon_gold, \"75 Gold\", 35000));\r\n            items.add(new ItemModel(R.drawable.icon_gold, \"125 Gold\", 58000));\r\n            items.add(new ItemModel(R.drawable.icon_gold, \"250 Gold\", 116000));\r\n            items.add(new ItemModel(R.drawable.icon_gold, \"625 Gold\", 290000));\r\n        }else if(gamesName.getGameName().equals(\"Apex Legends\")){\r\n            items.add(new ItemModel(R.drawable.icon_points,\"1,000 Apex Coins\", 162000));\r\n            items.add(new ItemModel(R.drawable.icon_points,\"2,000 Apex Coins\", 205000));\r\n            items.add(new ItemModel(R.drawable.icon_points,\"4,000 Apex Coins\", 556000));\r\n            items.add(new ItemModel(R.drawable.icon_points,\"6,000 Apex Coins\", 954000));\r\n            items.add(new ItemModel(R.drawable.icon_points,\"10,000 Apex Coins\", 1550000));\r\n        }else if(gamesName.getGameName().equals(\"Call of Duty: War Zone\")){\r\n            items.add(new ItemModel(R.drawable.icon_points,\"31 COD Points\", 5000));\r\n            items.add(new ItemModel(R.drawable.icon_points,\"128 COD Points\", 20000));\r\n            items.add(new ItemModel(R.drawable.icon_points,\"321 COD Points\", 50000));\r\n            items.add(new ItemModel(R.drawable.icon_points,\"645 COD Points\", 100000));\r\n            items.add(new ItemModel(R.drawable.icon_points,\"800 COD Points\", 120000));\r\n        }else if(gamesName.getGameName().equals(\"Black Desert Online\")) {\r\n            items.add(new ItemModel(R.drawable.icon_coin, \"23 Acoin\", 9700));\r\n            items.add(new ItemModel(R.drawable.icon_coin, \"46 Acoin\", 19600));\r\n            items.add(new ItemModel(R.drawable.icon_coin, \"160 Acoin\", 67000));\r\n            items.add(new ItemModel(R.drawable.icon_coin, \"320 Acoin\", 135500));\r\n            items.add(new ItemModel(R.drawable.icon_coin, \"640 Acoin\", 273500));\r\n        }else if(gamesName.getGameName().equals(\"E-Football 2023\")) {\r\n            items.add(new ItemModel(R.drawable.icon_coin, \"100 E-Football Coin\", 16000));\r\n            items.add(new ItemModel(R.drawable.icon_coin, \"520 E-Football Coin\", 75000));\r\n            items.add(new ItemModel(R.drawable.icon_coin, \"1,050 E-Football Coin\", 159000));\r\n            items.add(new ItemModel(R.drawable.icon_coin, \"2,150 E-Football Coin\", 129000));\r\n            items.add(new ItemModel(R.drawable.icon_coin, \"3,300 E-Football Coin\", 479000));\r\n        }else if(gamesName.getGameName().equals(\"Grand Theft Auto Five (GTA V)\")) {\r\n            items.add(new ItemModel(R.drawable.icon_item, \"RSCC: $100,000\", 46000));\r\n            items.add(new ItemModel(R.drawable.icon_item, \"TSCC: $200,000\", 80000));\r\n            items.add(new ItemModel(R.drawable.icon_item, \"BSCC: $500,000\", 155000));\r\n            items.add(new ItemModel(R.drawable.icon_item, \"WSCC: $1,250,000\", 310000));\r\n            items.add(new ItemModel(R.drawable.icon_item, \"WaSCC: $3,500,000\", 775000));\r\n        }else if(gamesName.getGameName().equals(\"Valorant\")){\r\n            items.add(new ItemModel(R.drawable.icon_points,\"125 Valorant Points\", 15000));\r\n            items.add(new ItemModel(R.drawable.icon_points,\"420 Valorant Points\", 50000));\r\n            items.add(new ItemModel(R.drawable.icon_points,\"700 Valorant Points\", 80000));\r\n            items.add(new ItemModel(R.drawable.icon_points,\"1,375 Valorant Points\", 150000));\r\n            items.add(new ItemModel(R.drawable.icon_points,\"2,400 Valorant Points\", 250000));\r\n        }else if(gamesName.getGameName().equals(\"Point Blank\")){\r\n            items.add(new ItemModel(R.drawable.icon_points,\"1,200 PB Cash\", 10000));\r\n            items.add(new ItemModel(R.drawable.icon_points,\"2,400 PB Cash\", 20000));\r\n            items.add(new ItemModel(R.drawable.icon_points,\"6,000 PB Cash\", 50000));\r\n            items.add(new ItemModel(R.drawable.icon_points,\"12,000 PB Cash\", 100000));\r\n            items.add(new ItemModel(R.drawable.icon_points,\"24,000 PB Cash\", 200000));\r\n        }\r\n\r\n        TextView judulgame = findViewById(R.id.JudulGame);\r\n        ImageView image = findViewById(R.id.imageGame);\r\n\r\n        judulgame.setText(gamesName.getGameName());\r\n        image.setBackgroundResource(gamesName.getImage());\r\n        Log.d(TAG, \"onCreate: \" + gamesName.getImage());\r\n\r\n\r\n\r\n\r\n        RecyclerView recyclerView = findViewById(R.id.recyclerview);\r\n        recyclerView.setLayoutManager(new LinearLayoutManager(this));\r\n        recyclerView.setAdapter(new ItemAdapter(items));\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/vacash/Item.java b/app/src/main/java/com/example/vacash/Item.java
+--- a/app/src/main/java/com/example/vacash/Item.java	(revision 4422799a073404436e67066fe76b7d98285f55a7)
++++ b/app/src/main/java/com/example/vacash/Item.java	(date 1690985530881)
+@@ -12,8 +12,12 @@
+ import android.widget.ImageView;
+ import android.widget.TextView;
+ 
++import java.text.DecimalFormat;
++import java.text.DecimalFormatSymbols;
++import java.text.NumberFormat;
+ import java.util.ArrayList;
+ import java.util.List;
++import java.util.Locale;
+ 
+ public class Item extends AppCompatActivity {
+ 
+@@ -32,95 +36,95 @@
+         List<ItemModel> items = new ArrayList<ItemModel>();
+ 
+         if(gamesName.getGameName().equals("Mobile Legends: Bang Bang")){
+-            items.add(new ItemModel(R.drawable.icon_diamonds,"5 Diamonds", 1500));
+-            items.add(new ItemModel(R.drawable.icon_diamonds,"25 Diamonds", 8000));
+-            items.add(new ItemModel(R.drawable.icon_diamonds,"77 Diamonds", 23000));
+-            items.add(new ItemModel(R.drawable.icon_diamonds,"217 Diamonds", 2300));
+-            items.add(new ItemModel(R.drawable.icon_diamonds,"503 Diamonds", 150000));
++            items.add(new ItemModel(R.drawable.icon_diamonds,"5 Diamonds", 1500, "KatanyaUjiSangatOke","4.8", "Jakarta"));
++            items.add(new ItemModel(R.drawable.icon_diamonds,"25 Diamonds", 8000, "KatanyaUjiSangatOke","4.8", "Jakarta"));
++            items.add(new ItemModel(R.drawable.icon_diamonds,"77 Diamonds", 23000,"KatanyaUjiSangatOke","4.8", "Jakarta"));
++            items.add(new ItemModel(R.drawable.icon_diamonds,"217 Diamonds", 2300, "KatanyaUjiSangatOke","4.8", "Jakarta"));
++            items.add(new ItemModel(R.drawable.icon_diamonds,"503 Diamonds", 150000, "KatanyaUjiSangatOke","4.8", "Jakarta"));
+         }else if(gamesName.getGameName().equals("Call of Duty: Mobile - Garena")){
+-            items.add(new ItemModel(R.drawable.icon_points,"31 COD Points", 5000));
+-            items.add(new ItemModel(R.drawable.icon_points,"63 COD Points", 10000));
+-            items.add(new ItemModel(R.drawable.icon_points,"128 COD Points", 20000));
+-            items.add(new ItemModel(R.drawable.icon_points,"321 COD Points", 50000));
+-            items.add(new ItemModel(R.drawable.icon_points,"645 COD Points", 100000));
++            items.add(new ItemModel(R.drawable.icon_points,"31 COD Points", 5000, "NandaWakwaw05","4.6", "Bogor"));
++            items.add(new ItemModel(R.drawable.icon_points,"63 COD Points", 10000, "NandaWakwaw05","4.6", "Bogor"));
++            items.add(new ItemModel(R.drawable.icon_points,"128 COD Points", 20000, "NandaWakwaw05","4.6", "Bogor"));
++            items.add(new ItemModel(R.drawable.icon_points,"321 COD Points", 50000, "NandaWakwaw05","4.6", "Bogor"));
++            items.add(new ItemModel(R.drawable.icon_points,"645 COD Points", 100000, "NandaWakwaw05","4.6", "Bogor"));
+         }else if(gamesName.getGameName().equals("Free Fire")){
+-            items.add(new ItemModel(R.drawable.icon_diamonds,"15 Diamonds", 1000));
+-            items.add(new ItemModel(R.drawable.icon_diamonds,"50 Diamonds", 8000));
+-            items.add(new ItemModel(R.drawable.icon_diamonds,"140 Diamonds", 20000));
+-            items.add(new ItemModel(R.drawable.icon_diamonds,"355 Diamonds", 50000));
+-            items.add(new ItemModel(R.drawable.icon_diamonds,"720 Diamonds", 100000));
++            items.add(new ItemModel(R.drawable.icon_diamonds,"15 Diamonds", 1000, "KeziaPalingBuFera","4.8", "Bekasi"));
++            items.add(new ItemModel(R.drawable.icon_diamonds,"50 Diamonds", 8000, "KeziaPalingBuFera","4.8", "Bekasi"));
++            items.add(new ItemModel(R.drawable.icon_diamonds,"140 Diamonds", 20000, "KeziaPalingBuFera","4.8", "Bekasi"));
++            items.add(new ItemModel(R.drawable.icon_diamonds,"355 Diamonds", 50000, "KeziaPalingBuFera","4.8", "Bekasi"));
++            items.add(new ItemModel(R.drawable.icon_diamonds,"720 Diamonds", 100000, "KeziaPalingBuFera","4.8", "Bekasi"));
+         }else if(gamesName.getGameName().equals("Genshin Impact")){
+-            items.add(new ItemModel(R.drawable.icon_crystal,"60 Genesis Crystal", 16000));
+-            items.add(new ItemModel(R.drawable.icon_crystal,"300+30 Genesis Crystal", 79000));
+-            items.add(new ItemModel(R.drawable.icon_crystal,"980+110 Genesis Crystal", 249000));
+-            items.add(new ItemModel(R.drawable.icon_crystal,"1,980+260 Genesis Crystal", 479000));
+-            items.add(new ItemModel(R.drawable.icon_crystal,"3,280+600 Genesis Crystal", 799000));
++            items.add(new ItemModel(R.drawable.icon_crystal,"60 Genesis Crystal", 16000, "DisuruhMajuSamaBel","4.9", "Surabaya"));
++            items.add(new ItemModel(R.drawable.icon_crystal,"300+30 Genesis Crystal", 79000, "DisuruhMajuSamaBel","4.9", "Surabaya"));
++            items.add(new ItemModel(R.drawable.icon_crystal,"980+110 Genesis Crystal", 249000, "DisuruhMajuSamaBel","4.9", "Surabaya"));
++            items.add(new ItemModel(R.drawable.icon_crystal,"1,980+260 Genesis Crystal", 479000, "DisuruhMajuSamaBel","4.9", "Surabaya"));
++            items.add(new ItemModel(R.drawable.icon_crystal,"3,280+600 Genesis Crystal", 799000, "DisuruhMajuSamaBel","4.9", "Surabaya"));
+         }else if(gamesName.getGameName().equals("PUBG MOBILE")){
+-            items.add(new ItemModel(R.drawable.icon_money,"35+1 UC", 7000));
+-            items.add(new ItemModel(R.drawable.icon_money,"50+2 UC", 10000));
+-            items.add(new ItemModel(R.drawable.icon_money,"70+3 UC", 14000));
+-            items.add(new ItemModel(R.drawable.icon_money,"125+6 UC", 25000));
+-            items.add(new ItemModel(R.drawable.icon_money,"250+13 UC", 50000));
++            items.add(new ItemModel(R.drawable.icon_money,"35+1 UC", 7000, "FauziNgebutinFigma","4.6", "Depok"));
++            items.add(new ItemModel(R.drawable.icon_money,"50+2 UC", 10000, "FauziNgebutinFigma","4.6", "Depok"));
++            items.add(new ItemModel(R.drawable.icon_money,"70+3 UC", 14000, "FauziNgebutinFigma","4.6", "Depok"));
++            items.add(new ItemModel(R.drawable.icon_money,"125+6 UC", 25000, "FauziNgebutinFigma","4.6", "Depok"));
++            items.add(new ItemModel(R.drawable.icon_money,"250+13 UC", 50000, "FauziNgebutinFigma","4.6", "Depok"));
+         }else if(gamesName.getGameName().equals("Fortnite")) {
+-            items.add(new ItemModel(R.drawable.icon_coin, "Fortnite 1,000 V-Bucks", 147000));
+-            items.add(new ItemModel(R.drawable.icon_coin, "Fortnite 2,800 V-Bucks", 466000));
+-            items.add(new ItemModel(R.drawable.icon_coin, "Fortnite 5,000 V-Bucks", 638000));
+-            items.add(new ItemModel(R.drawable.icon_coin, "Fortnite 2,800+5,000 V-Bucks", 1154000));
+-            items.add(new ItemModel(R.drawable.icon_coin, "Fortnite 13,500 V-Bucks", 1529000));
++            items.add(new ItemModel(R.drawable.icon_coin, "Fortnite 1,000 V-Bucks", 147000, "KisahHatiSeorangPutu","4.6", "Bandung"));
++            items.add(new ItemModel(R.drawable.icon_coin, "Fortnite 2,800 V-Bucks", 466000, "KisahHatiSeorangPutu","4.6", "Bandung"));
++            items.add(new ItemModel(R.drawable.icon_coin, "Fortnite 5,000 V-Bucks", 638000, "KisahHatiSeorangPutu","4.6", "Bandung"));
++            items.add(new ItemModel(R.drawable.icon_coin, "Fortnite 2,800+5,000 V-Bucks", 1154000, "KisahHatiSeorangPutu","4.6", "Bandung"));
++            items.add(new ItemModel(R.drawable.icon_coin, "Fortnite 13,500 V-Bucks", 1529000, "KisahHatiSeorangPutu","4.6", "Bandung"));
+         }else if(gamesName.getGameName().equals("Ragnarok Origin")) {
+-            items.add(new ItemModel(R.drawable.icon_nyan, "10 Nyan Berry", 4000));
+-            items.add(new ItemModel(R.drawable.icon_nyan, "40 Nyan Berry", 15000));
+-            items.add(new ItemModel(R.drawable.icon_nyan, "125 Nyan Berry", 46000));
+-            items.add(new ItemModel(R.drawable.icon_nyan, "210 Nyan Berry", 75000));
+-            items.add(new ItemModel(R.drawable.icon_nyan, "430 Nyan Berry", 151000));
++            items.add(new ItemModel(R.drawable.icon_nyan, "10 Nyan Berry", 4000, "AsmaraditaSenjaBulan","4.9", "Yogyakarta"));
++            items.add(new ItemModel(R.drawable.icon_nyan, "40 Nyan Berry", 15000, "AsmaraditaSenjaBulan","4.9", "Yogyakarta"));
++            items.add(new ItemModel(R.drawable.icon_nyan, "125 Nyan Berry", 46000, "AsmaraditaSenjaBulan","4.9", "Yogyakarta"));
++            items.add(new ItemModel(R.drawable.icon_nyan, "210 Nyan Berry", 75000, "AsmaraditaSenjaBulan","4.9", "Yogyakarta"));
++            items.add(new ItemModel(R.drawable.icon_nyan, "430 Nyan Berry", 151000, "AsmaraditaSenjaBulan","4.9", "Yogyakarta"));
+         }else if(gamesName.getGameName().equals("Need For Speed: No Limits")) {
+-            items.add(new ItemModel(R.drawable.icon_gold, "25 Gold", 11000));
+-            items.add(new ItemModel(R.drawable.icon_gold, "75 Gold", 35000));
+-            items.add(new ItemModel(R.drawable.icon_gold, "125 Gold", 58000));
+-            items.add(new ItemModel(R.drawable.icon_gold, "250 Gold", 116000));
+-            items.add(new ItemModel(R.drawable.icon_gold, "625 Gold", 290000));
++            items.add(new ItemModel(R.drawable.icon_gold, "25 Gold", 11000, "MeyliaBermainDiMei","4.7", "Malang"));
++            items.add(new ItemModel(R.drawable.icon_gold, "75 Gold", 35000, "MeyliaBermainDiMei","4.7", "Malang"));
++            items.add(new ItemModel(R.drawable.icon_gold, "125 Gold", 58000, "MeyliaBermainDiMei","4.7", "Malang"));
++            items.add(new ItemModel(R.drawable.icon_gold, "250 Gold", 116000, "MeyliaBermainDiMei","4.7", "Malang"));
++            items.add(new ItemModel(R.drawable.icon_gold, "625 Gold", 290000, "MeyliaBermainDiMei","4.7", "Malang"));
+         }else if(gamesName.getGameName().equals("Apex Legends")){
+-            items.add(new ItemModel(R.drawable.icon_points,"1,000 Apex Coins", 162000));
+-            items.add(new ItemModel(R.drawable.icon_points,"2,000 Apex Coins", 205000));
+-            items.add(new ItemModel(R.drawable.icon_points,"4,000 Apex Coins", 556000));
+-            items.add(new ItemModel(R.drawable.icon_points,"6,000 Apex Coins", 954000));
+-            items.add(new ItemModel(R.drawable.icon_points,"10,000 Apex Coins", 1550000));
++            items.add(new ItemModel(R.drawable.icon_points,"1,000 Apex Coins", 162000, "UjiMerenungdiBandung","4.9", "Pontianak"));
++            items.add(new ItemModel(R.drawable.icon_points,"2,000 Apex Coins", 205000, "UjiMerenungdiBandung","4.9", "Pontianak"));
++            items.add(new ItemModel(R.drawable.icon_points,"4,000 Apex Coins", 556000, "UjiMerenungdiBandung","4.9", "Pontianak"));
++            items.add(new ItemModel(R.drawable.icon_points,"6,000 Apex Coins", 954000, "UjiMerenungdiBandung","4.9", "Pontianak"));
++            items.add(new ItemModel(R.drawable.icon_points,"10,000 Apex Coins", 1550000, "UjiMerenungdiBandung","4.9", "Pontianak"));
+         }else if(gamesName.getGameName().equals("Call of Duty: War Zone")){
+-            items.add(new ItemModel(R.drawable.icon_points,"31 COD Points", 5000));
+-            items.add(new ItemModel(R.drawable.icon_points,"128 COD Points", 20000));
+-            items.add(new ItemModel(R.drawable.icon_points,"321 COD Points", 50000));
+-            items.add(new ItemModel(R.drawable.icon_points,"645 COD Points", 100000));
+-            items.add(new ItemModel(R.drawable.icon_points,"800 COD Points", 120000));
++            items.add(new ItemModel(R.drawable.icon_points,"31 COD Points", 5000, "NandanoxAsoyAsoy","5.0", "Tangerang"));
++            items.add(new ItemModel(R.drawable.icon_points,"128 COD Points", 20000, "NandanoxAsoyAsoy","5.0", "Tangerang"));
++            items.add(new ItemModel(R.drawable.icon_points,"321 COD Points", 50000, "NandanoxAsoyAsoy","5.0", "Tangerang"));
++            items.add(new ItemModel(R.drawable.icon_points,"645 COD Points", 100000, "NandanoxAsoyAsoy","5.0", "Tangerang"));
++            items.add(new ItemModel(R.drawable.icon_points,"800 COD Points", 120000, "NandanoxAsoyAsoy","5.0", "Tangerang"));
+         }else if(gamesName.getGameName().equals("Black Desert Online")) {
+-            items.add(new ItemModel(R.drawable.icon_coin, "23 Acoin", 9700));
+-            items.add(new ItemModel(R.drawable.icon_coin, "46 Acoin", 19600));
+-            items.add(new ItemModel(R.drawable.icon_coin, "160 Acoin", 67000));
+-            items.add(new ItemModel(R.drawable.icon_coin, "320 Acoin", 135500));
+-            items.add(new ItemModel(R.drawable.icon_coin, "640 Acoin", 273500));
++            items.add(new ItemModel(R.drawable.icon_coin, "23 Acoin", 9700, "OktavionidalamOkto","4.5", "Solo"));
++            items.add(new ItemModel(R.drawable.icon_coin, "46 Acoin", 19600, "OktavionidalamOkto","4.5", "Solo"));
++            items.add(new ItemModel(R.drawable.icon_coin, "160 Acoin", 67000, "OktavionidalamOkto","4.5", "Solo"));
++            items.add(new ItemModel(R.drawable.icon_coin, "320 Acoin", 135500, "OktavionidalamOkto","4.5", "Solo"));
++            items.add(new ItemModel(R.drawable.icon_coin, "640 Acoin", 273500, "OktavionidalamOkto","4.5", "Solo"));
+         }else if(gamesName.getGameName().equals("E-Football 2023")) {
+-            items.add(new ItemModel(R.drawable.icon_coin, "100 E-Football Coin", 16000));
+-            items.add(new ItemModel(R.drawable.icon_coin, "520 E-Football Coin", 75000));
+-            items.add(new ItemModel(R.drawable.icon_coin, "1,050 E-Football Coin", 159000));
+-            items.add(new ItemModel(R.drawable.icon_coin, "2,150 E-Football Coin", 129000));
+-            items.add(new ItemModel(R.drawable.icon_coin, "3,300 E-Football Coin", 479000));
++            items.add(new ItemModel(R.drawable.icon_coin, "100 E-Football Coin", 16000, "TacoBelEnakSekali","4.7", "Palembang"));
++            items.add(new ItemModel(R.drawable.icon_coin, "520 E-Football Coin", 75000, "TacoBelEnakSekali","4.7", "Palembang"));
++            items.add(new ItemModel(R.drawable.icon_coin, "1,050 E-Football Coin", 159000, "TacoBelEnakSekali","4.7", "Palembang"));
++            items.add(new ItemModel(R.drawable.icon_coin, "2,150 E-Football Coin", 129000, "TacoBelEnakSekali","4.7", "Palembang"));
++            items.add(new ItemModel(R.drawable.icon_coin, "3,300 E-Football Coin", 479000, "TacoBelEnakSekali","4.7", "Palembang"));
+         }else if(gamesName.getGameName().equals("Grand Theft Auto Five (GTA V)")) {
+-            items.add(new ItemModel(R.drawable.icon_item, "RSCC: $100,000", 46000));
+-            items.add(new ItemModel(R.drawable.icon_item, "TSCC: $200,000", 80000));
+-            items.add(new ItemModel(R.drawable.icon_item, "BSCC: $500,000", 155000));
+-            items.add(new ItemModel(R.drawable.icon_item, "WSCC: $1,250,000", 310000));
+-            items.add(new ItemModel(R.drawable.icon_item, "WaSCC: $3,500,000", 775000));
++            items.add(new ItemModel(R.drawable.icon_item, "RSCC: $100,000", 46000, "UjiDiujikanBerhari","4.6", "Medan"));
++            items.add(new ItemModel(R.drawable.icon_item, "TSCC: $200,000", 80000, "UjiDiujikanBerhari","4.6", "Medan"));
++            items.add(new ItemModel(R.drawable.icon_item, "BSCC: $500,000", 155000, "UjiDiujikanBerhari","4.6", "Medan"));
++            items.add(new ItemModel(R.drawable.icon_item, "WSCC: $1,250,000", 310000, "UjiDiujikanBerhari","4.6", "Medan"));
++            items.add(new ItemModel(R.drawable.icon_item, "WaSCC: $3,500,000", 775000, "UjiDiujikanBerhari","4.6", "Medan"));
+         }else if(gamesName.getGameName().equals("Valorant")){
+-            items.add(new ItemModel(R.drawable.icon_points,"125 Valorant Points", 15000));
+-            items.add(new ItemModel(R.drawable.icon_points,"420 Valorant Points", 50000));
+-            items.add(new ItemModel(R.drawable.icon_points,"700 Valorant Points", 80000));
+-            items.add(new ItemModel(R.drawable.icon_points,"1,375 Valorant Points", 150000));
+-            items.add(new ItemModel(R.drawable.icon_points,"2,400 Valorant Points", 250000));
++            items.add(new ItemModel(R.drawable.icon_points,"125 Valorant Points", 15000, "WidiartaTelahHadir","4.5", "Salatiga"));
++            items.add(new ItemModel(R.drawable.icon_points,"420 Valorant Points", 50000, "WidiartaTelahHadir","4.5", "Salatiga"));
++            items.add(new ItemModel(R.drawable.icon_points,"700 Valorant Points", 80000, "WidiartaTelahHadir","4.5", "Salatiga"));
++            items.add(new ItemModel(R.drawable.icon_points,"1,375 Valorant Points", 150000, "WidiartaTelahHadir","4.5", "Salatiga"));
++            items.add(new ItemModel(R.drawable.icon_points,"2,400 Valorant Points", 250000, "WidiartaTelahHadir","4.5", "Salatiga"));
+         }else if(gamesName.getGameName().equals("Point Blank")){
+-            items.add(new ItemModel(R.drawable.icon_points,"1,200 PB Cash", 10000));
+-            items.add(new ItemModel(R.drawable.icon_points,"2,400 PB Cash", 20000));
+-            items.add(new ItemModel(R.drawable.icon_points,"6,000 PB Cash", 50000));
+-            items.add(new ItemModel(R.drawable.icon_points,"12,000 PB Cash", 100000));
+-            items.add(new ItemModel(R.drawable.icon_points,"24,000 PB Cash", 200000));
++            items.add(new ItemModel(R.drawable.icon_points,"1,200 PB Cash", 10000, "PohonKeluargaBCA","5.0", "Jakarta"));
++            items.add(new ItemModel(R.drawable.icon_points,"2,400 PB Cash", 20000, "PohonKeluargaBCA","5.0", "Jakarta"));
++            items.add(new ItemModel(R.drawable.icon_points,"6,000 PB Cash", 50000, "PohonKeluargaBCA","5.0", "Jakarta"));
++            items.add(new ItemModel(R.drawable.icon_points,"12,000 PB Cash", 100000, "PohonKeluargaBCA","5.0", "Jakarta"));
++            items.add(new ItemModel(R.drawable.icon_points,"24,000 PB Cash", 200000, "PohonKeluargaBCA","5.0", "Jakarta"));
+         }
+ 
+         TextView judulgame = findViewById(R.id.JudulGame);
+@@ -130,11 +134,20 @@
+         image.setBackgroundResource(gamesName.getImage());
+         Log.d(TAG, "onCreate: " + gamesName.getImage());
+ 
+-
+-
+-
+         RecyclerView recyclerView = findViewById(R.id.recyclerview);
+         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+         recyclerView.setAdapter(new ItemAdapter(items));
+     }
++
++    public static String formatCurrency(double amount, Locale locale) {
++        DecimalFormatSymbols symbols = new DecimalFormatSymbols(locale);
++        symbols.setCurrencySymbol("Rp "); // Set the currency symbol to "Rp"
++        symbols.setGroupingSeparator('.');
++        symbols.setDecimalSeparator(',');
++
++        DecimalFormat currencyFormatter = (DecimalFormat) NumberFormat.getCurrencyInstance(locale);
++        currencyFormatter.setDecimalFormatSymbols(symbols);
++
++        return currencyFormatter.format(amount);
++    }
+ }
+\ No newline at end of file
+Index: app/src/main/res/layout/item.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<ScrollView\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    xmlns:app=\"http://schemas.android.com/apk/res-auto\"\r\n    xmlns:tools=\"http://schemas.android.com/tools\"\r\n    android:layout_width=\"fill_parent\"\r\n    android:layout_height=\"match_parent\"\r\n    android:fillViewport=\"true\" >\r\n    <LinearLayout\r\n        android:layout_width=\"match_parent\"\r\n        android:layout_height=\"wrap_content\"\r\n        android:orientation=\"vertical\"\r\n        android:background=\"@drawable/backgroundprofile\"\r\n            >\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"vertical\"\r\n            android:layout_marginTop=\"100dp\"\r\n            android:layout_marginHorizontal=\"40dp\"\r\n            >\r\n\r\n            <ImageView\r\n                android:id=\"@+id/imageGame\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"330dp\"\r\n                android:background=\"@drawable/ml\" />\r\n\r\n            <TextView\r\n                android:id=\"@+id/JudulGame\"\r\n                android:text=\"Mobile Legends: Bang-Bang\"\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginTop=\"20dp\"\r\n                android:textSize=\"30dp\"\r\n                android:textColor=\"#FFFFFF\"\r\n                />\r\n\r\n            <LinearLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:orientation=\"horizontal\"\r\n                android:layout_marginTop=\"5dp\"\r\n                >\r\n\r\n                <TextView\r\n                    android:text=\"KatanyaUjiSangatOke\"\r\n                    android:layout_width=\"wrap_content\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:textSize=\"15dp\"\r\n                    android:textColor=\"#99919F\"\r\n                    />\r\n                <ImageView\r\n                    android:layout_width=\"5dp\"\r\n                    android:layout_height=\"5dp\"\r\n                    android:layout_marginTop=\"8dp\"\r\n                    android:layout_marginHorizontal=\"10dp\"\r\n                    android:src=\"@drawable/icon_circle\"\r\n                    />\r\n                <ImageView\r\n                    android:layout_width=\"15dp\"\r\n                    android:layout_height=\"15dp\"\r\n                    android:layout_marginTop=\"3dp\"\r\n                    android:layout_marginRight=\"3dp\"\r\n                    android:src=\"@drawable/icon_stars\"\r\n                    />\r\n                <TextView\r\n                    android:text=\"4.8\"\r\n                    android:layout_width=\"wrap_content\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:textSize=\"15dp\"\r\n                    android:textColor=\"#99919F\"\r\n                    />\r\n                <ImageView\r\n                    android:layout_width=\"5dp\"\r\n                    android:layout_height=\"5dp\"\r\n                    android:layout_marginTop=\"8dp\"\r\n                    android:layout_marginHorizontal=\"10dp\"\r\n                    android:src=\"@drawable/icon_circle\"\r\n                    />\r\n                <TextView\r\n                    android:text=\"Jakarta\"\r\n                    android:layout_width=\"wrap_content\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:textSize=\"15dp\"\r\n                    android:textColor=\"#99919F\"\r\n                    />\r\n            </LinearLayout>\r\n        </LinearLayout>\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"wrap_content\"\r\n            android:orientation=\"vertical\"\r\n            android:background=\"@drawable/background_itemlist\"\r\n            android:layout_marginTop=\"30dp\"\r\n            android:paddingHorizontal=\"40dp\"\r\n            android:paddingVertical=\"50dp\"\r\n\r\n            >\r\n            <LinearLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:orientation=\"horizontal\"\r\n                >\r\n                <ImageView\r\n                    android:layout_width=\"30dp\"\r\n                    android:layout_height=\"30dp\"\r\n                    android:layout_marginRight=\"20dp\"\r\n                    />\r\n                <TextView\r\n                    android:text=\"Item List\"\r\n                    android:layout_width=\"wrap_content\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:textSize=\"20dp\"\r\n                    android:textColor=\"#FFFFFF\"\r\n                    />\r\n            </LinearLayout>\r\n            <FrameLayout\r\n                android:layout_width=\"match_parent\"\r\n                android:layout_height=\"wrap_content\"\r\n                android:layout_marginTop=\"30dp\"\r\n                android:layout_marginBottom=\"30dp\"\r\n                >\r\n                <androidx.recyclerview.widget.RecyclerView\r\n                    android:layout_width=\"match_parent\"\r\n                    android:layout_height=\"wrap_content\"\r\n                    android:id=\"@+id/recyclerview\"\r\n                    />\r\n            </FrameLayout>\r\n        </LinearLayout>\r\n\r\n\r\n    </LinearLayout>\r\n</ScrollView>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/item.xml b/app/src/main/res/layout/item.xml
+--- a/app/src/main/res/layout/item.xml	(revision 4422799a073404436e67066fe76b7d98285f55a7)
++++ b/app/src/main/res/layout/item.xml	(date 1690984477033)
+@@ -17,7 +17,7 @@
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             android:layout_marginTop="100dp"
+-            android:layout_marginHorizontal="40dp"
++            android:layout_marginHorizontal="50dp"
+             >
+ 
+             <ImageView
+@@ -32,6 +32,7 @@
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="20dp"
++                android:fontFamily="@font/montserratbold"
+                 android:textSize="30dp"
+                 android:textColor="#FFFFFF"
+                 />
+@@ -44,45 +45,52 @@
+                 >
+ 
+                 <TextView
++                    android:id="@+id/namaToko"
+                     android:text="KatanyaUjiSangatOke"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+-                    android:textSize="15dp"
++                    android:textSize="12dp"
++                    android:layout_marginTop="1dp"
++                    android:fontFamily="@font/montmedium"
+                     android:textColor="#99919F"
+                     />
+                 <ImageView
+                     android:layout_width="5dp"
+                     android:layout_height="5dp"
+-                    android:layout_marginTop="8dp"
++                    android:layout_marginTop="7dp"
+                     android:layout_marginHorizontal="10dp"
+                     android:src="@drawable/icon_circle"
+                     />
+                 <ImageView
+-                    android:layout_width="15dp"
+-                    android:layout_height="15dp"
++                    android:layout_width="12dp"
++                    android:layout_height="12dp"
+                     android:layout_marginTop="3dp"
+                     android:layout_marginRight="3dp"
+                     android:src="@drawable/icon_stars"
+                     />
+                 <TextView
++                    android:id="@+id/ratingToko"
+                     android:text="4.8"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+-                    android:textSize="15dp"
++                    android:textSize="10dp"
++                    android:fontFamily="@font/montmedium"
+                     android:textColor="#99919F"
+                     />
+                 <ImageView
+                     android:layout_width="5dp"
+                     android:layout_height="5dp"
+-                    android:layout_marginTop="8dp"
++                    android:layout_marginTop="7dp"
+                     android:layout_marginHorizontal="10dp"
+                     android:src="@drawable/icon_circle"
+                     />
+                 <TextView
++                    android:id="@+id/lokasiToko"
+                     android:text="Jakarta"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+-                    android:textSize="15dp"
++                    android:fontFamily="@font/montmedium"
++                    android:textSize="10dp"
+                     android:textColor="#99919F"
+                     />
+             </LinearLayout>
+@@ -106,12 +114,14 @@
+                     android:layout_width="30dp"
+                     android:layout_height="30dp"
+                     android:layout_marginRight="20dp"
++                    android:src="@drawable/filter"
+                     />
+                 <TextView
+                     android:text="Item List"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:textSize="20dp"
++                    android:fontFamily="@font/montmedium"
+                     android:textColor="#FFFFFF"
+                     />
+             </LinearLayout>
+@@ -119,7 +129,6 @@
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="30dp"
+-                android:layout_marginBottom="30dp"
+                 >
+                 <androidx.recyclerview.widget.RecyclerView
+                     android:layout_width="match_parent"
+Index: app/src/main/java/com/example/vacash/ItemView.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.vacash;\r\n\r\nimport android.view.View;\r\nimport android.widget.ImageView;\r\nimport android.widget.TextView;\r\n\r\nimport androidx.annotation.NonNull;\r\nimport androidx.recyclerview.widget.RecyclerView;\r\n\r\npublic class ItemView extends RecyclerView.ViewHolder {\r\n\r\n    ImageView imageItem;\r\n    TextView nameItem, priceItem;\r\n\r\n    public ItemView(@NonNull View itemView) {\r\n        super(itemView);\r\n\r\n        imageItem = itemView.findViewById(R.id.imageItem);\r\n        nameItem = itemView.findViewById(R.id.nameItem);\r\n        priceItem = itemView.findViewById(R.id.priceItem);\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/vacash/ItemView.java b/app/src/main/java/com/example/vacash/ItemView.java
+--- a/app/src/main/java/com/example/vacash/ItemView.java	(revision 4422799a073404436e67066fe76b7d98285f55a7)
++++ b/app/src/main/java/com/example/vacash/ItemView.java	(date 1690984631965)
+@@ -12,11 +12,16 @@
+     ImageView imageItem;
+     TextView nameItem, priceItem;
+ 
++    TextView namaToko, ratingToko, lokasiToko;
++
+     public ItemView(@NonNull View itemView) {
+         super(itemView);
+ 
+         imageItem = itemView.findViewById(R.id.imageItem);
+         nameItem = itemView.findViewById(R.id.nameItem);
+         priceItem = itemView.findViewById(R.id.priceItem);
++        namaToko = itemView.findViewById(R.id.namaToko);
++        ratingToko = itemView.findViewById(R.id.ratingToko);
++        lokasiToko = itemView.findViewById(R.id.lokasiToko);
+     }
+ }
+Index: app/src/main/java/com/example/vacash/ItemModel.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.vacash;\r\n\r\npublic class ItemModel {\r\n\r\n\r\n    int image;\r\n    String itemName;\r\n    int price;\r\n\r\n    public ItemModel(int image, String itemName, int price) {\r\n        this.image = image;\r\n        this.itemName = itemName;\r\n        this.price = price;\r\n    }\r\n\r\n    public int getImage() {\r\n        return image;\r\n    }\r\n\r\n    public void setImage(int image) {\r\n        this.image = image;\r\n    }\r\n\r\n    public String getItemName() {\r\n        return itemName;\r\n    }\r\n\r\n    public void setItemName(String itemName) {\r\n        this.itemName = itemName;\r\n    }\r\n\r\n    public int getPrice() {\r\n        return price;\r\n    }\r\n\r\n    public void setPrice(int price) {\r\n        this.price = price;\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/vacash/ItemModel.java b/app/src/main/java/com/example/vacash/ItemModel.java
+--- a/app/src/main/java/com/example/vacash/ItemModel.java	(revision 4422799a073404436e67066fe76b7d98285f55a7)
++++ b/app/src/main/java/com/example/vacash/ItemModel.java	(date 1690984818600)
+@@ -7,10 +7,42 @@
+     String itemName;
+     int price;
+ 
+-    public ItemModel(int image, String itemName, int price) {
++    String namaToko;
++    String ratingToko;
++
++    public ItemModel(int image, String itemName, int price, String namaToko, String ratingToko, String lokasiToko) {
+         this.image = image;
+         this.itemName = itemName;
+         this.price = price;
++        this.namaToko = namaToko;
++        this.ratingToko = ratingToko;
++        this.lokasiToko = lokasiToko;
++    }
++
++    String lokasiToko;
++
++    public String getNamaToko() {
++        return namaToko;
++    }
++
++    public void setNamaToko(String namaToko) {
++        this.namaToko = namaToko;
++    }
++
++    public String getRatingToko() {
++        return ratingToko;
++    }
++
++    public void setRatingToko(String ratingToko) {
++        this.ratingToko = ratingToko;
++    }
++
++    public String getLokasiToko() {
++        return lokasiToko;
++    }
++
++    public void setLokasiToko(String lokasiToko) {
++        this.lokasiToko = lokasiToko;
+     }
+ 
+     public int getImage() {
+Index: .idea/deploymentTargetDropDown.xml
+===================================================================
+diff --git a/.idea/deploymentTargetDropDown.xml b/.idea/deploymentTargetDropDown.xml
+deleted file mode 100644
+--- a/.idea/deploymentTargetDropDown.xml	(revision 4422799a073404436e67066fe76b7d98285f55a7)
++++ /dev/null	(revision 4422799a073404436e67066fe76b7d98285f55a7)
+@@ -1,17 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="deploymentTargetDropDown">
+-    <targetSelectedWithDropDown>
+-      <Target>
+-        <type value="QUICK_BOOT_TARGET" />
+-        <deviceKey>
+-          <Key>
+-            <type value="VIRTUAL_DEVICE_PATH" />
+-            <value value="C:\Users\fauzi\.android\avd\6.7_Horizontal_Fold-in_API_30.avd" />
+-          </Key>
+-        </deviceKey>
+-      </Target>
+-    </targetSelectedWithDropDown>
+-    <timeTargetWasSelectedWithDropDown value="2023-07-29T07:59:17.138774800Z" />
+-  </component>
+-</project>
+\ No newline at end of file
