@@ -1,5 +1,7 @@
 package com.example.vacash;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -30,10 +32,12 @@ import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
 import java.io.Console;
+import java.io.Serializable;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Homepage extends AppCompatActivity {
 
@@ -44,6 +48,8 @@ public class Homepage extends AppCompatActivity {
             R.drawable.imageiklan4,
             R.drawable.imageiklan5,
     };
+
+
 
     private ImageSwitcher imageSwitcher;
     private int currentIndex = 0;
@@ -66,6 +72,15 @@ public class Homepage extends AppCompatActivity {
         Button PCbutton = findViewById(R.id.Pc);
         Intent intent = getIntent();
         String massage = intent.getStringExtra("keyItem");
+        UserModel userdata= (UserModel) intent.getSerializableExtra("userdata");
+
+
+//        UserModel data = (Serializable) userdata;
+
+        Log.d(TAG, "onCreate: " + userdata.getName());
+
+        TextView usernames = findViewById(R.id.username);
+        usernames.setText(' ' + userdata.getName());
 
 
         if(massage != null){
@@ -137,13 +152,13 @@ public class Homepage extends AppCompatActivity {
         LocalTime endTimeNight = LocalTime.of(23, 59);
 
         if(CurrentTime.isAfter(startTimeMoring) && CurrentTime.isBefore(endTimeMoring)){
-            ClockIndicator.setText("Good Morning");
+            ClockIndicator.setText("Good Morning,");
         }else if(CurrentTime.isAfter(startTimeSiang) && CurrentTime.isBefore(endTimeSiang)){
-            ClockIndicator.setText("Good Afternoon");
+            ClockIndicator.setText("Good Afternoon,");
         }else if(CurrentTime.isAfter(startTimeSore) && CurrentTime.isBefore(endTimeSore)){
-            ClockIndicator.setText("Good Noon");
+            ClockIndicator.setText("Good Evening,");
         }else{
-            ClockIndicator.setText("Good Night");
+            ClockIndicator.setText("Good Night,");
         }
 
 
