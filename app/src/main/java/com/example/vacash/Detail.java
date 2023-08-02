@@ -5,6 +5,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
@@ -58,6 +59,19 @@ public class Detail extends AppCompatActivity {
         TextView val = findViewById(R.id.qty);
         Button payBtn = findViewById(R.id.payBtn);
         TextView val2 = findViewById(R.id.qty2);
+
+        Intent i = getIntent();
+
+
+        String namaItem = i.getStringExtra("NameItem");
+        Integer priceItem = i.getExtras().getInt("PriceItem");
+        Integer imageItem = i.getExtras().getInt("ImageItem");
+
+        TextView namaItemtampil = findViewById(R.id.namaItem);
+        namaItemtampil.setText(namaItem);
+
+
+
 
         plusBtn.setOnClickListener(new View.OnClickListener() {
             @Override

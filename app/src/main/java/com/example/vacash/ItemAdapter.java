@@ -1,10 +1,12 @@
 package com.example.vacash;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -34,6 +36,21 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.HolderData>{
         holder.nameItem.setText(items.get(position).getItemName());
         holder.imageItem.setImageResource(items.get(position).getImage());
         holder.priceItem.setText(Integer.toString(items.get(position).getPrice()));
+
+        holder.keDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Get the context from the itemView
+                Context context = view.getContext();
+
+                Intent intent = new Intent(context, Detail.class);
+                intent.putExtra("NameItem",items.get(position).getItemName());
+//                Log.d(TAG, "onClick: " + listdata.get(position));
+                intent.putExtra("ImageItem",items.get(position).getImage());
+                intent.putExtra("PriceItem",items.get(position).getPrice());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -47,6 +64,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.HolderData>{
         TextView priceItem;
         ImageView imageItem;
 
+        LinearLayout keDetail;
+
 
         public HolderData(@NonNull View itemView) {
             super(itemView);
@@ -54,6 +73,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.HolderData>{
             nameItem = itemView.findViewById(R.id.nameItem);
             priceItem = itemView.findViewById(R.id.priceItem);
             imageItem = itemView.findViewById(R.id.imageItem);
+
+            keDetail = itemView.findViewById(R.id.keDetail);
         }
 
 
