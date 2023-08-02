@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -29,9 +30,9 @@ public class Detail extends AppCompatActivity {
 
 
     Integer qty = 1;
-    private double hargaItem;
+    private Integer hargaItem;
     private TextView hargaItemTextView;
-    private double totalHarga;
+    private Integer totalHarga;
 
     private void showAlertDialog(String message){
         AlertDialog.Builder builder = new AlertDialog.Builder(Detail.this);
@@ -44,7 +45,7 @@ public class Detail extends AppCompatActivity {
     private void updateHargaItemTextView() {
         hargaItemTextView = findViewById(R.id.hargaItem);
         totalHarga = hargaItem * qty;
-        String formattedHarga = formatRupiah(totalHarga);
+        String formattedHarga = formatCurrency(totalHarga, new Locale("id", "ID"));
         hargaItemTextView.setText(formattedHarga);
     }
 
@@ -52,6 +53,18 @@ public class Detail extends AppCompatActivity {
         NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
         String formattedHarga = formatter.format(harga);
         return formattedHarga.replace("Rp", "Rp ");
+    }
+
+    public static String formatCurrency(Integer amount, Locale locale) {
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols(locale);
+        symbols.setCurrencySymbol("IDR "); // Set the currency symbol to "Rp"
+        symbols.setGroupingSeparator(',');
+        symbols.setDecimalSeparator('.');
+
+        DecimalFormat currencyFormatter = (DecimalFormat) NumberFormat.getCurrencyInstance(locale);
+        currencyFormatter.setDecimalFormatSymbols(symbols);
+
+        return currencyFormatter.format(amount);
     }
 
     @Override
@@ -85,8 +98,8 @@ public class Detail extends AppCompatActivity {
         ImageView itemGambar = findViewById(R.id.imageItem);
 
         namaItemtampil.setText(namaItem);
-        priceItemtampil.setText(formatRupiah(priceItem));
-        priceItemtampil2.setText(formatRupiah(priceItem));
+        priceItemtampil.setText(formatCurrency(priceItem, new Locale("id", "ID")));
+        priceItemtampil2.setText(formatCurrency(priceItem, new Locale("id", "ID")));
         itemGambar.setBackgroundResource(imageItem);
 
         if (gameItem.equals("Mobile Legends")){
@@ -120,6 +133,8 @@ public class Detail extends AppCompatActivity {
         } else if (gameItem.equals("Point Blank")) {
             desc.setText("Point Blank is a fast-paced online first person shooter game, and has gameplay similar to Counter-Strike. Point Blank Cash is one of the in-game currencies that can be used to purchase various game accessories.");
         }
+
+
 
 
         plusBtn.setOnClickListener(new View.OnClickListener() {
@@ -161,6 +176,10 @@ public class Detail extends AppCompatActivity {
                     showAlertDialog("Username must be filled");
                 } else if (email.isEmpty()) {
                     showAlertDialog("Email must be filled");
+                } else if (!email.endsWith(".com")) {
+                    showAlertDialog("E-mail must end with \".com\"");
+                } else if (!email.contains("@")) {
+                    showAlertDialog("E-mail must contain \"@\"");
                 } else if (totalHarga > user.Balance) {
                     showAlertDialog("Total payment must be less than or equals to the user’s account balance");
                 } else {
@@ -171,6 +190,7 @@ public class Detail extends AppCompatActivity {
                     i.putExtra("priceItem", priceItem );
                     i.putExtra("totalPrice", totalHarga );
                     i.putExtra("qty", qty);
+                    user.Balance = user.Balance - totalHarga;
                     startActivity(i);
 //                    Toast.makeText(Detail.this, "Succesfully submitted", Toast.LENGTH_SHORT).show();
                 }
@@ -184,7 +204,9 @@ public class Detail extends AppCompatActivity {
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getApplicationContext(), Item.class);
+                intent.putExtra("NameGame", getIntent().getSerializableExtra("game"));
+                startActivity(intent);
             }
         });
 

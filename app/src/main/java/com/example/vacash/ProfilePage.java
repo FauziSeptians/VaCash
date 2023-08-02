@@ -137,7 +137,7 @@ public class ProfilePage extends AppCompatActivity {
 
     public static String formatCurrency(double amount, Locale locale) {
         DecimalFormatSymbols symbols = new DecimalFormatSymbols(locale);
-        symbols.setCurrencySymbol("Rp "); // Set the currency symbol to "Rp"
+        symbols.setCurrencySymbol("IDR "); // Set the currency symbol to "Rp"
         symbols.setGroupingSeparator('.');
         symbols.setDecimalSeparator(',');
 
