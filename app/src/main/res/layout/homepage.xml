@@ -44,7 +44,7 @@
                         android:id="@+id/clock"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Good Morning"
+                        android:text="Hello,"
                         android:textSize="18dp"
                         android:textColor="#FFFF"
                         android:fontFamily="@font/montregular"
