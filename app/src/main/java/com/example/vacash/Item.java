@@ -51,7 +51,7 @@ public class Item extends AppCompatActivity {
 //        desc = findViewById(R.id.descGame);
 
 
-
+        UserModel user = new UserModel();
 
 
         if(gamesName.getGameName().equals("Mobile Legends: Bang Bang")){
