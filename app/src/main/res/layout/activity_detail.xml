@@ -261,7 +261,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="12dp"
-                    android:text="10"
+                    android:text="1"
                     android:fontFamily="@font/montserratbold"
                     android:textColor="#CCFFFFFF"
                     android:textSize="8sp"
