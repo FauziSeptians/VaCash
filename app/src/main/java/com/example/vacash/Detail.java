@@ -93,18 +93,23 @@ public class Detail extends AppCompatActivity {
         Integer priceItem = i.getExtras().getInt("PriceItem");
         Integer imageItem = i.getExtras().getInt("ImageItem");
 
+
         hargaItem = priceItem;
 
         TextView namaItemtampil = findViewById(R.id.namaItem);
+        TextView namaItemtampil2 = findViewById(R.id.namaItem2);
         TextView priceItemtampil = findViewById(R.id.priceItem);
         TextView priceItemtampil2 = findViewById(R.id.hargaItem);
         TextView desc = findViewById(R.id.descGame);
         ImageView itemGambar = findViewById(R.id.imageItem);
+        TextView namaGame = findViewById(R.id.namaGame);
 
         namaItemtampil.setText(namaItem);
+        namaItemtampil2.setText(namaItem);
         priceItemtampil.setText(formatCurrency(priceItem, new Locale("id", "ID")));
         priceItemtampil2.setText(formatCurrency(priceItem, new Locale("id", "ID")));
         itemGambar.setBackgroundResource(imageItem);
+        namaGame.setText(gameItem);
 
         if (gameItem.equals("Mobile Legends")){
             desc.setText("Mobile Legends: Bang Bang is a mobile game with the multiplayer online battle arena (MOBA) genre. This game is developed and published by a company called Moonton. Diamonds are one of the in-game currencies that can be used to buy various game accessories, such as skins, etc");
