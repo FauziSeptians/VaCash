@@ -44,7 +44,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         holder.GameNama.setText(transcation.get(position).getGameNama());
         holder.ItemGame.setText(transcation.get(position).getItemGame());
         holder.PriceGame.setText((formatCurrency(transcation.get(position).getPriceGame(),new Locale("id", "ID"))));
-        holder.qty.setText(Integer.toString(transcation.get(position).getQty()));
+        holder.qty.setText("("+Integer.toString(transcation.get(position).getQty())+")");
         holder.images.setBackgroundResource(transcation.get(position).getImage());
         Log.d(TAG, "onBindViewHolder: " + transcation.get(position).getQty());
 

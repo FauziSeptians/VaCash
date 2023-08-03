@@ -99,9 +99,21 @@ public class accountragment extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(),ProfilePage.class);
+                Intent intent = new Intent(view.getContext(),Login.class);
+                user.Name = null;
+                user.Password = null;
+                user.Email = null;
+                user.MostTopUp = 0;
+                user.Balance = 0;
+//                static String Name;
+//                static String Password;
+//                static String Email;
+//                static Integer MostTopUp = 0;
+//                static Integer Balance = 0;
+//
+//                static ArrayList<TransactionTopUp> HistoryItem = new ArrayList<>();
                 startActivity(intent);
-//                user = null
+
             }
         });
 

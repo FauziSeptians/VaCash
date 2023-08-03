@@ -33,10 +33,10 @@ public class Detail extends AppCompatActivity {
     UserModel user = new UserModel();
 
 
-    Integer qty = 1;
+    private Integer qty = 1;
     private Integer hargaItem;
     private TextView hargaItemTextView;
-    private Integer totalHarga;
+    private Integer totalHarga ;
 
     private void showAlertDialog(String message){
         AlertDialog.Builder builder = new AlertDialog.Builder(Detail.this);
@@ -95,6 +95,7 @@ public class Detail extends AppCompatActivity {
 
 
         hargaItem = priceItem;
+        totalHarga = hargaItem ;
 
         TextView namaItemtampil = findViewById(R.id.namaItem);
         TextView namaItemtampil2 = findViewById(R.id.namaItem2);
@@ -206,7 +207,7 @@ public class Detail extends AppCompatActivity {
 
                     if(gameItem.equals("Mobile Legend")){
                         user.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,totalHarga,qty,R.drawable.ml));
-                    }else if(gameItem.equals("Call of Duty: Mobile - Garena")){
+                    }else if(gameItem.equals("COD")){
                         user.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,totalHarga,qty,R.drawable.cod));
                     }else if(gameItem.equals("Free Fire")){
                         user.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,totalHarga,qty,R.drawable.freefire));

@@ -6,172 +6,223 @@
     android:layout_width="fill_parent"
     android:layout_height="match_parent"
     android:fillViewport="true" >
-    <LinearLayout
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@drawable/backgroundprofile"
-            >
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginTop="50dp"
-            android:layout_marginHorizontal="50dp"
+            android:background="@drawable/backgroundprofile"
             >
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="40dp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Items"
-                    android:textColor="#99919F"
-                    android:fontFamily="@font/montmedium"
-                    android:textSize="12dp"
-                    />
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text=">"
-                    android:textColor="#99919F"
-                    android:layout_marginStart="50dp"
-                    android:fontFamily="@font/montmedium"
-                    android:textSize="12dp"
-                    />
-                <TextView
-                    android:id="@+id/categoryGame"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Mobile"
-                    android:textColor="#FFFFFF"
-                    android:layout_marginStart="70dp"
-                    android:fontFamily="@font/montmedium"
-                    android:textSize="12dp"
-                    />
-            </RelativeLayout>
-
-            <ImageView
-                android:id="@+id/imageGame"
-                android:layout_width="match_parent"
-                android:layout_height="330dp"
-                android:background="@drawable/ml" />
-
-            <TextView
-                android:id="@+id/JudulGame"
-                android:text="Mobile Legends: Bang-Bang"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/montserratbold"
-                android:textSize="25dp"
-                android:textColor="#FFFFFF"
-                />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:layout_marginTop="50dp"
+                android:layout_marginHorizontal="50dp"
                 >
 
-                <TextView
-                    android:id="@+id/namaToko"
-                    android:text="KatanyaUjiSangatOke"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="12dp"
-                    android:layout_marginTop="1dp"
-                    android:fontFamily="@font/montmedium"
-                    android:textColor="#99919F"
-                    />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="40dp"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="60dp"
+                        android:gravity="end">
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginRight="130dp"
+                            >
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:fontFamily="@font/montmedium"
+                                android:text="Items"
+                                android:textColor="#99919F"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="20dp"
+                                android:fontFamily="@font/montmedium"
+                                android:text=">"
+                                android:textColor="#99919F"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/categoryGame"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="20dp"
+                                android:fontFamily="@font/montmedium"
+                                android:text="Mobile"
+                                android:textColor="#FFFFFF"
+                                android:textSize="12dp" />
+
+
+                        </LinearLayout>
+
+                        <ImageButton
+                            android:id="@+id/HamburgerButton"
+                            android:layout_width="50dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/hamburger" />
+                    </LinearLayout>
+
+
+
+                </RelativeLayout>
+
+
                 <ImageView
-                    android:layout_width="5dp"
-                    android:layout_height="5dp"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:src="@drawable/icon_circle"
-                    />
-                <ImageView
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
-                    android:layout_marginTop="3dp"
-                    android:layout_marginRight="3dp"
-                    android:src="@drawable/icon_stars"
-                    />
+                    android:id="@+id/imageGame"
+                    android:layout_width="match_parent"
+                    android:layout_height="330dp"
+                    android:background="@drawable/ml" />
+
                 <TextView
-                    android:id="@+id/ratingToko"
-                    android:text="4.8"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/JudulGame"
+                    android:text="Mobile Legends: Bang-Bang"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="10dp"
-                    android:fontFamily="@font/montmedium"
-                    android:textColor="#99919F"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/montserratbold"
+                    android:textSize="25dp"
+                    android:textColor="#FFFFFF"
                     />
-                <ImageView
-                    android:layout_width="5dp"
-                    android:layout_height="5dp"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginHorizontal="10dp"
-                    android:src="@drawable/icon_circle"
-                    />
-                <TextView
-                    android:id="@+id/lokasiToko"
-                    android:text="Jakarta"
-                    android:layout_width="wrap_content"
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/montmedium"
-                    android:textSize="10dp"
-                    android:textColor="#99919F"
-                    />
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    >
+
+                    <TextView
+                        android:id="@+id/namaToko"
+                        android:text="KatanyaUjiSangatOke"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12dp"
+                        android:layout_marginTop="1dp"
+                        android:fontFamily="@font/montmedium"
+                        android:textColor="#99919F"
+                        />
+                    <ImageView
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:src="@drawable/icon_circle"
+                        />
+                    <ImageView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginRight="3dp"
+                        android:src="@drawable/icon_stars"
+                        />
+                    <TextView
+                        android:id="@+id/ratingToko"
+                        android:text="4.8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="10dp"
+                        android:fontFamily="@font/montmedium"
+                        android:textColor="#99919F"
+                        />
+                    <ImageView
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginHorizontal="10dp"
+                        android:src="@drawable/icon_circle"
+                        />
+                    <TextView
+                        android:id="@+id/lokasiToko"
+                        android:text="Jakarta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montmedium"
+                        android:textSize="10dp"
+                        android:textColor="#99919F"
+                        />
+                </LinearLayout>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/background_itemlist"
+                android:layout_marginTop="50dp"
+                android:paddingHorizontal="40dp"
+                android:paddingVertical="50dp"
+
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    >
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="20dp"
+                        android:src="@drawable/filter"
+                        />
+                    <TextView
+                        android:text="Item List"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:fontFamily="@font/montmedium"
+                        android:textColor="#FFFFFF"
+                        />
+                </LinearLayout>
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="30dp"
+                    >
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="600dp"
+                        android:id="@+id/recyclerview"
+                        />
+                </FrameLayout>
+            </LinearLayout>
+
+
         </LinearLayout>
         <LinearLayout
+            android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/background_itemlist"
-            android:layout_marginTop="50dp"
-            android:paddingHorizontal="40dp"
-            android:paddingVertical="50dp"
-
+            android:layout_marginLeft="100dp"
+            android:gravity="end"
             >
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                >
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginRight="20dp"
-                    android:src="@drawable/filter"
-                    />
-                <TextView
-                    android:text="Item List"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="20dp"
-                    android:fontFamily="@font/montmedium"
-                    android:textColor="#FFFFFF"
-                    />
-            </LinearLayout>
             <FrameLayout
+                android:id="@+id/HamburgerFrame"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="30dp"
-                >
-                <androidx.recyclerview.widget.RecyclerView
-                    android:layout_width="match_parent"
-                    android:layout_height="600dp"
-                    android:id="@+id/recyclerview"
-                    />
+                android:layout_height="850dp">
+
             </FrameLayout>
+
+
+
         </LinearLayout>
-
-
-    </LinearLayout>
+    </RelativeLayout>
 </ScrollView>
+
