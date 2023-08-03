@@ -4,6 +4,9 @@ import static android.content.ContentValues.TAG;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -15,6 +18,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -171,6 +175,7 @@ public class Detail extends AppCompatActivity {
             public void onClick(View view) {
                 String username = usernameEdt.getText().toString();
                 String email = emailEdt.getText().toString();
+                Log.d(TAG, "total dan balance" + totalHarga + user.Balance);
 
                 if (username.isEmpty()) {
                     showAlertDialog("Username must be filled");
@@ -191,6 +196,43 @@ public class Detail extends AppCompatActivity {
                     i.putExtra("totalPrice", totalHarga );
                     i.putExtra("qty", qty);
                     user.Balance = user.Balance - totalHarga;
+
+                    Log.d(TAG, "gamenya namanya:"+ gameItem);
+
+                    if(gameItem.equals("Mobile Legend")){
+                        user.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,totalHarga,qty,R.drawable.ml));
+                    }else if(gameItem.equals("Call of Duty: Mobile - Garena")){
+                        user.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,totalHarga,qty,R.drawable.cod));
+                    }else if(gameItem.equals("Free Fire")){
+                        user.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,totalHarga,qty,R.drawable.freefire));
+                    }else if(gameItem.equals("PUBG MOBILE")){
+                        user.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,totalHarga,qty,R.drawable.pubg));
+                    }else if(gameItem.equals("Genshin Impact")){
+                        user.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,totalHarga,qty,R.drawable.genshin));
+                    }else if(gameItem.equals("Fortnite")){
+                        user.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,totalHarga,qty,R.drawable.fortnite));
+                    }else if(gameItem.equals("Ragnarok Origin")){
+                        user.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,totalHarga,qty,R.drawable.ro));
+                    }else if(gameItem.equals("Need For Speed: No Limits")){
+                        user.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,totalHarga,qty,R.drawable.nfs));
+                    }else if(gameItem.equals("Apex Legends")){
+                        user.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,totalHarga,qty,R.drawable.apex));
+                    }else if(gameItem.equals("Apex Legends")){
+                        user.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,totalHarga,qty,R.drawable.apex));
+                    }else if(gameItem.equals("Call of Duty: War Zone")){
+                        user.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,totalHarga,qty,R.drawable.war));
+                    }else if(gameItem.equals("Black Desert Online")){
+                        user.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,totalHarga,qty,R.drawable.bd));
+                    }else if(gameItem.equals("E-Football 2023")){
+                        user.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,totalHarga,qty,R.drawable.pes));
+                    }else if(gameItem.equals("Grand Theft Auto Five (GTA V)")){
+                        user.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,totalHarga,qty,R.drawable.gta));
+                    }else if(gameItem.equals("Valorant")){
+                        user.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,totalHarga,qty,R.drawable.valo));
+                    }else if(gameItem.equals("Point Blank")){
+                        user.HistoryItem.add(new TransactionTopUp(gameItem,namaItem,totalHarga,qty,R.drawable.pb));
+                    }
+
                     startActivity(i);
 //                    Toast.makeText(Detail.this, "Succesfully submitted", Toast.LENGTH_SHORT).show();
                 }
@@ -210,10 +252,29 @@ public class Detail extends AppCompatActivity {
             }
         });
 
+        ImageButton buttonImage = findViewById(R.id.HamburgerButton);
+
+        buttonImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openHamburgerMenu(new MenuHamburgerFragment());
+            }
+        });
+
+
+
 
 
 
 
     }
+
+    private void openHamburgerMenu(Fragment fragment){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.HamburgerFrame, fragment);
+        fragmentTransaction.commit();
+    }
+
 
 }

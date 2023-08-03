@@ -75,6 +75,8 @@ public class Register extends AppCompatActivity {
                     user.Password = password.getText().toString();
                     user.Email = email.getText().toString();
 
+
+
                     startActivity(i);
                 }
             }

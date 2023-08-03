@@ -61,13 +61,13 @@
                         android:fontFamily="@font/montsemibold"/>
 
                     <TextView
-                        android:id="@+id/QuantityGame"
+                        android:id="@+id/qtys"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:fontFamily="@font/montsemibold"
                         android:text="Qty : "
                         android:textColor="#FFFFFF"
-                        android:textSize="8dp" />
+                        android:textSize="12dp" />
                 </LinearLayout>
 
                 <TextView

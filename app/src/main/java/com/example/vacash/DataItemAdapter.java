@@ -45,10 +45,10 @@ public class DataItemAdapter extends RecyclerView.Adapter<DataItemAdapter.MyView
     @Override
     public void onBindViewHolder(@NonNull DataItemAdapter.MyViewHolder holder, int position) {
         Log.d(TAG, "onBindViewHolder: " + data);
-        holder.GameName.setText(data.get(position).getName());
-        holder.GamePrice.setText(data.get(position).getPrice());
-        holder.GameQTY.setText(data.get(position).getQty());
-        holder.image.setBackgroundResource(data.get(position).getImage());
+        holder.GameName.setText(UserModel.HistoryItem.get(position).getGameNama());
+        holder.GamePrice.setText(UserModel.HistoryItem.get(position).getPriceGame());
+        holder.GameQTY.setText(UserModel.HistoryItem.get(position).getQty());
+        holder.image.setBackgroundResource(UserModel.HistoryItem.get(position).getImage());
 
         holder.card.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +84,7 @@ public class DataItemAdapter extends RecyclerView.Adapter<DataItemAdapter.MyView
 
             GameName = itemView.findViewById(R.id.GameNama);
             GamePrice = itemView.findViewById(R.id.PriceGame);
-            GameQTY = itemView.findViewById(R.id.QuantityGame);
+            GameQTY = itemView.findViewById(R.id.qtys);
             card = itemView.findViewById(R.id.card);
             image = itemView.findViewById(R.id.images);
 

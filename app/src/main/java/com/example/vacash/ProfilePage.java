@@ -32,19 +32,22 @@ import java.util.Locale;
 
 public class ProfilePage extends AppCompatActivity {
 
-    UserModel user = new UserModel();
+//    UserModel user = new UserModel();
 
     ArrayList<DataItemModel> data = new ArrayList<>();
-    Integer TotalAmountBalance = user.Balance;
-    String NamaPemilik = user.Name;
+    Integer TotalAmountBalance = UserModel.Balance;
+    String NamaPemilik =  UserModel.Name;
     String ID = "";
-    Integer ExpensesPay = user.MostTopUp ;
+    Integer ExpensesPay =  UserModel.MostTopUp ;
+    String emailUser =  UserModel.Email;
 
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profilepage);
+
+
 
 
 
@@ -96,11 +99,11 @@ public class ProfilePage extends AppCompatActivity {
                             Integer IntInput = Integer.parseInt(InputValueTopup.getText().toString());
 
                             TotalAmountBalance = Integer.parseInt(InputValueTopup.getText().toString()) + TotalAmountBalance;
-                            user.Balance = TotalAmountBalance;
+                            UserModel.Balance = TotalAmountBalance;
                             textView.setText((formatCurrency(TotalAmountBalance,new Locale("id", "ID"))));
                             if(ExpensesPay < IntInput) {
                                 ExpensesPay = IntInput;
-                                user.MostTopUp = IntInput;
+                                UserModel.MostTopUp = IntInput;
                                 MostExpenses.setText(formatCurrency(ExpensesPay,new Locale("id", "ID")));
                             }
                             customDialog.dismiss();
@@ -113,9 +116,12 @@ public class ProfilePage extends AppCompatActivity {
             }
         });
 
-//        TextView email = findViewById(R.id.email);
-//
-//        email.setText(user.Email);
+        TextView email = findViewById(R.id.email);
+
+//        Log.d(TAG, "hallo" + user);
+//        Log.d(TAG, "hallo" + user.Email);
+
+        email.setText(emailUser);
 
         ImageButton buttonImage = findViewById(R.id.HamburgerButton);
 
@@ -129,7 +135,7 @@ public class ProfilePage extends AppCompatActivity {
 //        List<TransactionTopUp> HistoryItem =  new ArrayList<TransactionTopUp>();
 
 //        UserModel user = new UserModel();
-
+        Log.d(TAG, "onCreate: " + UserModel.HistoryItem);
         RecyclerView recyclerView;
         recyclerView = findViewById(R.id.historytopup);
         recyclerView.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));

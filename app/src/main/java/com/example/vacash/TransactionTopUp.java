@@ -6,7 +6,7 @@ public class TransactionTopUp implements Serializable {
     String GameNama;
     String ItemGame;
     int PriceGame;
-    int qty = 0;
+    int qty;
     int image;
 
 
